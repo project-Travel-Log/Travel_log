@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+a {color: inherit; text-decoration: none;}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+input {padding: 0; background: transparent; border: none;}
+input[type="submit"] {cursor: pointer; border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; -webkit-appearance: none; -moz-appearance: none; appearance: none;}
+select {
+    -webkit-appearance:none; /* for chrome */
+    -moz-appearance:none; /*for firefox*/
+    appearance:none;
+    border: none;
+}
+select::-ms-expand{
+    display:none;/*for IE10,11*/
+}
+select:hover {
+    cursor: pointer;
+}
+body {
+    position: relative;
+    line-height: 1;
+}
+button {padding: 0; border: none; background: none;}
+button:hover {cursor: pointer;}
+
+/* 
+    Google Font Import
+    Candal, Cambo, ABeeZee, Darker Grotesque(300 ~ 900), Moulpali, Rozha One, Cairo(200 ~ 1000), Abhaya Libre(400 ~ 800), Moul, Linden Hill, Inter(100 ~ 900)
+
+    font 사용 예시
+    .div {font-family: "Linden Hill", serif; font-weight: 400; font-style: normal;}
+*/
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Abhaya+Libre:wght@400;500;600;700;800&family=Cairo:wght@200..1000&family=Cambo&family=Candal&family=Darker+Grotesque:wght@300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Linden+Hill:ital@0;1&family=Moul&family=Moulpali&family=Rozha+One&display=swap');
+
+/* custom - ryu */
+#skipNavi{position: absolute; margin: 0 auto; width: 998px; list-style: none; font-size: 1.15em; top: -10.5em; left: 0; z-index:1005; background:#eee; border:1px solid #ccc}
+#skipNavi a:active, #skipNavi a:focus{position: absolute; padding-top: 0.5em; width: 998px; height: 2em; top: 10.5em; text-align: center; color: #000; font-weight:bold; background: #eee; border: 1px solid #ccc; outline: 0}
+
+.blind, caption{position: absolute; clip: rect(0 0 0 0); width: 1px; height: 1px; margin: -1px; overflow: hidden;}
+.clearfix:after{content:""; display:block; clear:both}
+
+.display_pc {display: block !important;}
+.display_pc_tab {display: block !important;}
+.display_tab {display: none !important;}
+.display_tab_mo {display: none !important;}
+.display_mo {display: none !important;}
+colgroup.display_pc {display: table-column-group !important;}
+table.display_pc {display: table !important;}
+thead.display_pc {display: table-header-group !important;}
+colgroup.display_pc {display: table-column-group !important;}
+colgroup.display_pc_tab {display: table-column-group !important;}
+
+@media only screen and (max-width:1024px) {
+    .display_pc {display: none !important;}
+    .display_tab {display: block !important;}
+    .display_tab_mo {display: block !important;}
+    colgroup.display_tab_mo {display: table-column-group !important;}
+    table.display_tab_mo {display: table !important;}
+    thead.display_tab_mo {display: table-header-group !important;}
+    colgroup.display_pc {display: none !important;}
+    colgroup.display_pc_tab {display: none !important;}
+    colgroup.display_tab {display: table-column-group !important;}
+    colgroup.display_tab_mo {display: table-column-group !important;}
+
+    .display_tab,colgroup.display_pc,table.display_pc,thead.display_pc {display: none !important;}
+}
+@media only screen and (max-width:768px) {
+    .display_pc_tab {display: none !important;}
+    .display_mo {display: block !important;}
+    colgroup.display_mo {display: table-column-group !important;}
+}
