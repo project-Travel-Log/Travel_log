@@ -1,5 +1,11 @@
 import logo from './logo.svg';
+
 import './App.css';
+import './reset.css';
+// import './common.css';
+// import './main.css';
+// import './sub.css';
+
 import { useEffect, useState } from "react";
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Route, Routes, useNavigate } from 'react-router-dom';
