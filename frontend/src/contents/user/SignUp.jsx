@@ -24,14 +24,7 @@ const Auth = () => {
 
     if (!pw) return setMsg({ type: 'danger', text: 'Password required.' });
 
-    if (mode === 'signup') {
-      if (!name) return setMsg({ type: 'danger', text: 'Name required.' });
-      if (pw.length < 6)
-        return setMsg({ type: 'danger', text: 'Password must be ≥ 6 characters.' });
-      if (pw !== pw2)
-        return setMsg({ type: 'danger', text: 'Passwords do not match.' });
-    }
-
+    if (!name) return setMsg({ type: 'danger', text: 'Name required.' });
     return true;
   };
 
@@ -56,7 +49,6 @@ const Auth = () => {
         setName('');
         setEmail('');
         setPw('');
-        setPw2('');
         setMode('login');
       }
     }, 800);
@@ -139,18 +131,6 @@ const Auth = () => {
             placeholder="전화번호"
           />
         </Form.Group>
-        {/* 
-          <Form.Group className="mb-3">
-            <Form.Label>비밀번호 확인</Form.Label>
-            <Form.Control
-              value={pw2}
-              type="password"
-              onChange={(e) => setPw2(e.target.value)}
-              placeholder="비밀번호 확인"
-            />
-          </Form.Group>
-         */}
-
         <Button type="submit" className="w-100" disabled={loading}>회원가입
         </Button>
       </Form>
