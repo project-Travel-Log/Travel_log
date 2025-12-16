@@ -70,12 +70,30 @@ button:hover {cursor: pointer;}
 
 /* 
     Google Font Import
-    Candal, Cambo, ABeeZee, Darker Grotesque(300 ~ 900), Moulpali, Rozha One, Cairo(200 ~ 1000), Abhaya Libre(400 ~ 800), Moul, Linden Hill, Inter(100 ~ 900)
 
     font 사용 예시
     .div {font-family: "Linden Hill", serif; font-weight: 400; font-style: normal;}
+
+    .div2 {
+        font-family: "Roboto Serif", serif;
+        font-optical-sizing: auto;
+        font-weight: 100 ~ 900;
+        font-style: normal;
+        font-variation-settings:
+            "wdth" 100,
+            "GRAD" 0;
+    }
+    
+    .div3 {
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 100 ~ 900;
+        font-style: normal;
+    }
 */
-@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Abhaya+Libre:wght@400;500;600;700;800&family=Cairo:wght@200..1000&family=Cambo&family=Candal&family=Darker+Grotesque:wght@300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Linden+Hill:ital@0;1&family=Moul&family=Moulpali&family=Rozha+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Candal&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+body * {font-family: "Inter", sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal;}
 
 /* custom - ryu */
 #skipNavi{position: absolute; margin: 0 auto; width: 998px; list-style: none; font-size: 1.15em; top: -10.5em; left: 0; z-index:1005; background:#eee; border:1px solid #ccc}

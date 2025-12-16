@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 
-import './App.css';
 import './reset.css';
+import './App.css';
 // import './common.css';
 // import './main.css';
 // import './sub.css';
