@@ -1,35 +1,32 @@
 import React, { useState } from 'react'
 import { Button, Card, Form } from 'react-bootstrap'
+import './Login.css'
 
 
 const Login = () => {
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
-    const [loading, setLoading] = useState(''); 
+    const [loading, setLoading] = useState('');
     return (
-        <Card className="p-3">
-            <Form.Group className="mb-3">
-                <Form.Label>아이디</Form.Label>
-                <Form.Control
-                    value={id}
-                    type='id'
-                    onChange={(e) => setId(e.target.value)}
-                    placeholder='아이디를 입력해주세요'>
-                    </Form.Control>
-            </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Label>비밀번호</Form.Label>
-                <Form.Control
-                    value={pw}
-                    type='pasword'
-                    onChange={(e) => setPw(e.target.value)}
-                    placeholder='비밀번호를 입력해주세요.'>
-                    </Form.Control>
-            </Form.Group>
-            <Button type='submit' className='w-100' disabled={loading}>
-                로그인
-            </Button>
-        </Card>
+        <div className="login-page">
+            <section className="login-left">
+                <img className="login-bg-img" src='/images/login/로그인 페이지 이미지.png' alt="login-bg-img" />
+            </section>
+
+            <section className="login-right">
+                <form className="login-form">
+                    <img className="login-logo" src='/images/login/로그인로고.png' alt="TRAVELOGUE" />
+                    <span className="login-message">Journey Into New Paths and Unseen Horizons</span>
+                    <input className="login-input" type="text" placeholder="아이디" />
+                    <input className="login-input" type="password" placeholder="비밀번호" />
+
+                    <button className="login-submit-button" type="submit">
+                        로그인
+                    </button>
+                </form>
+                <span className="signup-profile-text"><a href="#">계정을 생성하시겠습니까?</a></span>
+            </section>
+        </div>
     )
 }
 

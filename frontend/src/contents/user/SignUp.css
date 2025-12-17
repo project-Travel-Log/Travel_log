@@ -1,0 +1,10 @@
+.signup-page {display: flex;width: 100%;height: 100vh;}
+.signup-left {width: 48%;background-color: #ffffff;display: flex;flex-direction: column;align-items: center;justify-content: center;}
+.signup-profile {text-align: center; margin-bottom: 30px;}
+.signup-profile-circle {width: 90px; height: 90px; border-radius: 50%; border: 1px solid #949494; margin: 0 auto 10px;}
+.signup-profile-text {font-size: 12px; color: #949494;}
+.signup-form { width: 280px;}
+.signup-input {width: 100%; height: 40px; padding: 0 12px; margin-bottom: 12px; border: 1px solid #949494; border-radius: 7px; font-size: 14px;color: #949494; box-sizing: border-box;}
+.signup-submit-button {width: 100%; height: 48px; background-color: #081E5A; border: none; border-radius: 7px; color: #ffffff; font-size: 14px; margin-top: 10px; margin-bottom: 30px;}
+.signup-right {width: 52%; background-size: cover; background-position: center; overflow: hidden;}
+.signup-bg-img {width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }

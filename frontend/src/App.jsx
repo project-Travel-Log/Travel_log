@@ -2,15 +2,24 @@ import logo from './logo.svg';
 
 import './reset.css';
 import './App.css';
-// import './common.css';
+import './common.css';
 // import './main.css';
 // import './sub.css';
 
 import { useEffect, useState } from "react";
-import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Route, Routes, useNavigate } from 'react-router-dom';
+import Header from './components/common/Header';
+import Home from './contents/Home';
+import PlaceCard from './components/place/PlaceCard';
+import ReviewListPage from './contents/review/ReviewListPage'
+import TravelLogPage from './contents/travelLog/TravelLogPage'
 import Auth from './contents/user/SignUp';
 import Login from './contents/user/Login';
+// import Logout from './contents/user/Logout';
+import MyPage from './contents/user/MyPage';
+import Footer from './components/common/Footer';
+
+import ScrollHandler from './components/common/ScrollHandler';
 
 function App() {
   const navigate = useNavigate();
@@ -27,24 +36,25 @@ function App() {
 
   return (
   <div className="App">
-    <Navbar bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand href="Home">여행로그</Navbar.Brand>
-        <Nav className="me-auto">
-          <Nav.Link onClick={()=>{navigate('/')}}>여행지</Nav.Link>
-          <Nav.Link href="#features">액티비티</Nav.Link>
-          <Nav.Link href="#pricing">축제</Nav.Link>
-          <Nav.Link href="#pricing">리뷰</Nav.Link>
-          <Nav.Link href="#pricing">나의 여행로그</Nav.Link>
-          <Nav.Link onClick={()=>{navigate('/Login')}}>로그인</Nav.Link>
-          <Nav.Link onClick={()=>{navigate('/Auth')}}>회원가입</Nav.Link>
-        </Nav>
-      </Container>
-    </Navbar>
+    {/* header */}
+    <ScrollHandler />
+    <Header />
+    {/* end header */}
+
     <Routes>
+      <Route path="/" element={<Home />}></Route>
+      <Route path="/:category" element={<PlaceCard />}></Route>
+      <Route path="/review" element={<ReviewListPage />}></Route>
+      <Route path="/travelLog" element={<TravelLogPage />}></Route>
       <Route path="/Auth" element={<Auth />}></Route>
       <Route path="/Login" element={<Login />}></Route>
+      {/* <Route path="/Logout" element={<Logout />}></Route> */}
+      <Route path="/MyPage" element={<MyPage />}></Route>
     </Routes>
+
+    {/* footer */}
+    <Footer />
+    {/* end footer */}
   </div>
   );
 }
