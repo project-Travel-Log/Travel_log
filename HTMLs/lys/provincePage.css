@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "pretendard", sans-serif;
+    color: #111;
+}
+
+
+.section-wrap {
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section-img {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.section-wrap h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.section-wrap p {
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.section-search {
+    display: flex;
+    background: white;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.section-search button {
+    padding: 12px 24px;
+    background: #0a2a66;
+    color: white;
+    border: none;
+}
+
+.section-search input {
+    width: 260px;
+    padding: 12px;
+    border: none;
+    outline: none;
+}
+
+.section-b{width: 1190px; height: 500px; margin: 0 auto; justify-content: center; align-items: center; display: flex;}
+
+.swiper {
+      width: 100%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #333;
+      height: calc((100% - 60px) / 3) !important;
+
+      /* Center slide text vertically */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
