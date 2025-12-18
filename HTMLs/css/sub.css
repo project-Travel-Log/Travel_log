@@ -39,7 +39,7 @@
 .login-bg-img {width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;}
 .login-form { width: 280px;}
 .login-logo {display: block; width: 200px; margin: 0 auto -30px}
-.login-message{display:block; width: 100%; text-align: center; font-size: 12px; color: #696969; font-family: 'Inter', sans-serif;} 
+.login-message{display:block; width: 100%; text-align: center; font-size: 12px; color: #696969; font-family: 'Inter', sans-serif;}
 .login-input:first-of-type {margin-top: 30px;}
 .login-input {width: 100%; height: 40px; padding: 0 12px; margin-bottom: 12px; border: 1px solid #949494; border-radius: 7px; font-size: 14px;color: #949494; box-sizing: border-box; font-family: 'Inter', sans-serif;}
 .login-submit-button {width: 100%; height: 48px; background-color: #081E5A; border: none; border-radius: 7px; color: #ffffff; font-size: 14px; margin-top: 10px; margin-bottom: 30px; font-family: 'Inter', sans-serif;}

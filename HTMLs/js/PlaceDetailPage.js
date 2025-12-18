@@ -1,13 +1,24 @@
-import React from 'react';
-import '../../public/sub.css';
+function changeImage(imageSrc) {const mainImage = document.querySelector('.spg-subheader-image');mainImage.src = imageSrc;}
 
-function PlaceDetailPage() {
-  return (
-    <div>
-      {/* 상단 이미지 */}
-      <img src="/images/자라섬_1.png" alt="자라섬 이미지" />
-    </div>
-  );
-}
 
-export default PlaceDetailPage;
+ // 하트 버튼 클릭 이벤트
+    document.querySelectorAll('.heart-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (this.textContent === '♡') {
+          this.textContent = '♥';
+          this.style.color = '#ff6b6b';
+          this.style.borderColor = '#ff6b6b';
+        } else {
+          this.textContent = '♡';
+          this.style.color = '';
+          this.style.borderColor = '#ddd';
+        }
+      });
+    });
+
+    // 상세 정보 버튼 클릭 이벤트
+    document.querySelectorAll('.detail-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        alert('상세 정보 페이지로 이동합니다.');
+      });
+    });
