@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Card, Form } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import './Login.css'
 
 
@@ -7,6 +8,9 @@ const Login = () => {
     const [id, setId] = useState('');
     const [pw, setPw] = useState('');
     const [loading, setLoading] = useState('');
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
     return (
         <div className="login-page">
             <section className="login-left">
@@ -24,7 +28,7 @@ const Login = () => {
                         로그인
                     </button>
                 </form>
-                <span className="signup-profile-text"><a href="#">계정을 생성하시겠습니까?</a></span>
+                <span className="signup-profile-text"><Link to="/SignUp">계정을 생성하시겠습니까?</Link></span>
             </section>
         </div>
     )

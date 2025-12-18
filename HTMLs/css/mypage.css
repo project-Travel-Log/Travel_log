@@ -7,9 +7,9 @@
 .mypage-profile-container {display: flex; flex-direction: column; align-items: center; margin: 240px 20px 0 60px; gap: 10px;}
 .mypage-profile-img {width: 180px; height: 180px; border: 1px solid #DBDBDB; border-radius: 50%; background-color: #ffffff;}
 .edit-profile-text {font-size: 14px; color: #949494; cursor: pointer; text-decoration: underline; font-family: 'Inter', sans-serif;}
-.mypage-profile-info {display: inline-flex; align-items: center; gap: 20px; border: 1px solid #DBDBDB; border-radius: 7px; padding:12PX 16px 12px 8PX; margin-top: 340px; margin-left: 40px;}
-.mypage-profile-badge {background-color: #081E5A; color: #ffffff; font-size: 16px; padding: 15px 15px; border-radius: 7px; font-family: 'Inter', sans-serif;}
-.mypage-profile-name {font-size: 32px; color: #000000; font-family: 'Inter', sans-serif;}
+.mypage-profile-info {display: inline-flex; align-items: center; gap: 10px; border: 1px solid #DBDBDB; border-radius: 7px; padding:5px 16px 5px 5PX; margin-top: 340px;}
+.mypage-profile-badge {background-color: #081E5A; color: #ffffff; font-size: 16px; padding: 10px 10px; border-radius: 7px; font-family: 'Inter', sans-serif;}
+.mypage-profile-name {font-size: 16px; color: #000000; font-family: 'Inter', sans-serif;}
 .mypage-section {width: 100%; padding: 0 80px; box-sizing: border-box; position: relative;}
 .mypage-section-title {font-size: 24px; margin-top: 180px; margin-bottom: 30px; font-family: 'Inter', sans-serif;}
 .mypage-swiper {width: 100%; position: static;}
@@ -18,7 +18,7 @@
 .mypage-card {width: 280px; height: 400px; position: relative; background-color: #e0e0e0; border-radius: 10px; overflow: hidden;}
 .card-bottom-info {position: absolute; left: 15px; bottom: 15px; display: flex; align-items: center; gap: 6px; z-index: 10;}
 .wish-icon {width: 32px; height: 32px; cursor: pointer;}
-.card-text {font-size: 16px; color: #767676; font-family: 'Inter', sans-serif;}
+.card-text {font-size: 14px; color: #767676; font-family: 'Inter', sans-serif;}
 .mypage-card2 {width: 280px; height: 420px; background-color: #ffffff; border-radius: 40px; overflow: hidden;}
 .card2-thumb {width: 100%; height: 280px; background-color: #e0e0e0; position: relative;}
 .card2-text-wrap {padding: 20px;}
