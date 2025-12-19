@@ -1,9 +1,11 @@
 @charset "utf-8";
 
+.App {overflow: hidden;}
+
 /* header */
 header {position: sticky; top: 0; width: 100%; background-color: #fff;}
 .header-wrap {}
-.header-wrap .header-inner {display: flex; align-items: center; max-width: 1440px; margin: 0 auto; padding: 20px 50px;}
+.header-wrap .header-inner {display: flex; align-items: center; max-width: 1250px; margin: 0 auto; padding: 20px 0; box-sizing: border-box;}
 
 .scrolling header {box-shadow: 0 0 20px rgba(0, 0, 0, .1); border-bottom: 1px solid #bbc7d3; z-index: 10000;}
 
@@ -131,7 +133,7 @@ header {position: sticky; top: 0; width: 100%; background-color: #fff;}
 
 /* footer */
 footer {}
-.footer-wrap {padding: 30px 50px 40px; background-color: #EDF0F5;}
+.footer-wrap {max-width: 1250px; width: 100%; margin: 0 auto; padding: 30px 50px 40px; background-color: #EDF0F5; box-sizing: border-box;}
 .footer-wrap .footer-inner {text-align: center;}
 .footer-wrap .footer-inner .footer-top {}
 .footer-wrap .footer-inner .footer-top .title {font-family: "Candal", serif; font-weight: 400; font-style: normal; font-size: 15px; color: #081E5A; line-height: 17px;}
