@@ -7,14 +7,15 @@ body {font-family: "pretendard", sans-serif; color: #111;}
 
 .section-wrap {display: flex; justify-content: center; align-items: center; flex-direction: column;}
 
-.section-img {display: flex; justify-content: center;}
+.section-img {width: 100%; background: #e5e7eb;}
 
+.section-img img{width: 100%; height: auto; max-height: 480px; object-fit: contain; display: block;}
 
 .section-wrap h2 {font-size: 30px; margin-bottom: 12px; margin-top: 50px;}
 
 .section-wrap p {font-size: 18px; margin-bottom: 24px; color: #6f7379;}
 
-.section-search {width: 720px; height: 70px; display: flex; align-items: stretch; border: 2px solid #0b6bff; border-radius: 999px; overflow: hidden; background: #fff; margin-bottom: 20px;}
+.section-search {max-width: 720px; width: 100%; height: 70px; display: flex; align-items: stretch; border: 2px solid #0b6bff; border-radius: 999px; overflow: hidden; background: #fff; margin-bottom: 32px; margin-top: 12px;}
 
 .searchBtn{width: 220px; border: 0; background: #0a2a66; color: #fff; font-weight: 700; font-size: 22px; letter-spacing: 0.5px; cursor: pointer;}
 
@@ -22,14 +23,33 @@ body {font-family: "pretendard", sans-serif; color: #111;}
 
 .searchInput::placeholder{color: #9aa3af; font-size: 15px;}
 
-.section-search button {padding: 12px 24px; background: #0a2a66; color: white;border: none;}
+.section-b {max-width: 1190px; width: 100%; margin: 0 auto; justify-content: center; display: flex; margin-bottom: 20px; padding: 40px 16px;}
 
-.section-search input {width: 260px; padding: 30px; border: none; outline: none;}
+.swiper {width: 100%; height: auto; margin-left: auto; margin-right: auto;}
 
-.section-b {width: 1190px; height: 500px; margin: 0 auto; justify-content: center; align-items: center; display: flex;margin-bottom: 20px;}
+.swiper-slide {height: auto !important; display: block;}
 
-.swiper {width: 100%; height: 100%; margin-left: auto; margin-right: auto;}
+.swiper-pagination{margin-top: 24px; position: relative;}
 
-.swiper-slide {text-align: center; font-size: 18px; height: calc((100% - 60px) / 3) !important;
-/* Center slide text vertically */
-display: flex; justify-content: center; align-items: center;}
+.card {border-radius: 18px; overflow: hidden; background: #fff; box-sizing: border-box; border: 1px solid transparent; width: 100%;}
+
+/* 이미지 영역 */
+.card-img{background: #f3f4f6; width: 100%; height: 300px; overflow: hidden;}
+
+.card-img img{width: 100%; height: 100%; object-fit: cover; display: block;}
+
+/* 텍스트 영역*/
+.card-text{border: 1px solid #e5e7eb; border-top: 0; padding: 14px 16px 18px; box-sizing: border-box;}
+
+.card-text h3{font-size: 20px; font-weight: 800; margin-bottom: 6px;}
+
+.card-text p{font-size: 13px; color: #6b7280; overflow: hidden; line-height: 1.45; /*height: 2.9em;*/ word-break: keep-all; white-space: pre-line;}
+
+.card:hover{border-color: #2563eb; box-shadow: 0 6px 20px rgba(37, 99, 235, 0.15);}
+
+/* 모바일 */
+@media (max-width:480px){.searchBtn{width: 140px; font-size: 18px;} .section-search{height: 56px;} .searchInput{font-size: 14px; padding: 0 16px;}}
+
+@media (min-width:1024px){.card-img{height: 260px;}}
+
+@media(max-width:767px){.card-img{height: 380px;} .card-text h3{font-size: 18px;} .mySwiper{padding-bottom: 24px;}}
