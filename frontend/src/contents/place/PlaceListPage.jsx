@@ -19,6 +19,7 @@ export default function ProvincePage() {
       <section className="section-wrap">
         <div className="section-img">
           <img src="/images/placelist/main.png" alt="여행지" />
+          <p>Destination</p>
         </div>
 
         <h2>평창</h2>
@@ -36,9 +37,9 @@ export default function ProvincePage() {
           spaceBetween={32}
           pagination={{ clickable: true }}
           breakpoints={{
-            0: { slidesPerView: 1.2, grid: { rows: 1 } },        // 모바일
-            768: { slidesPerView: 2, grid: { rows: 2 } },        // 태블릿
-            1024: { slidesPerView: 3, grid: { rows: 3, fill: "row" } }, // PC
+            0: { slidesPerView: 1, grid: { rows: 1 }, spaceBetween : 20 },        // 모바일
+            768: { slidesPerView: 2, grid: { rows: 2 }, spaceBetween : 24 },        // 태블릿
+            1024: { slidesPerView: 3, grid: { rows: 3, fill: "row" }, spaceBetween : 28 }, // PC
           }}
           className="mySwiper"
         >
