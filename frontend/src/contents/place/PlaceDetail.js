@@ -30,8 +30,8 @@ export function initHeartButtons() {
     btn.onclick = () => {
       if (btn.textContent === '♡') {
         btn.textContent = '♥'
-        btn.style.color = '#ff6b6b'
-        btn.style.borderColor = '#ff6b6b'
+        btn.style.color = '#FF0000'
+        btn.style.borderColor = '#FF0000'
       } else {
         btn.textContent = '♡'
         btn.style.color = ''
