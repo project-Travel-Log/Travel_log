@@ -1,13 +1,11 @@
 @charset "utf-8";
 
-.App {overflow: hidden;}
-
 /* header */
-header {position: sticky; top: 0; width: 100%; background-color: #fff;}
+header {position: sticky; top: 0; overflow: hidden; width: 100%; background-color: #fff; z-index: 99999;}
 .header-wrap {}
 .header-wrap .header-inner {display: flex; align-items: center; max-width: 1250px; margin: 0 auto; padding: 20px 0; box-sizing: border-box;}
 
-.scrolling header {box-shadow: 0 0 20px rgba(0, 0, 0, .1); border-bottom: 1px solid #bbc7d3; z-index: 10000;}
+.scrolling .header-wrap {box-shadow: 0 0 20px rgba(0, 0, 0, .1); border-bottom: 1px solid #bbc7d3; z-index: 10000;}
 
 .header-wrap .header-inner .logo-wrap {width: 95px;}
 .header-wrap .header-inner .logo-wrap .logo {display: inline-block;}

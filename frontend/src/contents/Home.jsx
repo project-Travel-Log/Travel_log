@@ -1,23 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
 import '../../src/main.css';
 
 const Home = () => {
-    const [ swiper, setSwiper ] = useState();
-    const [isDragging, setIsDragging] = useState(false);
+    const [swiper, setSwiper] = useState(null);
+    const isDraggingRef = useRef(false);
 
     const stopClickIfDragging = (e) => {
-    if (isDragging) {
-        e.preventDefault();
-        e.stopPropagation();
+        if (isDraggingRef.current) {
+            e.preventDefault();
+            e.stopPropagation();
         }
     };
+
 
     return (
         <div className='main-wrap'>
@@ -110,22 +111,19 @@ const Home = () => {
                         <div className='festivals-wrap'>
                             <div className='festivals-inner'>
                                 <Swiper
-                                    modules={[Navigation]}
-                                    spaceBetween={15}
-                                    speed={600}
-                                    loop={true}
-                                    loopAdditionalSlides={2}
-                                    onSwiper={setSwiper}
-                                    navigation={false}
-                                    // Swiper 레벨 클릭/탭 방지
-                                    preventClicks={true}
-                                    preventClicksPropagation={true}
-                                    slideToClickedSlide={false}
-                                    // 드래그 상태 추적
-                                    onTouchStart={() => setIsDragging(false)}
-                                    onSliderMove={() => setIsDragging(true)}
-                                    onTouchEnd={() => setTimeout(() => setIsDragging(false), 0)}
-                                    breakpoints={{
+                                    modules = { [ Navigation ] }
+                                    spaceBetween = { 15 }
+                                    onSwiper = { setSwiper }
+                                    navigation = { false }
+
+                                    observer = { false }
+                                    observeParents = { false }
+                                    updateOnWindowResize = { false }
+
+                                    preventClicks
+                                    preventClicksPropagation
+                                    slideToClickedSlide = { false }
+                                    breakpoints = {{
                                         0: {
                                             slidesPerView: 2,
                                             spaceBetween : 10
@@ -147,35 +145,35 @@ const Home = () => {
                                     <SwiperSlide className='festivals-item'>
                                         <Link to='/festivals' className='festivals-link' onClick={stopClickIfDragging}>
                                             <div className='img-wrap'>
-                                                <img src="/images/temp/main_section04_temp_01.png" alt="" />
+                                                <img src="/images/temp/main_section04_temp_01.png" alt="" loading="lazy" decoding="async" />
                                             </div>
                                         </Link>
                                     </SwiperSlide>
                                     <SwiperSlide className='festivals-item'>
                                         <Link to='/festivals' className='festivals-link' onClick={stopClickIfDragging}>
                                             <div className='img-wrap'>
-                                                <img src="/images/temp/main_section04_temp_02.png" alt="" />
+                                                <img src="/images/temp/main_section04_temp_02.png" alt="" loading="lazy" decoding="async" />
                                             </div>
                                         </Link>
                                     </SwiperSlide>
                                     <SwiperSlide className='festivals-item'>
                                         <Link to='/festivals' className='festivals-link' onClick={stopClickIfDragging}>
                                             <div className='img-wrap'>
-                                                <img src="/images/temp/main_section04_temp_03.png" alt="" />
+                                                <img src="/images/temp/main_section04_temp_03.png" alt="" loading="lazy" decoding="async" />
                                             </div>
                                         </Link>
                                     </SwiperSlide>
                                     <SwiperSlide className='festivals-item'>
                                         <Link to='/festivals' className='festivals-link' onClick={stopClickIfDragging}>
                                             <div className='img-wrap'>
-                                                <img src="/images/temp/main_section04_temp_04.png" alt="" />
+                                                <img src="/images/temp/main_section04_temp_04.png" alt="" loading="lazy" decoding="async" />
                                             </div>
                                         </Link>
                                     </SwiperSlide>
                                     <SwiperSlide className='festivals-item'>
                                         <Link to='/festivals' className='festivals-link' onClick={stopClickIfDragging}>
                                             <div className='img-wrap'>
-                                                <img src="/images/temp/main_section04_temp_05.png" alt="" />
+                                                <img src="/images/temp/main_section04_temp_05.png" alt="" loading="lazy" decoding="async" />
                                             </div>
                                         </Link>
                                     </SwiperSlide>
