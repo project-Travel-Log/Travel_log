@@ -1,15 +1,36 @@
 /* 회원가입 페이지 */
-@import url('https://fonts.googleapis.com/css2?family=Candal&family=Inter:wght@400;700&display=swap');
-.signup-page {display: flex;width: 100%;height: 100vh;font-family: 'Inter', sans-serif;}
-.signup-left {width: 48%;background-color: #ffffff;display: flex;flex-direction: column;align-items: center;justify-content: center;}
-.signup-profile {text-align: center; margin-bottom: 30px;}
-.signup-profile-circle {width: 90px; height: 90px; border-radius: 50%; border: 1px solid #949494; margin: 0 auto 10px; overflow: hidden;}
-.signup-profile-circle img{width: 100%; height: 100%; object-fit: cover;}
-.signup-profile-text {font-size: 12px; color: #949494; cursor: pointer; text-decoration: underline; font-family: 'Inter', sans-serif;}
-.signup-form { width: 280px;}
-.signup-input {width: 100%; height: 40px; padding: 0 12px; margin-bottom: 12px; border: 1px solid #949494; border-radius: 7px; font-size: 14px;color: #949494; box-sizing: border-box; font-family: 'Inter', sans-serif;}
-.signup-input::placeholder {font-family: 'Inter', sans-serif;}
-.signup-submit-button {width: 100%; height: 48px; background-color: #081E5A; border: none; border-radius: 7px; color: #ffffff; font-size: 14px; margin-top: 10px; margin-bottom: 30px; font-family: 'Inter', sans-serif;}
-.signup-right {width: 52%; background-size: cover; background-position: center; overflow: hidden;}
-.signup-bg-img {width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-@media (max-width: 768px) {.signup-page {flex-direction: column; height: auto;}.signup-left {width: 100%; padding: 40px 0;}.signup-right {display: none;}.signup-form {width: 80%; max-width: 320px;}}
+.signup-wrap {}
+.signup-wrap .signup-inner {display: flex; width: 100%; max-width: 1250px; margin: 0 auto;}
+.signup-wrap .signup-inner .signup-item {display: flex; flex-direction: column; align-items: center; justify-content: center; width: 50%; padding: 50px 0; background-color: #fff;}
+
+.signup-wrap .signup-inner .signup-item .profile {text-align: center; margin-bottom: 30px;}
+.signup-wrap .signup-inner .signup-item .profile .img-wrap {width: 90px; height: 90px; border-radius: 50%; border: 1px solid #949494; margin: 0 auto 10px; overflow: hidden;}
+.signup-wrap .signup-inner .signup-item .profile .img-wrap img{width: 100%; height: 100%; object-fit: cover;}
+
+.signup-wrap .signup-inner .signup-item .signup-form {width: 280px;}
+.signup-wrap .signup-inner .signup-item .signup-input {width: 100%; height: 40px; padding: 0 12px; margin-bottom: 12px; border: 1px solid #949494; border-radius: 7px; font-size: 14px;color: #949494; box-sizing: border-box; }
+.signup-wrap .signup-inner .signup-item .signup-submit-button {width: 100%; height: 48px; background-color: #081E5A; border: none; border-radius: 7px; color: #fff; font-size: 14px; margin-top: 10px; margin-bottom: 30px; }
+
+.signup-wrap .signup-inner .signup-item .text {font-size: 12px; color: #949494; cursor: pointer;}
+
+.signup-wrap .signup-inner .bg-wrap {width: 50%; background-image: url('/public/images/login/signup_bg.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;}
+
+@media (max-width: 1440px) {
+    
+}
+@media (max-width: 1250px) {
+    
+}
+@media (max-width: 1024px) {
+    
+}
+@media (max-width: 768px) {
+    .signup-wrap .signup-inner {flex-direction: column; height: auto;}
+    .signup-wrap .signup-inner .signup-item {width: 100%; padding: 40px 0;}
+    .signup-wrap .signup-inner .signup-item .signup-form {width: 80%; max-width: 320px;}
+
+    .signup-wrap .signup-inner .bg-wrap {display: none;}
+}
+@media (max-width: 480px) {
+
+}

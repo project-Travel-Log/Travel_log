@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* header */
-header {position: sticky; top: 0; overflow: hidden; width: 100%; background-color: #fff; z-index: 99999;}
+header {position: sticky; top: 0; width: 100%; background-color: #fff; z-index: 99999;}
 .header-wrap {}
 .header-wrap .header-inner {display: flex; align-items: center; max-width: 1250px; margin: 0 auto; padding: 20px 0; box-sizing: border-box;}
 

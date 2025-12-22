@@ -11,6 +11,8 @@ import '../../src/main.css';
 const Home = () => {
     const [swiper, setSwiper] = useState(null);
     const isDraggingRef = useRef(false);
+    const [isBeginning, setIsBeginning] = useState(true);
+    const [isEnd, setIsEnd] = useState(false);
 
     const stopClickIfDragging = (e) => {
         if (isDraggingRef.current) {
@@ -113,12 +115,20 @@ const Home = () => {
                                 <Swiper
                                     modules = { [ Navigation ] }
                                     spaceBetween = { 15 }
-                                    onSwiper = { setSwiper }
                                     navigation = { false }
+                                    onSwiper={(s) => {
+                                        setSwiper(s);
+                                        setIsBeginning(s.isBeginning);
+                                        setIsEnd(s.isEnd);
+                                    }}
+                                    onSlideChange={(s) => {
+                                        setIsBeginning(s.isBeginning);
+                                        setIsEnd(s.isEnd);
+                                    }}
+
 
                                     observer = { false }
                                     observeParents = { false }
-                                    updateOnWindowResize = { false }
 
                                     preventClicks
                                     preventClicksPropagation
@@ -178,16 +188,21 @@ const Home = () => {
                                         </Link>
                                     </SwiperSlide>
                                 </Swiper>
+
                                 <div className="section04__navigation-wrap">
                                     <button
-                                        className='btn-prev'
-                                        onClick={ () => swiper?.slidePrev() }
+                                        className={`btn-prev ${isBeginning ? 'is-disabled' : ''}`}
+                                        onClick={() => swiper?.slidePrev()}
+                                        disabled={isBeginning}
+                                        aria-disabled={isBeginning}
                                     >
                                         <span className='blind'>이전 슬라이드 보기</span>
                                     </button>
                                     <button
-                                        className='btn-next'
-                                        onClick={ () => swiper?.slideNext() }
+                                        className={`btn-next ${isEnd ? 'is-disabled' : ''}`}
+                                        onClick={() => swiper?.slideNext()}
+                                        disabled={isEnd}
+                                        aria-disabled={isEnd}
                                     >
                                         <span className='blind'>다음 슬라이드 보기</span>
                                     </button>

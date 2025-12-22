@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./PlaceDetailPage.css";
 
 const PlaceDetailPage = () => {
-  /* =====================
-     메인 이미지 변경
-  ====================== */
+
   const [mainImage, setMainImage] = useState(
     "/images/placedetail/snoopy2.jpg"
   );
@@ -23,9 +21,7 @@ const PlaceDetailPage = () => {
     setSmallImages(newSmallImages);
   };
 
-  /* =====================
-     슬라이더
-  ====================== */
+
   const slides = [
     "/images/placedetail/snoopy4.jpg",
     "/images/placedetail/snoopy3.jpg",
@@ -42,9 +38,7 @@ const PlaceDetailPage = () => {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  /* =====================
-     추천 카드 하트
-  ====================== */
+
   const [likes, setLikes] = useState([false, false, false]);
 
   const toggleLike = (index) => {
@@ -52,7 +46,6 @@ const PlaceDetailPage = () => {
       prev.map((v, i) => (i === index ? !v : v))
     );
   };
-
   return (
     <div className="spg-wrap">
       {/* 상단 이미지 */}
@@ -63,11 +56,8 @@ const PlaceDetailPage = () => {
           className="spg-header-image"
         />
       </div>
-
       <div className="spg-content">
         <h1 className="spg-jeju-title">JEJU</h1>
-
-        {/* ===================== sec1 ===================== */}
         <div className="sec1">
           <div className="text">
             <h2 className="spg-subplace-title">스누피 가든</h2>
@@ -102,8 +92,6 @@ const PlaceDetailPage = () => {
             </div>
           </div>
         </div>
-
-        {/* ===================== sec3 ===================== */}
         <div className="sec3">
           <div
             className="add-place-btn"
@@ -111,11 +99,9 @@ const PlaceDetailPage = () => {
           >
             <img src="/images/common/p.png" alt="추가" />
           </div>
-
           <h3 className="spg-places-title">
             Things you can enjoy at this place
           </h3>
-
           <div className="spg-image-box-container">
             {[
               {
@@ -149,8 +135,6 @@ const PlaceDetailPage = () => {
           </div>
         </div>
       </div>
-
-      {/* ===================== 슬라이더 ===================== */}
       <div className="sec5">
         <div className="slider-container">
           {slides.map((img, i) => (
@@ -163,7 +147,6 @@ const PlaceDetailPage = () => {
               alt=""
             />
           ))}
-
           <button
             className="slider-btn prev"
             onClick={() =>
@@ -171,8 +154,8 @@ const PlaceDetailPage = () => {
                 (slideIndex - 1 + slides.length) % slides.length
               )
             }
-          >
-            &#10094;
+        >
+        &#10094;
           </button>
 
           <button
@@ -197,8 +180,6 @@ const PlaceDetailPage = () => {
           </div>
         </div>
       </div>
-
-      {/* ===================== 지도 ===================== */}
       <div className="sec4">
         <iframe
           title="Snoopy Garden Map"
@@ -209,8 +190,6 @@ const PlaceDetailPage = () => {
         />
         <p className="spg-map-description">찾아가는 길</p>
       </div>
-
-      {/* ===================== 추천 ===================== */}
       <div className="shape-box">
         <div className="recommended-container">
           <h1 className="title">RECOMMENDED</h1>

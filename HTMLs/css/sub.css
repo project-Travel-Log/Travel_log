@@ -1,5 +1,4 @@
 /* sub page에서만 사용하는 스타일 */
-<style>
 *{margin:0;padding:0;box-sizing:border-box;}
 .spg-body{margin:0!important;padding:0!important;overflow-x:hidden;}
 .spg-header-image{width:100vw!important;height:591px;display:block;object-fit:cover;}
@@ -15,7 +14,6 @@
 @media screen and (max-width:1600px){.spg-jeju-title{left:200px;font-size:64px;}.spg-place-title{left:200px;top:950px;}.spg-place-description{left:200px;top:1100px;width:350px;}.spg-subheader-image{left:650px;top:950px;width:700px;height:360px;}.spg-subsmall-image-1{left:650px;top:1320px;width:227px;}.spg-subsmall-image-2{left:882px;top:1320px;width:227px;}.spg-subsmall-image-3{left:1114px;top:1320px;width:236px;}.spg-places-title{top:1550px;}}
 @media screen and (max-width:1366px){.spg-jeju-title{left:100px;font-size:56px;top:700px;}.spg-place-title{left:100px;top:900px;}.spg-place-description{left:100px;top:1050px;width:320px;}.spg-subheader-image{left:520px;top:900px;width:650px;height:335px;}.spg-subsmall-image-1{left:520px;top:1245px;width:210px;}.spg-subsmall-image-2{left:735px;top:1245px;width:210px;}.spg-subsmall-image-3{left:950px;top:1245px;width:220px;}.spg-places-title{top:1450px;font-size:28px;}}
 @media screen and (max-width:1024px){.spg-header-image{height:400px;}.spg-jeju-title{left:50px;top:500px;font-size:48px;}.spg-place-title{left:50px;top:600px;font-size:20px;}.spg-place-description{left:50px;top:680px;width:90%;max-width:500px;}.spg-subheader-image{left:50%;transform:translateX(-50%);top:900px;width:90%;max-width:700px;height:auto;}.spg-subsmall-image-1{left:5%;top:1250px;width:30%;}.spg-subsmall-image-2{left:35%;top:1250px;width:30%;}.spg-subsmall-image-3{left:65%;top:1250px;width:30%;}.spg-places-title{top:1450px;font-size:24px;}}
-</style>
 /* 회원가입 페이지 */
 @import url('https://fonts.googleapis.com/css2?family=Candal&family=Inter:wght@400;700&display=swap');
 .signup-page {display: flex;width: 100%;height: 100vh;font-family: 'Inter', sans-serif;}

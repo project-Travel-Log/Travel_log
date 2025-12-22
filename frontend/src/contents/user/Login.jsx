@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Button, Card, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './Login.css'
 
@@ -12,24 +11,22 @@ const Login = () => {
         e.preventDefault();
     };
     return (
-        <div className="login-page">
-            <section className="login-left">
-                <img className="login-bg-img" src='/images/login/로그인 페이지 이미지.png' alt="login-bg-img" />
-            </section>
-
-            <section className="login-right">
-                <form className="login-form">
-                    <img className="login-logo" src='/images/login/로그인로고.png' alt="TRAVELOGUE" />
-                    <span className="login-message">Journey Into New Paths and Unseen Horizons</span>
-                    <input className="login-input" type="text" placeholder="아이디" />
-                    <input className="login-input" type="password" placeholder="비밀번호" />
-
-                    <button className="login-submit-button" type="submit">
-                        로그인
-                    </button>
-                </form>
-                <span className="signup-profile-text"><Link to="/SignUp">계정을 생성하시겠습니까?</Link></span>
-            </section>
+        <div className="login-wrap">
+            <div className='login-inner'>
+                <div className="bg-wrap"></div>
+                <div className="login__form-wrap">
+                    <form>
+                        <img className='logo' src='/images/login/logo.png' alt="TRAVELOGUE" />
+                        <span className="text">Journey Into New Paths and Unseen Horizons</span>
+                        <input className="login-input" type="text" placeholder="아이디" />
+                        <input className="login-input" type="password" placeholder="비밀번호" />
+                        <button className="btn-login" type="submit">
+                            로그인
+                        </button>
+                    </form>
+                    <Link to="/SignUp" className="signup">계정을 생성하시겠습니까?</Link>
+                </div>
+            </div>
         </div>
     )
 }
