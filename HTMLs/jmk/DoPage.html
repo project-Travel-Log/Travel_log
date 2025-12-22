@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>도페이지</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+<link rel="stylesheet" href="../css/dopage.css" />
+</head>
+<body>
+<div class="swiper mySwiper">
+<div class="slide-title">Pyeongchang</div>
+<div class="swiper-wrapper">
+<div class="swiper-slide"><img src="../jmkimg/평창슬라이드1.jpg"></div>
+<div class="swiper-slide"><img src="../jmkimg/평창슬라이드2.jpg"></div>
+<div class="swiper-slide"><img src="../jmkimg/평창슬라이드3.jpg"></div>
+<div class="swiper-slide"><img src="../jmkimg/평창슬라이드4.jpg"></div>
+<div class="swiper-slide"><img src="../jmkimg/평창슬라이드5.jpg"></div>
+<div class="swiper-slide"><img src="../jmkimg/평창슬라이드6.jpg"></div>
+<div class="swiper-slide"><img src="../jmkimg/평창슬라이드7.jpg"></div>
+<div class="swiper-slide"><img src="../jmkimg/평창슬라이드8.jpg"></div>
+</div>
+</div>
+<section class="destination-section">
+<div class="section-header">
+<h2 class="destination-section-title">Destination</h2>
+<a href="#" class="more-btn"><img src="../jmkimg/더보기.png" alt="더보기"></a>
+</div>
+<div class="destination-card-row">
+<div class="destination-card"><img src="../jmkimg/월정사전나무숲.jpg" alt="월정사"><p class="destination-name">월정사·전나무숲</p></div>
+<div class="destination-card"><img src="../jmkimg/이효석문화마을.jpg" alt="이효석"><p class="destination-name">이효석 문화마을</p></div>
+<div class="destination-card"><img src="../jmkimg/오대산국립공원.jpg" alt="오대산"><p class="destination-name">오대산 국립공원</p></div>
+</div>
+</section>
+<section class="activity-section">
+<div class="section-header">
+<h2 class="activity-section-title">Activity</h2>
+<a href="#" class="more-btn"><img src="../jmkimg/더보기.png" alt="더보기"></a>
+</div>
+<div class="activity-item"><img src="../jmkimg/대관령양떼목장.jpg"><div class="activity-text"><h3>대관령 양떼목장</h3><p>한국의 알프스로 불리는 대관령 양떼목장은 푸른 풀밭과 향긋한 풀 냄새를 실어 나르는 상쾌한 바람이 어우러진 자연 명소이다. 봄·여름·가을·겨울 사계절은 물론, 시시각각 달라지는 목장의 풍경을 통해 자연의 신비로움과 아름다움을 직접 느낄 수 있는 곳이다.</p></div></div>
+<div class="activity-item reverse"><img src="../jmkimg/발왕산케이블카.png"><div class="activity-text"><h3>발왕산 케이블카</h3><p>발왕산 케이블카는 안정성과 속도감이 뛰어난 100대의 8인승 케빈이 이어진 왕복 7.4㎞의 케이블카이다. 이는 국내 최대 길이로 드래건 플라자 탑승장에서 출발하여 발왕산 정상의 드래건 캐슬 하차장에 이르는 18분 동안, 해발 1,458m의 발왕산 하늘을 날아오르는 듯한 착각을 하게 한다.</p></div></div>
+<div class="activity-item"><img src="../jmkimg/허브나라농원.jpg"><div class="activity-text"><h3>허브나라 농원</h3><p>Happy 700 평창, 이효석의 『메밀꽃 필 무렵』의 고장인 봉평면에 자리한 허브나라농원은 1993년에 개장한 우리나라 최초의 허브 테마 관광농원이다. 맑은 물이 흐르는 흥정계곡의 천혜 자연환경 속에 위치해 자연이 제공하고 사람이 가꾸어 가는 자연친화적 힐링 가든으로 자리매김하며 많은 이들이 찾는 강원도의 대표 ...</p></div></div>
+</section>
+<section class="festival-section">
+<div class="section-header">
+<h2 class="festival-section-title">Festival</h2>
+<a href="#" class="more-btn"><img src="../jmkimg/더보기.png" alt="더보기"></a>
+</div>
+<div class="festival-container">
+<div class="swiper festivalSwiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide"><img src="../jmkimg/평창축제1.jpg"></div>
+<div class="swiper-slide"><img src="../jmkimg/평창축제2.jpg"></div>
+<div class="swiper-slide"><img src="../jmkimg/평창축제3.jpg"></div>
+</div>
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+</div>
+</div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script>
+var swiper = new Swiper(".mySwiper", {autoplay: {delay: 2500, disableOnInteraction: false}, loop: true});
+var festivalSwiper = new Swiper(".festivalSwiper", {
+slidesPerView: 1,
+centeredSlides: true,
+loop: false,
+speed: 500,
+navigation: {nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev"},
+slideToClickedSlide: true,
+breakpoints: {768: {slidesPerView: "auto"}}
+});
+</script>
+</body>
+</html>
