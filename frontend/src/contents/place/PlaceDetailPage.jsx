@@ -49,7 +49,7 @@ const PlaceDetailPage = () => {
 
   const handleMoreClick = () => {
     console.log("더보기 버튼 클릭");
-    // 여기에 원하는 동작을 추가하세요
+
   };
 
   return (
@@ -57,7 +57,7 @@ const PlaceDetailPage = () => {
       {/* 상단 이미지 */}
       <div className="spg-top">
         <img
-          src="/images/placedetail/snoopy1.jpg"
+          src="/images/placedetail/snoopt1.jpg"
           alt="snoopy"
           className="spg-header-image"
         />
@@ -201,7 +201,7 @@ const PlaceDetailPage = () => {
             (tag, i) => (
               <div className="item" key={i}>
                 <img
-                  src="/images/placedetail/snoopy1.jpg"
+                  src="/images/placedetail/snoopt1.jpg"
                   className="item-image"
                   alt=""
                 />
