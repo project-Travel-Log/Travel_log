@@ -46,6 +46,12 @@ const PlaceDetailPage = () => {
       prev.map((v, i) => (i === index ? !v : v))
     );
   };
+
+  const handleMoreClick = () => {
+    console.log("더보기 버튼 클릭");
+    // 여기에 원하는 동작을 추가하세요
+  };
+
   return (
     <div className="spg-wrap">
       {/* 상단 이미지 */}
@@ -93,13 +99,7 @@ const PlaceDetailPage = () => {
           </div>
         </div>
         <div className="sec3">
-          <div
-            className="add-place-btn"
-            onClick={() => alert("페이지 이동")}
-          >
-            <img src="/images/common/p.png" alt="추가" />
-          </div>
-          <h3 className="spg-places-title">
+            <h3 className="spg-places-title">
             Things you can enjoy at this place
           </h3>
           <div className="spg-image-box-container">
@@ -133,6 +133,9 @@ const PlaceDetailPage = () => {
               </div>
             ))}
           </div>
+          <button className="spg-more-button" onClick={handleMoreClick}>
+            더보기
+          </button>
         </div>
       </div>
       <div className="sec5">
@@ -186,7 +189,7 @@ const PlaceDetailPage = () => {
           className="spg-map"
           loading="lazy"
           allowFullScreen
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.1959274316896!2d126.7757308762726!3d33.444201649590816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350d1bc32bdef82d%3A0x35c7b3cf574c06f5!2z7Iqk64iU7ZS86rCA65Og!5e0!3m2!1sko!2sus!4v1765953680091!5m2!1sko!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.1959274316896!2d126.7757308762726!3d33.444201649590816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350d1bc32bdef82d%3A0x35c7b3cf574c06f5!2z7Iqk64iU7ZS86rGA65Og!5e0!3m2!1sko!2sus!4v1765953680091!5m2!1sko!2sus"
         />
         <p className="spg-map-description">찾아가는 길</p>
       </div>
