@@ -114,12 +114,17 @@ const SignUp = () => {
     }
 
     const formData = new FormData();
-    Object.entries(form).forEach(([KeyboardEvent, value]) => {
-      formData.append('profile_image', file)
+
+    Object.entries(form).forEach(([Key, value]) => {
+      formData.append(Key, value)
     })
 
+    if(file){
+      formData.append('profile_image',file)
+    }
+
     try {
-      await signUp(form);
+      await signUp(formData);
       alert('회원가입이 완료되었습니다.');
       window.location.href = '/Login';
     } catch (err) {

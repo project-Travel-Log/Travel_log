@@ -6,8 +6,8 @@ export const check = (field, value) =>{
 
 
 // 회원가입
-export const signUp = (userData) => {
-    return apiClient.post('/api/SignUp', userData);
+export const signUp = (formData) => {
+    return apiClient.post('/api/signUp', formData);
 };
 
 // export const login = (id, pw)=>{
