@@ -1,0 +1,38 @@
+.review-detail-container{position:relative;width:100vw;height:300px;margin-left:calc(-50vw + 50%);}
+.review-detail-container img{width:100%;height:100%;object-fit:cover;}
+.review-detail-container-text{position:absolute;bottom:100px;left:50%;transform:translateX(-50%);max-width:1250px;width:100%;padding:0 20px;color:#fff;}
+.review-detail-container-text h1{font-size:48px;margin-bottom:6px;}
+.review-detail-container-text span{font-size:14px;}
+
+.review-detail-wrap{max-width:900px;margin:40px auto;font-family:'Inter',sans-serif;}
+.review-detail-content{margin:40px 0;text-align:center;}
+.review-detail-content img{max-width:100%;border-radius:6px;margin-bottom:20px;}
+.review-detail-content p{font-size:14px;line-height:1.8;text-align:left;}
+
+.review-detail-comment-section{border-top:1px solid #ddd;padding-top:30px;}
+.review-detail-comment-section h3{font-size:20px;margin-bottom:50px;}
+
+.review-detail-comment{display:flex;align-items:flex-start;margin-bottom:24px;}
+.review-detail-comment-profile{width:40px;height:40px;border-radius:50%;background:#ccc;margin-right:12px;flex-shrink:0;}
+.review-detail-comment-content{flex:1;}
+
+.review-detail-comment-header{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.review-detail-comment-user{font-size:15px;font-weight:500;}
+.review-detail-comment-date{font-size:13px;color:#999;}
+
+.review-detail-comment-text{font-size:14px;line-height:1.6;margin-bottom:20px;}
+
+.review-detail-comment-reply{display:flex;align-items:center;gap:8px;margin-bottom:30px;cursor:pointer;}
+.review-detail-comment-arrow{width:14px;height:14px;}
+.review-detail-comment-add{font-size:14px;color:#666;}
+
+.review-detail-reply{display:flex;align-items:flex-start;margin-top:15px; }
+.review-detail-reply .review-detail-comment-profile{width:32px;height:32px;margin-right:10px;}
+.review-detail-reply .review-detail-comment-user{font-size:14px;}
+.review-detail-reply .review-detail-comment-date{font-size:12px;}
+.review-detail-reply .review-detail-comment-text{font-size:13px;line-height:1.5;}
+
+.review-detail-comment-profile2{width:50px;height:50px;border-radius:50%;background:#ccc;margin-right:12px;}
+.review-detail-comment-input{display:flex;align-items:center;border-top:1px solid #eee;padding-top:20px;margin-top:20px;}
+.review-detail-comment-input input{flex:1;height:40px;border:1px solid #ccc;padding:0 10px;}
+.review-detail-comment-input button{width:70px;height:40px;background:#0b2a63;color:#fff;border:none;cursor:pointer;}
