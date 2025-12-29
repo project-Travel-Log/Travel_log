@@ -24,7 +24,6 @@ DEFAULT_IMAGE = 'default.jpg'
 @bp.route("/signUp", methods=["POST"])
 def signUp():
     signSchema = UserCreateSchema()
-
     try:
         data = signSchema.load(request.form.to_dict())
     except ValidationError as err:
@@ -73,6 +72,7 @@ def signUp():
         gender = data['gender'],
         profile_image = image_filename
         )
+
     try:
         db.session.add(user)
         db.session.commit()

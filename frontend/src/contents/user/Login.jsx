@@ -1,14 +1,31 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+
+import { login } from '../../API/auth';
 import './Login.css'
 
 
 const Login = () => {
-    const [id, setId] = useState('');
-    const [pw, setPw] = useState('');
-    const [loading, setLoading] = useState('');
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const [userid, setUserid] = useState('');
+    const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+    const handleLogin = async (e) => {
+        e.preventDefault()
+
+        if (loading) return
+
+        if(!userid||!password){
+            alert("아이디와 비밀번호를 입력해 주세요")
+        }
+        try{
+            const res = await login(userid, password)
+            localStorage.setItem('access_token', res.data.access_token)
+            alert('로그인 성공')
+            window.location.href = '/'
+        }catch{
+
+            alert('로그인 실패');
+        }
     };
     return (
         <div className="login-wrap">
