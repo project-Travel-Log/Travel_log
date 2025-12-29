@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Header from './components/common/Header';
 import Home from './contents/Home';
-import PlaceCard from './components/place/PlaceCard';
+import PlacePage from './contents/place/PlaceDetailPage';
 import ReviewListPage from './contents/review/ReviewListPage'
 import TravelLogPage from './contents/travelLog/TravelLogPage'
 import SignUp from './contents/user/SignUp';
@@ -22,6 +22,8 @@ import TopButton from './components/common/TopButton';
 import Footer from './components/common/Footer';
 
 import ScrollHandler from './components/common/ScrollHandler';
+import apiClient from './API/axios';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   const navigate = useNavigate();
@@ -45,7 +47,7 @@ function App() {
 
     <Routes>
       <Route path="/" element={<Home />}></Route>
-      <Route path="/:category" element={<PlaceCard />}></Route>
+      <Route path="/places/:type" element={<PlacePage />}></Route>
       <Route path="/review" element={<ReviewListPage />}></Route>
       <Route path="/travelLog" element={<TravelLogPage />}></Route>
       <Route path="/SignUp" element={<SignUp />}></Route>

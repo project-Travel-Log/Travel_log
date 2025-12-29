@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
 const Header = () => {
     const [openMenu, setOpenMenu] = useState(null);
+    const { user, logout } = useContext(AuthContext) 
 
     const userRef = useRef(null);
     const searchRef = useRef(null);
@@ -46,17 +48,17 @@ const Header = () => {
                         <nav aria-label="주요 메뉴">
                             <ul className="gnb-list">
                                 <li className="gnb">
-                                <NavLink to="/places" className="gnb-link">
+                                <NavLink to="/places/travel" className="gnb-link">
                                     여행지
                                 </NavLink>
                                 </li>
                                 <li className="gnb">
-                                <NavLink to="/activities" className="gnb-link">
+                                <NavLink to="/places/activities" className="gnb-link">
                                     액티비티
                                 </NavLink>
                                 </li>
                                 <li className="gnb">
-                                <NavLink to="/festivals" className="gnb-link">
+                                <NavLink to="/places/festivals" className="gnb-link">
                                     축제
                                 </NavLink>
                                 </li>
@@ -94,18 +96,29 @@ const Header = () => {
                                 </button>
 
                                 <ul className="header__util-list">
-                                    <li>
-                                        <Link to="/Login" onClick={closeAll}>로그인</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/SignUp" onClick={closeAll}>회원가입</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/MyPage" onClick={closeAll}>마이페이지</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/Logout" onClick={closeAll}>로그아웃</Link>
-                                    </li>
+                                    {user ? (
+
+                                        <>  
+                                            <li>
+                                                <p>{user.username}</p>
+                                            </li>
+                                            <li>
+                                                <Link onClick={logout}>로그아웃</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/MyPage" onClick={closeAll}>마이페이지</Link>
+                                            </li>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <li>
+                                                <Link to="/Login" onClick={closeAll}>로그인</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/SignUp" onClick={closeAll}>회원가입</Link>
+                                            </li>
+                                        </>
+                                    )}
                                 </ul>
                             </div>
 

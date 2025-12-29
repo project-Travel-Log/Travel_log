@@ -25,6 +25,8 @@ const Login = () => {
         }catch{
 
             alert('로그인 실패');
+        } finally {
+            setLoading(false)
         }
     };
     return (
@@ -32,11 +34,12 @@ const Login = () => {
             <div className='login-inner'>
                 <div className="bg-wrap"></div>
                 <div className="login__form-wrap">
-                    <form>
+                    <form onSubmit={handleLogin}>
                         <img className='logo' src='/images/login/logo.png' alt="TRAVELOGUE" />
                         <span className="text">Journey Into New Paths and Unseen Horizons</span>
-                        <input className="login-input" type="text" placeholder="아이디" />
-                        <input className="login-input" type="password" placeholder="비밀번호" />
+                        <input className="login-input" type="text" placeholder="아이디" value={userid} 
+                            onChange={(e) => setUserid(e.target.value)} />
+                        <input className="login-input" type="password" placeholder="비밀번호" value={password} onChange={(e) => setPassword(e.target.value)} />
                         <button className="btn-login" type="submit">
                             로그인
                         </button>

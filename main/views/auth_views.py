@@ -79,10 +79,10 @@ def signUp():
         return {'message': '회원 가입 성공' },201
     except Exception as e:
         db.session.rollback()
-        print('DB에러')
+        print("오류남", e)
         return jsonify({
             "message" : 'DB 저장 실패',
-            "error" : set(e)
+            "error" : str(e)
         }), 500
 
 
@@ -115,7 +115,8 @@ def check_duplicate():
 @bp.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
-
+    print("로그인 데이터", data)
+    print("LOGIN JWT_SECRET_KEY:", current_app.config["JWT_SECRET_KEY"])
     userid = data.get("userid")
     password = data.get('password')
     if not userid or not password:
@@ -127,7 +128,7 @@ def login():
         return jsonify({"message": "로그인 실패"}), 401
 
     access_token = create_access_token(
-        identity=user.id,
+        identity=str(user.id),
         additional_claims={
             "userid": user.userid,
             "username": user.username,
@@ -146,7 +147,10 @@ def login():
 @bp.route("/me", methods=["GET"])
 @jwt_required()
 def me():
-    user_id = get_jwt_identity()
+    print("Authorization:", request.headers.get("Authorization"))
+    print("JWT identity:", get_jwt_identity())
+
+    user_id = int(get_jwt_identity())
     user = User.query.get(user_id)
 
     return jsonify({

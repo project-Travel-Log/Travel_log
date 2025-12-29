@@ -22,8 +22,7 @@ def create_app():
     migrate.init_app(app, db)
     jwt.init_app(app)
     ma.init_app(app)
-    CORS(app)
-    from main import models
+    CORS(app, supports_credentials=True)
 
     # 블루프린트
     from .views import main_views, auth_views
