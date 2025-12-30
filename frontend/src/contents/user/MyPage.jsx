@@ -2,6 +2,7 @@ import React from 'react';
 import { Virtual, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
+import WishToggleButton from '../../components/common/WishToggleButton';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -18,14 +19,14 @@ const MyPage = () => {
   return (
     <div className="mypage-wrap">
       <div className="mypage-inner">
-        <section className="mypage-profile">
-          <div className="mypage-profile-container">
-            <div className="mypage-profile-img" />
-            <Link to="/MyPage" className="mypage-edit-profile-text">회원정보 수정</Link>
+        <section className="profile-wrap">
+          <div className="profile-inner">
+            <div className="img-wrap" />
+            <Link to="/MyPage" className="edit-profile">회원정보 수정</Link>
           </div>
-          <div className="mypage-profile-info">
-            <span className="mypage-profile-badge">닉네임</span>
-            <span className="mypage-profile-name">1234jeju</span>
+          <div className="text-wrap">
+            <span className="badge">닉네임</span>
+            <span className="username">1234jeju</span>
           </div>
         </section>
 
@@ -41,21 +42,35 @@ const MyPage = () => {
               }}
               slidesPerView={4} 
               spaceBetween={20} 
-              breakpoints={{ 0:{slidesPerView:1},768:{slidesPerView:3},1024:{slidesPerView:4} }} 
+              breakpoints={{
+                0:{
+                  slidesPerView : 2,
+                  spaceBetween : 12
+                },
+                768:{
+                  slidesPerView : 3,
+                  spaceBetween : 14
+                  
+                },
+                1024:{
+                  slidesPerView : 4,
+                  spaceBetween : 16
+                }
+              }} 
               className="mypage-swiper"
             >
               {slides.map((_, i) => (
                 <SwiperSlide key={i} className="mypage-swiper-slide">
-                  <div className="mypage-card">
+                  <Link to='/' className="mypage-card">
                     <div className="img-wrap">
                       {/* 이미지 영역 */}
                       <img src="/images/temp/temp.png" alt="" />
                     </div>
                     <div className="mypage-card-bottom-info">
-                      <img src="/images/login/wishlist.png" className="mypage-wish-icon" alt="" />
+                      <WishToggleButton className="mypage-wish-icon" />
                       <span className="mypage-card-text">스누피가든</span>
                     </div>
-                  </div>
+                  </Link>
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -77,23 +92,41 @@ const MyPage = () => {
               }}
               slidesPerView={4} 
               spaceBetween={20} 
-              breakpoints={{ 0:{slidesPerView:1},768:{slidesPerView:3},1024:{slidesPerView:4} }} 
+              breakpoints={{
+                0:{
+                  slidesPerView : 2,
+                  spaceBetween : 12
+                },
+                768:{
+                  slidesPerView : 3,
+                  spaceBetween : 14
+                  
+                },
+                1024:{
+                  slidesPerView : 4,
+                  spaceBetween : 16
+                }
+              }} 
               className="mypage-swiper"
             >
               {slides.map((_, i) => (
                 <SwiperSlide key={i} className="mypage-swiper-slide">
-                  <div className="mypage-card2">
+                  <Link to="/" className="mypage-card2">
                     <div className="mypage-card2-thumb">
-                      <img src="/images/login/wishlist.png" className="mypage-card2-wish-icon" alt="" />
+                      <div className="img-wrap">
+                        {/* 이미지 영역 */}
+                        <img src="/images/temp/temp2.png" alt="" />
+                      </div>
+                      <WishToggleButton className="mypage-card2-wish-icon" />
+                      <span className="mypage-card2-title-en">Gwangju</span>
                     </div>
                     <div className="mypage-card2-text-wrap">
                       <p className="mypage-card2-title">
-                        <span className="mypage-card2-title-en">Jeju</span>
-                        <span className="mypage-card2-sub">스누피가든</span>
+                        제주 4.3 평화 공원
                       </p>
                       <p className="mypage-card2-desc">여행을 떠난다는 것은 단순히 지도를 따라 새로운 장소를 방문하는 행위가 아니다...</p>
                     </div>
-                  </div>
+                  </Link>
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -120,7 +153,7 @@ const MyPage = () => {
                   </ul>
                 </div>
                 <div className="mypage-list-side">
-                  <img src="/images/login/wishlist.png" className="mypage-wish-icon" alt="" />
+                  <WishToggleButton className="mypage-wish-icon" />
                   <button className="mypage-list-btn">상세 정보 보러가기</button>
                 </div>
               </div>
