@@ -1,103 +1,108 @@
-.review-detail-container{position:relative;width:100vw;height:280px;margin-left:calc(-50vw + 50%);}
-.review-detail-container img{width:100%;height:100%; object-fit:cover;}
-.review-detail-container-text{position:absolute;left:200px;top:50%;transform:translateY(-50%);max-width:1250px;color:#ffffff;}
-.review-detail-container-text h1{font-size:48px;margin-bottom:20px;}
-.review-detail-container-text span{font-size:14px;}
+.tld-container{position:relative;max-width:1250px;height:280px;margin:0 auto;}
+.tld-container img{width:100%;height:100%;object-fit:cover;}
+.tld-container-text{position:absolute;left:200px;top:50%;transform:translateY(-50%);max-width:1250px;color:#ffffff;}
+.tld-container-text h1{font-size:48px;margin-bottom:20px;}
+.tld-container-text span{font-size:14px;}
 
-.review-detail-wrap{max-width:900px;margin:40px auto;font-family:'Inter',sans-serif;padding:0 20px;}
+.tld-wrap{max-width:1250px;margin:40px auto;font-family:'Inter',sans-serif;padding:0 20px;}
 
-.review-detail-content{margin:40px 0;text-align:center;border-top:1px solid #ddd;padding:30px 16px 0;}
-.review-detail-content img{max-width:100%;margin-bottom:20px;}
-.review-detail-content p{font-size:16px;line-height:2.4;text-align:left;}
+.tld-content{margin:40px 0;text-align:center;padding:30px 155px 0;position:relative;}
+.tld-content::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:#ddd;}
+.tld-content img{max-width:100%;margin-bottom:20px;}
+.tld-content p{font-size:14px;line-height:2.4;text-align:left;}
 
-.review-detail-comment-section{border-top:1px solid #ddd;padding:0 16px;}
-.review-detail-comment-section h3{font-size:20px;padding:30px 0;border-bottom:1px solid #ddd;margin-bottom:30px;}
+.tld-comment-section{padding:0 16px;}
+.tld-comment-section h3{font-size:20px;padding:30px 0;margin-bottom:50px;position:relative;}
+.tld-comment-section h3::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:#ddd;}
+.tld-comment-section h3::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:1px;background:#ddd;}
 
-.review-detail-comment{display:flex;align-items:flex-start;margin-bottom:24px;}
-.review-detail-comment-profile{width:40px;height:40px;border-radius:50%;background:#ccc;margin-right:12px;flex-shrink:0;}
-.review-detail-comment-content{flex:1;}
+.tld-comment{display:flex;align-items:flex-start;margin-bottom:30px;}
+.tld-comment-profile{width:40px;height:40px;border-radius:50%;background:#ccc;margin-right:12px;flex-shrink:0;}
+.tld-comment-content{flex:1;}
 
-.review-detail-comment-header{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
-.review-detail-comment-user{font-size:14px;font-weight:500;}
-.review-detail-comment-date{font-size:14px;color:#949494;}
+.tld-comment-header{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.tld-comment-user{font-size:14px;font-weight:500;}
+.tld-comment-date{font-size:14px;color:#949494;}
 
-.review-detail-comment-text{font-size:14px;line-height:1.6;margin-bottom:10px;}
+.tld-comment-text{font-size:14px;line-height:1.6;margin-bottom:10px;}
 
-.review-detail-comment-like{display:flex;align-items:center;gap:6px;margin-bottom:14px;}
-.review-detail-comment-like-icon{width:18px;height:18px;}
-.review-detail-comment-like-count{font-size:14px;color:#000;}
+.tld-comment-like{display:flex;align-items:center;gap:6px;margin-bottom:14px;}
+.tld-comment-like-icon{width:18px;height:18px;}
+.tld-comment-like-count{font-size:14px;color:#000;}
 
-.review-detail-comment-reply{display:flex;align-items:center;gap:8px;margin-bottom:20px;cursor:pointer;}
-.review-detail-comment-arrow{width:14px;height:14px;}
-.review-detail-comment-add{font-size:14px;color:#666;}
+.tld-comment-reply{display:flex;align-items:center;gap:8px;margin-bottom:20px;cursor:pointer;}
+.tld-comment-arrow{width:14px;height:14px;}
+.tld-comment-add{font-size:14px;color:#666;}
 
-.review-detail-reply-list{margin-top:10px;}
-.review-detail-reply{display:flex;align-items:flex-start;margin-top:16px;padding-left:52px;}
-.review-detail-reply .review-detail-comment-profile{width:32px;height:32px;margin-right:10px;}
-.review-detail-reply .review-detail-comment-user{font-size:14px;}
-.review-detail-reply .review-detail-comment-date{font-size:14px;}
-.review-detail-reply .review-detail-comment-text{font-size:14px;line-height:1.5;}
-.review-detail-reply .review-detail-comment-like-icon{width:18px;height:18px;}
-.review-detail-reply .review-detail-comment-like-count{font-size:14px;}
+.tld-reply-list{margin-top:10px;}
+.tld-reply{display:flex;align-items:flex-start;margin-top:14px;padding-left:52px;}
+.tld-reply .tld-comment-profile{width:32px;height:32px;margin-right:10px;}
+.tld-reply .tld-comment-user{font-size:14px;}
+.tld-reply .tld-comment-date{font-size:14px;}
+.tld-reply .tld-comment-text{font-size:14px;line-height:1.5;}
+.tld-reply .tld-comment-like-icon{width:18px;height:18px;}
+.tld-reply .tld-comment-like-count{font-size:14px;}
 
-.review-detail-comment-profile2{width:50px;height:50px;border-radius:50%;background:#ccc;margin-right:12px;flex-shrink:0;aspect-ratio:1/1;}
+.tld-comment-profile2{width:50px;height:50px;border-radius:50%;background:#ccc;margin-right:12px;flex-shrink:0;aspect-ratio:1/1;}
 
-.review-detail-comment-input{display:flex;align-items:center;border-top:1px solid #eee;padding:20px 14px 0;margin-top:20px;}
-.review-detail-comment-input input{flex:1;min-width:0;height:40px;border:1px solid #ccc;border-right:none;padding:0 14px;box-sizing:border-box;border-radius:7px 0 0 7px;font-size:14px;}
-.review-detail-comment-input button{width:70px;height:40px;flex-shrink:0;background:#0b2a63;color:#ffffff;border:1px solid #0b2a63;cursor:pointer;box-sizing:border-box;border-radius:0 7px 7px 0;font-size: 14px;}
+.tld-comment-input{display:flex;align-items:center;padding:20px 14px 0;margin-top:20px;position:relative;}
+.tld-comment-input::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:#eee;}
+.tld-comment-input input{flex:1;min-width:0;height:40px;border:1px solid #ccc;border-right:none;padding:0 14px;box-sizing:border-box;border-radius:7px 0 0 7px;font-size:14px;}
+.tld-comment-input button{width:70px;height:40px;flex-shrink:0;background:#0b2a63;color:#ffffff;border:1px solid #0b2a63;cursor:pointer;box-sizing:border-box;border-radius:0 7px 7px 0;font-size:14px;}
 
 @media (max-width:1200px){
-.review-detail-container{height:240px;}
-.review-detail-container-text{left:50%;top:50%;transform:translate(-50%,-50%);padding:0 20px;}
+.tld-container{height:240px;}
+.tld-container-text{left:50%;top:50%;transform:translate(-50%,-50%);padding:0 20px;}
 }
 
 @media (max-width:768px){
-.review-detail-container{width:100%;height:200px;margin-left:0;padding:0 16px;box-sizing:border-box;}
-.review-detail-container-text h1{font-size:32px;margin-bottom:10px;}
-.review-detail-content p {line-height:2.2;font-size:14px;}
-.review-detail-container-text span,
-.review-detail-comment-user,
-.review-detail-comment-date,
-.review-detail-comment-text,
-.review-detail-comment-like-count,
-.review-detail-comment-add,
-.review-detail-reply .review-detail-comment-text,
-.review-detail-reply .review-detail-comment-user,
-.review-detail-reply .review-detail-comment-date,
-.review-detail-reply .review-detail-comment-like-count{font-size:12px;}
-.review-detail-comment-section h3{font-size:17px;padding:24px 0;margin-bottom:30px;}
-.review-detail-comment-profile{width:36px;height:36px;}
-.review-detail-comment-like-icon,
-.review-detail-reply .review-detail-comment-like-icon{width:16px;height:16px;}
-.review-detail-reply{padding-left:44px;}
-.review-detail-reply .review-detail-comment-profile{width:28px;height:28px;}
-.review-detail-comment-input input{height:36px;font-size:12px;}
-.review-detail-comment-input button{width:64px;height:36px;font-size:12px;white-space:nowrap;}
+.tld-container{width:100%;height:200px;margin-left:0;padding:0 16px;box-sizing:border-box;}
+.tld-container-text h1{font-size:32px;margin-bottom:10px;}
+.tld-content p{line-height:2.2;font-size:12px;}
+.tld-container-text span,
+.tld-comment-user,
+.tld-comment-date,
+.tld-comment-text,
+.tld-comment-like-count,
+.tld-comment-add,
+.tld-reply .tld-comment-text,
+.tld-reply .tld-comment-user,
+.tld-reply .tld-comment-date,
+.tld-reply .tld-comment-like-count{font-size:12px;}
+.tld-comment-section h3{font-size:17px;padding:24px 0;margin-bottom:30px;}
+.tld-comment-profile{width:36px;height:36px;}
+.tld-comment-like-icon,
+.tld-reply .tld-comment-like-icon{width:16px;height:16px;}
+.tld-reply{padding-left:44px;}
+.tld-reply .tld-comment-profile{width:28px;height:28px;}
+.tld-comment-input input{height:36px;font-size:12px;}
+.tld-comment-input button{width:64px;height:36px;font-size:12px;white-space:nowrap;}
 }
 
 @media (max-width:480px){
-.review-detail-container{height:160px;}
-.review-detail-container-text h1{font-size:24px;margin-bottom:10px;}
-.review-detail-content p {line-height:2.0;font-size:12px;}
-.review-detail-container-text span,
-.review-detail-comment-user,
-.review-detail-comment-date,
-.review-detail-comment-text,
-.review-detail-comment-like-count,
-.review-detail-comment-add,
-.review-detail-reply .review-detail-comment-text,
-.review-detail-reply .review-detail-comment-user,
-.review-detail-reply .review-detail-comment-date,
-.review-detail-reply .review-detail-comment-like-count{font-size:10px;}
-.review-detail-content{padding-left:12px;padding-right:12px;}
-.review-detail-comment-profile{width:30px;height:30px;}
-.review-detail-comment-text{line-height:1.45;margin-bottom:6px;}
-.review-detail-comment-section h3{font-size:14px;padding:18px 0;margin-bottom:25px;}
-.review-detail-comment-like-icon,
-.review-detail-reply .review-detail-comment-like-icon{width:14px;height:14px;}
-.review-detail-reply{padding-left:36px;margin-top:10px;}
-.review-detail-reply .review-detail-comment-profile{width:24px;height:24px;}
-.review-detail-comment-profile2{width:36px;height:36px;}
-.review-detail-comment-input input{height:32px;font-size:10px;}
-.review-detail-comment-input button{width:58px;height:32px;font-size:10px;white-space:nowrap;}
+.tld-container{height:160px;}
+.tld-container-text h1{font-size:24px;margin-bottom:10px;}
+.tld-content p{line-height:2.0;font-size:10px;}
+.tld-container-text span,
+.tld-comment-user,
+.tld-comment-date,
+.tld-comment-text,
+.tld-comment-like-count,
+.tld-comment-add,
+.tld-reply .tld-comment-text,
+.tld-reply .tld-comment-user,
+.tld-reply .tld-comment-date,
+.tld-reply .tld-comment-like-count{font-size:10px;}
+.tld-comment-arrow {width: 12px; height: 12px;}
+.tld-content{padding-left:12px;padding-right:12px;}
+.tld-comment-profile{width:30px;height:30px;}
+.tld-comment-text{line-height:1.45;margin-bottom:6px;}
+.tld-comment-section h3{font-size:14px;padding:18px 0;margin-bottom:25px;}
+.tld-comment-like-icon,
+.tld-reply .tld-comment-like-icon{width:14px;height:14px;}
+.tld-reply{padding-left:36px;margin-top:10px;}
+.tld-reply .tld-comment-profile{width:24px;height:24px;}
+.tld-comment-profile2{width:36px;height:36px;}
+.tld-comment-input input{height:32px;font-size:10px;}
+.tld-comment-input button{width:58px;height:32px;font-size:10px;white-space:nowrap;}
 }

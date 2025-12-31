@@ -33,7 +33,11 @@ const TravelLogPage = () => {
           </thead>
           <tbody>
             {reviews.map(item => (
-              <tr key={item.id}>
+             <tr
+  key={item.id}
+  onClick={() => navigate(`/travelLog/${item.id}`)}
+  style={{ cursor:'pointer' }}
+>
                 <td className="col-no">{item.id}</td>
                 <td className="title col-title">{item.title}</td>
                 <td className="col-nick">{item.nickname}</td>

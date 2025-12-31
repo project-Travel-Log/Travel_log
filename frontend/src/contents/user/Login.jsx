@@ -35,7 +35,7 @@ const Login = () => {
                 <div className="bg-wrap"></div>
                 <div className="login__form-wrap">
                     <form onSubmit={handleLogin}>
-                        <img className='logo' src='/images/login/logo.png' alt="TRAVELOGUE" />
+                        <img className='logo' src='/images/common/logo.png' alt="TRAVELOGUE" />
                         <span className="text">Journey Into New Paths and Unseen Horizons</span>
                         <input className="login-input" type="text" placeholder="아이디" value={userid} 
                             onChange={(e) => setUserid(e.target.value)} />

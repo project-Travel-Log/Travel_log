@@ -1,81 +1,64 @@
-import logo from './logo.svg';
+import './reset.css'
+import './App.css'
+import './common.css'
 
-import './reset.css';
-import './App.css';
-import './common.css';
-// import './sub.css';
-
-import { useEffect, useState } from "react";
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import Header from './components/common/Header';
-import Home from './contents/Home';
-import PlacePage from './contents/place/PlaceDetailPage';
+import { useEffect, useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Header from './components/common/Header'
+import Home from './contents/Home'
+import PlaceDetailPage from './contents/place/PlaceDetailPage'
+import PlaceListPage from './contents/place/PlaceListPage'
 import ReviewListPage from './contents/review/ReviewListPage'
+import ReviewWritePage from './contents/review/ReviewWritePage'
+import ReviewDetailPage from './contents/review/ReviewDetailPage'
 import TravelLogPage from './contents/travelLog/TravelLogPage'
-import SignUp from './contents/user/SignUp';
-import Login from './contents/user/Login';
-// import Logout from './contents/user/Logout';
-import MyPage from './contents/user/MyPage';
-import PlaceList from './contents/place/PlaceListPage';
-import PlaceDetail from './contents/place/PlaceDetailPage';
-import TopButton from './components/common/TopButton';
-import Footer from './components/common/Footer';
-
-import ScrollHandler from './components/common/ScrollHandler';
-import apiClient from './API/axios';
-import { AuthProvider } from './context/AuthContext';
-import ReviewWritePage from './contents/review/ReviewWritePage';
-import TravelLogWritePage from './contents/travelLog/TravelLogWritePage';
-import TravelLogDetailPage from './contents/travelLog/TravelLogDetailPage';
-
+import TravelLogWritePage from './contents/travelLog/TravelLogWritePage'
+import TravelLogDetailPage from './contents/travelLog/TravelLogDetailPage'
+import SignUp from './contents/user/SignUp'
+import Login from './contents/user/Login'
+import MyPage from './contents/user/MyPage'
+import TopButton from './components/common/TopButton'
+import Footer from './components/common/Footer'
+import ScrollHandler from './components/common/ScrollHandler'
 
 function App() {
-  const navigate = useNavigate();
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('')
+
   useEffect(() => {
-    fetch("http://localhost:5000/")
+    fetch('http://localhost:5000/')
       .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setMessage(data.message)
-      })
-      .catch(err => console.error(err));
-  }, []);
+      .then(data => setMessage(data.message))
+      .catch(() => {})
+  }, [])
 
   return (
     <div className="App">
-      {/* header */}
       <ScrollHandler />
       <Header />
-      {/* end header */}
 
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/places/:type" element={<PlacePage />}></Route>
-        <Route path="/review" element={<ReviewListPage />}></Route>
-        <Route path="/travelLog" element={<TravelLogPage />}></Route>
-        <Route path="/SignUp" element={<SignUp />}></Route>
-        <Route path="/Login" element={<Login />}></Route>
-        {/* <Route path="/Logout" element={<Logout />}></Route> */}
-        <Route path="/MyPage" element={<MyPage />}></Route>
-        <Route path="/PlaceList" element={<PlaceList />}></Route>
-        <Route path="/PlaceDetail" element={<PlaceDetail />}></Route>
-        <Route path="/reviews" element={<ReviewListPage />} />
-        <Route path="/reviews/write" element={<ReviewWritePage />} />
-        <Route path="/travellog/write" element={<TravelLogWritePage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/places/:type" element={<PlaceDetailPage />} />
+        <Route path="/PlaceList" element={<PlaceListPage />} />
+        <Route path="/PlaceDetail" element={<PlaceDetailPage />} />
+
+        <Route path="/review" element={<ReviewListPage />} />
+        <Route path="/review/write" element={<ReviewWritePage />} />
+        <Route path="/review/:id" element={<ReviewDetailPage />} />
+
+        <Route path="/travelLog" element={<TravelLogPage />} />
+        <Route path="/travelLog/write" element={<TravelLogWritePage />} />
         <Route path="/travelLog/:id" element={<TravelLogDetailPage />} />
 
-
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/MyPage" element={<MyPage />} />
       </Routes>
 
       <TopButton />
-
-      {/* footer */}
       <Footer />
-      {/* end footer */}
-
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

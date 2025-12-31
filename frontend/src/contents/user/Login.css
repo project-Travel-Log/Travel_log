@@ -1,10 +1,9 @@
 /* 로그인 페이지 */
-.login-wrap {}
 .login-wrap .login-inner {display: flex; width: 100%; max-width: 1250px; height: calc(100vh - 93px); margin: 0 auto; box-sizing: border-box;}
 .login-wrap .login-inner .bg-wrap {width: 55%; background-image: url('/public/images/login/login_bg.png'); background-repeat: no-repeat; background-size: cover; background-position: right;}
 .login-wrap .login-inner .login__form-wrap {display: flex; flex-direction: column; align-items: center; justify-content: center; width: 50%; padding: 0 6% 0 0; background-color: #ffffff; box-sizing: border-box;}
 .login-wrap .login-inner .login__form-wrap form {width: 280px;}
-.login-wrap .login-inner .login__form-wrap form .logo {display: block; width: 200px; margin: 0 auto;}
+.login-wrap .login-inner .login__form-wrap form .logo {display: block; width: 160px; margin: 0 auto;}
 .login-wrap .login-inner .login__form-wrap form .text {display: block; width: 100%; margin: 20px 0 0; font-size: 12px; line-height: 18px; color: #696969; text-align: center;} 
 .login-wrap .login-inner .login__form-wrap form .login-input {width: 100%; height: 40px; padding: 0 12px; border: 1px solid #949494; border-radius: 7px; font-size: 14px; color: #949494; box-sizing: border-box;}
 .login-wrap .login-inner .login__form-wrap form .login-input:first-of-type {margin: 40px 0 0;}
@@ -20,7 +19,7 @@
 @media (max-width: 1250px) {
     .login-wrap .login-inner {height: calc(100vh - 78px);}
     .login-wrap .login-inner .login__form-wrap {padding: 0 11% 0 0;}
-    .login-wrap .login-inner .login__form-wrap form .logo {width: 180px;}
+    .login-wrap .login-inner .login__form-wrap form .logo {width: 160px;}
     .login-wrap .login-inner .login__form-wrap form .login-input {height: 38px; border-radius: 7px;}
     .login-wrap .login-inner .login__form-wrap form .login-input:first-of-type {margin: 35px 0 0;}
     .login-wrap .login-inner .login__form-wrap form .login-input + .login-input {margin: 10px 0 0;}
@@ -30,7 +29,7 @@
 
 @media (max-width: 1024px) {
     .login-wrap .login-inner .bg-wrap {background-size: auto 100%;}
-    .login-wrap .login-inner .login__form-wrap form .logo {width: 160px;}
+    .login-wrap .login-inner .login__form-wrap form .logo {width: 140px;}
     .login-wrap .login-inner .login__form-wrap form .text {margin: 15px 0 0;}
     .login-wrap .login-inner .login__form-wrap form .login-input {height: 35px; border-radius: 6px;}
     .login-wrap .login-inner .login__form-wrap form .login-input:first-of-type {margin: 30px 0 0;}
@@ -43,7 +42,7 @@
     .login-wrap .login-inner .bg-wrap {display: none;}
     .login-wrap .login-inner .login__form-wrap {width: 100%; height: calc(100vh - 150px); padding: 0 15px;}
     .login-wrap .login-inner .login__form-wrap form {width: 100%; max-width: 320px;}
-    .login-wrap .login-inner .login__form-wrap form .logo {width: 150px;}
+    .login-wrap .login-inner .login__form-wrap form .logo {width: 130px;}
     .login-wrap .login-inner .login__form-wrap form .login-input {border-radius: 5px; font-size: 12px;}
     .login-wrap .login-inner .login__form-wrap form .login-input:first-of-type {margin: 25px 0 0;}
     .login-wrap .login-inner .login__form-wrap form .btn-login {font-size: 12px;}
@@ -51,6 +50,6 @@
 }
 
 @media (max-width: 480px) {
-    .login-wrap .login-inner .login__form-wrap form .logo {width: 145px;}
+    .login-wrap .login-inner .login__form-wrap form .logo {width: 125px;}
     .login-wrap .login-inner .login__form-wrap form .text {margin: 10px 0 0;}
 }

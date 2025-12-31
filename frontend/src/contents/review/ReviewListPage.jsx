@@ -32,7 +32,7 @@ const ReviewListPage = () => {
           </thead>
           <tbody>
             {reviews.map(item => (
-              <tr key={item.id} onClick={() => navigate(`/travelLog/${item.id}`)}>
+              <tr key={item.id} onClick={() => navigate(`/review/${item.id}`)}>
 
                 <td className="col-no">{item.id}</td>
                 <td className="title col-title">{item.title}</td>
@@ -56,7 +56,7 @@ const ReviewListPage = () => {
         <div className="review-write-btn-wrap">
            <button
       className="review-write-btn"
-      onClick={() => navigate('/reviews/write')}
+      onClick={() => navigate('/review/write')}
     >
       글 작성하기
     </button>
