@@ -25,8 +25,14 @@
 .rd-comment-like { display: flex; align-items: center; gap: 6px; }
 .rd-comment-like-icon { width: 18px; height: 18px; }
 .rd-comment-like-count { font-size: 14px; color: #000; }
-.rd-back-wrap { max-width: 1250px; margin: 40px auto 0 auto; display: flex; justify-content: center; border-top: 1px solid #ddd; padding-top: 40px; }
+.rd-back-wrap { max-width: 1250px; margin: 40px auto 0 auto; display: flex; justify-content: center;padding-top: 40px; }
 .rd-back-btn { height: 44px; background: #0b2a63; color: #fff; border: none; padding: 0 30px; border-radius: 7px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-sizing: border-box; }
+.rd-comment-profile2{width:50px;height:50px;border-radius:50%;background:#ccc;margin-right:12px;flex-shrink:0;aspect-ratio:1/1;}
+
+.rd-comment-input{display:flex;align-items:center;padding:20px 14px 0;margin-top:20px;position:relative;}
+.rd-comment-input::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:#eee;}
+.rd-comment-input input{flex:1;min-width:0;height:40px;border:1px solid #ccc;border-right:none;padding:0 14px;box-sizing:border-box;border-radius:7px 0 0 7px;font-size:14px;}
+.rd-comment-input button{width:70px;height:40px;flex-shrink:0;background:#0b2a63;color:#ffffff;border:1px solid #0b2a63;cursor:pointer;box-sizing:border-box;border-radius:0 7px 7px 0;font-size:14px;}
 
 @media (max-width: 768px) {
 .rd-container { height: 140px; padding: 0 16px; box-sizing: border-box; }
@@ -39,8 +45,10 @@
 .rd-container-text span,.rd-comment-user,.rd-comment-date,.rd-comment-text,.rd-comment-like-count { font-size: 12px; }
 .rd-comment-like-icon { width: 16px; height: 16px; }
 .write-review-btn { height: 38px; padding: 0 14px; font-size: 12px; }
-.back-to-list-btn { height: 38px; padding: 0 20px; font-size: 13px; }
+.rd-back-btn { height: 38px; padding: 0 20px; font-size: 12px; }
 .rd-comment-profile { width: 36px; height: 36px; }
+.rd-comment-input input{height:36px;font-size:12px;}
+.rd-comment-input button{width:64px;height:36px;font-size:12px;white-space:nowrap;}
 }
 
 @media (max-width: 480px) {
@@ -54,6 +62,9 @@
 .rd-container-text span,.rd-comment-user,.rd-comment-date,.rd-comment-text,.rd-comment-like-count { font-size: 10px; }
 .rd-comment-like-icon { width: 14px; height: 14px; }
 .write-review-btn { height: 32px; padding: 0 10px; font-size: 10px; border-radius: 4px; }
-.back-to-list-btn { height: 32px; padding: 0 16px; font-size: 11px; border-radius: 4px; }
+.rd-back-btn { height: 32px; padding: 0 16px; font-size: 10px; border-radius: 4px; }
 .rd-comment-profile { width: 30px; height: 30px; }
+.rd-comment-profile2{width:36px;height:36px;}
+.rd-comment-input input{height:32px;font-size:10px;}
+.rd-comment-input button{width:58px;height:32px;font-size:10px;white-space:nowrap;}
 }

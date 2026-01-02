@@ -13,7 +13,7 @@ html, body { width:100%; margin:0; padding:0; overflow-x:hidden; }
 .review-table th { background:#6f8fcf; color:#fff; padding:12px 2px; text-align:center; vertical-align:middle; border-bottom:1px solid #ddd; font-size:15px; }
 .review-table td { padding:12px 2px; text-align:center; border-bottom:1px solid #ddd; font-size:14px; vertical-align:middle; }
 .review-table tr { height:48px; }
-.review-table tbody tr:hover { cursor:pointer; background:#f5f7fb; }
+.review-table tbody tr:hover { cursor:pointer; background:#edf0f5; }
 .col-no { width:10%; }
 .col-title { width:45%; }
 .col-nick { width:15%; }

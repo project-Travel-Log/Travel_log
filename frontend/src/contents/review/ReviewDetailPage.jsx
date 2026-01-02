@@ -1,13 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ReviewDetailPage.css';
 
 const ReviewDetailPage = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="rd-container">
         <div className="rd-container-text">
           <h1>대관령 양떼목장</h1>
-          <img src="/images/common/icon_wish.png" alt="찜"/>
+          <img src="/images/common/icon_wish.png" alt="찜" />
         </div>
       </div>
 
@@ -23,7 +25,11 @@ const ReviewDetailPage = () => {
         <div className="rd-comment-section">
           <div className="rd-comment-title-wrap">
             <h3>Review</h3>
-            <button className="write-review-btn">나도 리뷰 작성해보기</button>
+            <button
+              className="write-review-btn"
+              onClick={() => navigate('/review/write')}>
+                나도 리뷰 작성해보기
+              </button>
           </div>
 
           <div className="rd-comment">
@@ -55,10 +61,16 @@ const ReviewDetailPage = () => {
               </div>
             </div>
           </div>
-
+          <div className="rd-comment-input">
+            <div className="rd-comment-profile2"></div>
+            <input type="text" placeholder="리뷰를 작성해주세요" />
+            <button>작성</button>
+          </div>
           <div className="rd-back-wrap">
-            <button className="rd-back-btn">추천게시판 목록으로 돌아가기</button>
+            <button className="rd-back-btn">추천 게시판 목록으로 돌아가기</button>
           </div>
+
+
         </div>
       </div>
     </>
