@@ -12,12 +12,12 @@ const TravelLogPage = () => {
   ];
 
   const [page, setPage] = useState(1);
-  const totalPages = 23; // 서버에서 받은 전체 페이지 수
+  const totalPages = 23;
 
   return (
         <div className="board-wrap">
             <div className="board-header" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/review/mytravellogmain.png)` }}>
-                <h3 className='title'>Review</h3>
+                <h3 className='title'>Travellog</h3>
                 <form action="">
                     <div className="search-wrap">
                         <input type="text" />
@@ -47,9 +47,9 @@ const TravelLogPage = () => {
                         </thead>
                         <tbody>
                             {reviews.map(item => (
-                            <tr key={item.id} onClick={() => navigate(`/review/${item.id}`)}>
+                            <tr key={item.id} onClick={() => navigate(`/travelLog/${item.id}`)}>
                                 <td className="mo-none">{item.id}</td>
-                                <td className="title"><Link to="review">{item.title}</Link></td>
+                                <td className="title"><Link to="travelLog">{item.title}</Link></td>
                                 <td className="mo-none">{item.nickname}</td>
                                 <td>{item.date}</td>
                                 <td>{item.like}</td>
@@ -66,7 +66,7 @@ const TravelLogPage = () => {
                     <div className="btn-wrap">
                         <button
                             className="btn-write"
-                            onClick={() => navigate('/review/write')}
+                            onClick={() => navigate('/travelLog/write')}
                             >
                                 글 작성하기
                         </button>
