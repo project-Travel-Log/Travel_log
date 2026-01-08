@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+body {word-break: keep-all;}
+
 /* header */
 header {position: sticky; top: 0; width: 100%; background-color: #fff; z-index: 99999;}
 .header-wrap {}
@@ -411,5 +413,147 @@ footer {}
 
     .board__form-wrap .btn-wrap {gap: 6px; margin: 20px 0 0;}
     .board__form-wrap .btn-wrap .btn {width: calc( (100% - 8px) / 2 ); height: 30px; border-radius: 4px;}
+    
+}
+
+/* board View - 리뷰, 나의 여행로그 */
+.board__view-wrap {margin: 0 0 100px;}
+.board__view-inner {width: 100%; max-width: 1250px; margin: 0 auto; box-sizing: border-box;}
+
+.board__view-wrap .top-wrap {margin: 50px 0 0;}
+.board__view-wrap .top-wrap .top-inner {padding: 40px 30px; border-top: 2px solid #ddd; border-bottom: 1px solid #ddd;}
+.board__view-wrap .top-wrap .top-inner .title {font-size: 35px; line-height: 41px;}
+.board__view-wrap .top-wrap .top-inner .info-wrap {display: flex; align-items: center; margin: 15px 0 0;}
+.board__view-wrap .top-wrap .top-inner .info-wrap .info {display: flex; align-items: center; position: relative; font-size: 16px; line-height: 22px;}
+.board__view-wrap .top-wrap .top-inner .info-wrap .info + .info {margin: 0 0 0 10px; padding: 0 0 0 10px;}
+.board__view-wrap .top-wrap .top-inner .info-wrap .info + .info:before {content: ''; display: inline-block; position: absolute; top: 50%; left: 0; width: 1px; height: 10px; background: #ddd; transform: translateY(-50%);}
+.board__view-wrap .top-wrap .top-inner .info-wrap .info .tit {flex-shrink: 0;;}
+.board__view-wrap .top-wrap .top-inner .info-wrap .info .heart-btn {width: 20px; height: 20px;}
+
+.board__content-wrap {}
+.board__content {padding: 30px 30px 50px;} 
+.board__content img {max-width: 100%; margin: 20px 0 0;}
+.board__content p {font-size: 16px; line-height: 1.5;}
+
+.board__reivew-wrap > .title-wrap {display: flex; justify-content: space-between; align-items: center; margin: 0 0 40px; padding: 30px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+.board__reivew-wrap .title-wrap .title {font-family: 'Candal'; font-weight: 500; font-size: 24px; color: #0b2a63;}
+.board__reivew-wrap .board__review {display: flex; align-items: flex-start; margin: 0 0 40px; padding: 0 30px;}
+.board__reivew-wrap .board__review .img-wrap {display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; width: 40px; height: 40px; margin: 0 12px 0 0; border-radius: 50%; background: #ccc;}
+.board__reivew-wrap .board__review .img-wrap img {width: 100%; height: 100%; object-fit: cover;}
+.board__reivew-wrap .board__review .title-wrap {display: flex; gap: 8px; margin: 0 0 6px;}
+.board__reivew-wrap .board__review .title-wrap .username {font-weight: 500; font-size: 14px;}
+.board__reivew-wrap .board__review .title-wrap .date {font-size: 14px; color: #949494;}
+.board__reivew-wrap .board__review .content {margin: 12px 0; font-size: 14px;}
+.board__reivew-wrap .board__review .review__like-wrap {display: flex; align-items: center; gap: 6px;}
+.board__reivew-wrap .board__review .review__like-wrap .icon {width: 14px; height: 14px;}
+.board__reivew-wrap .board__review .review__like-wrap .like-count {font-size: 14px; color: #000;}
+
+.board__reivew-wrap .board__review-form form {display: flex; align-items: center; position: relative; padding: 40px 30px 0; border-top: 1px solid #ddd;}
+.board__reivew-wrap .board__review-form .img-wrap {display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; width: 50px; height: 50px; margin: 0 12px 0 0; border-radius: 100%; background: #ccc;}
+.board__reivew-wrap .board__review-form .img-wrap img {width: 100%; height: 100%; object-fit: cover;}
+.board__reivew-wrap .board__review-form input {flex: 1; height: 40px; padding: 0 14px; border: 1px solid #ccc; border-right: none; border-radius: 7px 0 0 7px; font-size: 14px; box-sizing:border-box;}
+.board__reivew-wrap .board__review-form button {display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 70px; height: 40px; border: 1px solid #0b2a63; border-radius: 0 7px 7px 0; background: #0b2a63; color: #ffffff; font-size: 14px; box-sizing:border-box;}
+
+.board__reivew-wrap .btn-wrap {display: flex; justify-content: center; margin: 60px 0 0;}
+.board__reivew-wrap .btn-wrap .btn-list {display: inline-flex; align-items: center; justify-content: center; width: 120px; height: 44px; border-radius: 7px; background: #0b2a63; font-size: 14px; color: #fff;}
+
+@media only screen and (max-width: 1250px) {
+    .board__view-inner {padding: 0 35px;}
+
+    .board__view-wrap .top-wrap {margin: 40px 0 0;}
+    .board__view-wrap .top-wrap .top-inner {padding: 35px 25px;}
+    .board__view-wrap .top-wrap .top-inner .title {font-size: 31px; line-height: 37px;}
+    .board__view-wrap .top-wrap .top-inner .info-wrap .info .heart-btn {width: 18px; height: 18px;}
+
+    .board__content {padding: 25px 25px 45px;}
+
+    .board__reivew-wrap > .title-wrap {margin: 0 0 35px; padding: 25px;}
+    .board__reivew-wrap .title-wrap .title {font-size: 22px;}
+
+    .board__reivew-wrap .board__review {margin: 0 0 35px; padding: 0 25px;}
+    .board__reivew-wrap .board__review .img-wrap {width: 35px; height: 35px;}
+    
+    .board__reivew-wrap .board__review-form form {padding: 35px 25px 0;}
+    .board__reivew-wrap .board__review-form .img-wrap {width: 45px; height: 45px;}
+    .board__reivew-wrap .board__review-form input {height: 35px; padding: 0 12px; border-radius: 6px 0 0 6px;}
+    .board__reivew-wrap .board__review-form button {width: 65px; height: 35px; border-radius: 0 6px 6px 0;}
+
+    .board__reivew-wrap .btn-wrap {gap: 14px; margin: 50px 0 0;}
+    .board__reivew-wrap .btn-wrap .btn-list {height: 40px; border-radius: 6px;}
+
+}
+
+@media only screen and (max-width: 1024px) {
+    .board__view-wrap {margin: 0 0 80px;}
+    .board__view-inner {padding: 0 30px;}
+
+    .board__view-wrap .top-wrap {margin: 30px 0 0;}
+    .board__view-wrap .top-wrap .top-inner {padding: 30px 20px;}
+    .board__view-wrap .top-wrap .top-inner .title {font-size: 27px; line-height: 33px;}
+    .board__view-wrap .top-wrap .top-inner .info-wrap {margin: 10px 0 0;}
+    .board__view-wrap .top-wrap .top-inner .info-wrap .info {font-size: 14px; line-height: 20px;}
+    .board__view-wrap .top-wrap .top-inner .info-wrap .info .heart-btn {width: 16px; height: 16px;}
+
+    .board__content {padding: 20px 20px 40px;}
+    .board__content img {margin: 15px 0 0;}
+
+    .board__reivew-wrap > .title-wrap {margin: 0 0 30px; padding: 20px;}
+    .board__reivew-wrap .title-wrap .title {font-size: 20px;}
+
+    .board__reivew-wrap .board__review {margin: 0 0 30px; padding: 0 20px;}
+    .board__reivew-wrap .board__review .img-wrap {width: 30px; height: 30px;}
+
+    .board__reivew-wrap .board__review-form form {padding: 30px 20px 0;}
+    .board__reivew-wrap .board__review-form .img-wrap {width: 40px; height: 40px;}
+    .board__reivew-wrap .board__review-form input {border-radius: 0 5px 5px 0;}
+    .board__reivew-wrap .board__review-form button {width: 60px; border-radius: 5px 0 0 5px;}
+
+    .board__reivew-wrap .btn-wrap {gap: 10px; margin: 40px 0 0;}
+    .board__reivew-wrap .btn-wrap .btn-list {height: 35px; border-radius: 5px;}
+}
+
+@media only screen and (max-width: 768px) {
+    .board__view-inner {padding: 0 15px;}
+
+    .board__view-wrap .top-wrap {margin: 20px 0 0;}
+    .board__view-wrap .top-wrap .top-inner {padding: 25px 15px;}
+    .board__view-wrap .top-wrap .top-inner .title {font-size: 23px; line-height: 29px;}
+    .board__view-wrap .top-wrap .top-inner .info-wrap .info {font-size: 12px; line-height: 18px;}
+    .board__view-wrap .top-wrap .top-inner .info-wrap .info + .info {margin: 0 0 0 5px; padding: 0 0 0 5px;}
+
+    .board__content {padding: 15px 15px 40px;}
+    .board__content p {font-size: 14px;}
+    .board__content img {margin: 10px 0 0;}
+
+    .board__reivew-wrap > .title-wrap {margin: 0 0 25px; padding: 15px;}
+    .board__reivew-wrap .title-wrap .title {font-size: 18px;}
+
+    .board__reivew-wrap .board__review {margin: 0 0 25px; padding: 0 15px;}
+    .board__reivew-wrap .board__review .img-wrap {width: 25px; height: 25px; margin: 0 10px 0 0;}
+    .board__reivew-wrap .board__review .title-wrap .username {font-size: 12px;}
+    .board__reivew-wrap .board__review .title-wrap .date {font-size: 12px;}
+    .board__reivew-wrap .board__review .content {margin: 10px 0 7px; font-size: 12px;}
+    .board__reivew-wrap .board__review .review__like-wrap .icon {width: 12px; height: 12px;}
+    .board__reivew-wrap .board__review .review__like-wrap .like-count {font-size: 12px;}
+
+    .board__reivew-wrap .board__review-form form {padding: 25px 15px 0;}
+    .board__reivew-wrap .board__review-form .img-wrap {width: 35px; height: 35px; margin: 0 10px 0 0;}
+    .board__reivew-wrap .board__review-form input {height: 30px; padding: 0 10px; border-radius: 4px 0 0 4px; font-size: 12px;}
+    .board__reivew-wrap .board__review-form button {width: 55px; height: 30px; border-radius: 0 4px 4px 0; font-size: 12px;}
+}
+
+@media only screen and (max-width: 480px) {
+    .board__view-wrap .top-wrap .top-inner {position: relative; padding: 15px;}
+    .board__view-wrap .top-wrap .top-inner .title {padding: 0 20px 0 0; font-size: 20px; line-height: 26px;}
+    .board__view-wrap .top-wrap .top-inner .info-wrap {flex-direction: column; align-items: flex-start;}
+    .board__view-wrap .top-wrap .top-inner .info-wrap .info {position: static;}
+    .board__view-wrap .top-wrap .top-inner .info-wrap .info + .info {margin: 0; padding: 0;}
+    .board__view-wrap .top-wrap .top-inner .info-wrap .info + .info:before {display: none;}
+    .board__view-wrap .top-wrap .top-inner .info-wrap .info .heart-btn {position: absolute; top: 21px; right: 17px;}
+
+    .board__content {padding: 15px 15px 30px;}
+
+    .board__reivew-wrap .board__review-form form {padding: 15px 15px 0;}
+    .board__reivew-wrap .btn-wrap .btn-list {height: 30px; border-radius: 4px;}
     
 }

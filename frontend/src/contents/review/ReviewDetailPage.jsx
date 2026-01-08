@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import WishToggleButton from '../../components/common/WishToggleButton';
-import './ReviewDetailPage.css';
 
 const ReviewDetailPage = () => {
   const navigate = useNavigate();
@@ -67,34 +66,30 @@ const ReviewDetailPage = () => {
 
         <div className="board__content-wrap">
           <div className="board__content">
-            <img src="/images/review/reviewsample1.png" alt="샘플 사진1" />
-            <br />
-            <br />
-            <br />
-            <br />
             <p>
               여행을 떠난다는 것은 단순히 지도를 따라 새로운 장소를 방문하는 행위가 아니다. 익숙한 생활의 틀을 잠시 벗어나, 다른 공기와 다른 빛, 다른 사람들의 속도 속으로 자신을 옮겨 놓는 일이다. 공항이나 기차역에 도착하는 순간부터 마음은 이미 여행자의 리듬에 맞추어 천천히 흔들리기 시작한다. 가방의 무게는 가볍지 않지만, 그 안에는 설렘과 기대가 함께 들어 있어 오히려 발걸음이 가벼워진다.
             </p>
-            <br />
-            <br />
-            <br />
+            <img src="/images/review/reviewsample1.png" alt="샘플 사진1" />
             <img src="/images/review/reviewsample2.png" alt="샘플 사진2" />
           </div>
 
-          <div className="rd-comment-section">
-            <div className="rd-comment-title-wrap">
-              <h3>Review</h3>
+          <div className="board__reivew-wrap">
+            <div className="title-wrap">
+              <h3 className="title">Review</h3>
             </div>
-            <div className="rd-comment">
-              <div className="rd-comment-profile"></div>
-              <div className="rd-comment-content">
-                <div className="rd-comment-header">
-                  <span className="rd-comment-user">닉네임</span>
-                  <span className="rd-comment-date">2025.12.11</span>
+            {/* review list */}
+            <div className="board__review">
+              <div className="img-wrap">
+                {/* 프로필 이미지 영역 */}
+              </div>
+              <div className="board__review-content">
+                <div className="title-wrap">
+                  <span className="username">닉네임</span>
+                  <span className="date">2025.12.11</span>
                 </div>
-                <p className="rd-comment-text">좋아요</p>
+                <p className="content">좋아요</p>
                 <div
-                  className="rd-comment-like"
+                  className="review__like-wrap"
                   onClick={() => toggleLike(0)}>
                   <img
                     src={
@@ -102,51 +97,29 @@ const ReviewDetailPage = () => {
                         ? '/images/common/icon-thumb-up-active.png'
                         : '/images/common/icon-thumb-up.png'
                     }
-                    className="rd-comment-like-icon"
+                    className="icon"
                     alt="추천"
                   />
-                  <span className="rd-comment-like-count">
+                  <span className="like-count">
                     {likes[0].count}
                   </span>
                 </div>
               </div>
-            </div>
+            </div> 
+            {/* end review list */}
 
-            <div className="rd-comment">
-              <div className="rd-comment-profile"></div>
-              <div className="rd-comment-content">
-                <div className="rd-comment-header">
-                  <span className="rd-comment-user">닉네임</span>
-                  <span className="rd-comment-date">2025.12.11</span>
+            <div className="board__review-form">
+              <form action="">
+                <div className="img-wrap">
+                  {/* 이미지 영역 */}
                 </div>
-                <p className="rd-comment-text">좋아요</p>
-                <button
-                  className="rd-comment-like"
-                  onClick={() => toggleLike(1)}>
-                  <img
-                    src={
-                      likes[1].liked
-                        ? '/images/common/icon-thumb-up-active.png'
-                        : '/images/common/icon-thumb-up.png'
-                    }
-                    className="rd-comment-like-icon"
-                    alt="추천"
-                  />
-                  <span className="rd-comment-like-count">
-                    {likes[1].count}
-                  </span>
-                </button>
-              </div>
+                <input type="text" placeholder="리뷰를 작성해주세요" />
+                <button type="submit">등록</button>
+              </form>
             </div>
 
-            <div className="rd-comment-input">
-              <div className="rd-comment-profile2"></div>
-              <input type="text" placeholder="리뷰를 작성해주세요" />
-              <button>작성</button>
-            </div>
-
-            <div className="rd-back-wrap">
-              <button className="rd-back-btn">목록</button>
+            <div className="btn-wrap">
+              <button className="btn-list">목록</button>
             </div>
           </div>
         </div>

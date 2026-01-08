@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import './TravelLogDetailPage.css'
 
 const TravelLogDetailPage=()=>{
  const [replyOpen1,setReplyOpen1]=useState(false)
