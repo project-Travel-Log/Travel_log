@@ -21,6 +21,7 @@ import TopButton from './components/common/TopButton'
 import Footer from './components/common/Footer'
 import ScrollHandler from './components/common/ScrollHandler'
 import MyPageModify from './contents/user/MyPageModify'
+import ChatBot from './contents/chatbot/Chatbot'
 
 function App() {
   const [message, setMessage] = useState('')
@@ -67,6 +68,7 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/MyPage" element={<MyPage />} />
         <Route path="/MyPageModify" element={<MyPageModify />} />
+        <Route path="/chatbot" element={<ChatBot />} />
       </Routes>
 
       <TopButton />
