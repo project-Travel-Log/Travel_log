@@ -72,11 +72,7 @@ const Header = () => {
                                     나의 여행로그
                                 </NavLink>
                                 </li>
-                                <li>
-                                <NavLink to="/PlaceDetail" className="gnb-link">
-                                    디테일
-                                </NavLink>
-                                </li>
+
                             </ul>
                         </nav>
                     </div>

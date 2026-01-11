@@ -104,6 +104,12 @@ class Comment(db.Model):                                                        
 
     user = db.relationship('User', backref='comments')
 
+    replies = db.relationship(
+        'Comment',
+        backref=db.backref('parent', remote_side=[id]),
+        cascade='all, delete'
+    )
+
 class MyTravelLog(db.Model):                                                                                                                                        # 나의 여행로그
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)                                                                                                # 게시글 생성시 자동 생성
     title = db.Column(db.String(120), nullable=False)                                                                                                               # 제목          # 필수입력
@@ -124,3 +130,14 @@ class Wishlist(db.Model):                                                       
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'))                                                                                   # user 테이블 참조
     places_id = db.Column(db.Integer, db.ForeignKey('places.id', ondelete='CASCADE'))                                                                               # place 테이블 참조
+
+class Like(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+
+    target_type = db.Column(db.String(20), nullable=False)
+    target_id = db.Column(db.Integer, nullable=False)
+
+    created_at = db.Column(db.DateTime, default=db.func.now())
+
+    __table_args__ = (db.UniqueConstraint("user_id", "target_type", "target_id", name="uix_user_target_like"),)

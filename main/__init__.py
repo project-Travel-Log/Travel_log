@@ -25,12 +25,13 @@ def create_app():
     CORS(app, supports_credentials=True, resources={r"/api/*": {"origins": "http://localhost:3000"}})
 
     # 블루프린트
-    from .views import main_views, auth_views, place_views, user_views, review, wishlist,chatbot_views
+    from .views import main_views, auth_views, place_views, user_views, review, wishlist,chatbot_views,like
     app.register_blueprint(main_views.bp, url_prefix='/api')
     app.register_blueprint(auth_views.bp, url_prefix='/api')
     app.register_blueprint(place_views.bp, url_prefix='/api')
     app.register_blueprint(user_views.bp, url_prefix='/api')
     app.register_blueprint(review.bp, url_prefix='/api')
     app.register_blueprint(wishlist.bp, url_prefix='/api')
-    app.register_blueprint(chatbot_views.bp, url_prefix='/api')
+    app.register_blueprint(like.bp, url_prefix='/api')
+    # app.register_blueprint(chatbot_views.bp, url_prefix='/api')
     return app

@@ -1,15 +1,38 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { reviewWrite } from "../../API/review";
 
 const ReviewWritePage = () => {
   const fileInputRef = useRef(null);
   const [images, setImages] = useState([]);
+  const nav = useNavigate();
 
   const [form, setForm] = useState({
-    title:"",
-    content:"",
-    image:""
+    title: "",
+    content: "",
+    image: ""
   })
+
+  const submitBt = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("title", form.title);
+    formData.append("content", form.content);
+
+    images.forEach(img => {
+      formData.append("images", img.file);
+    });
+
+    try {
+      const res = await reviewWrite(formData);
+      const reviewId = res.data.review_id;
+      nav(`/review/${reviewId}`);
+    } catch (err) {
+      console.error(err);
+      alert("리뷰 등록 실패");
+    }
+  };
 
   const photoUpload = () => {
     fileInputRef.current?.click();
@@ -43,7 +66,7 @@ const ReviewWritePage = () => {
   return (
     <div className="board__form-wrap">
       <div className="board__form-inner">
-        <form action="">
+        <form onSubmit={submitBt}>
           <div className="board__form-header">
             <div className="img-wrap">{/* 프로필 이미지 영역 */}</div>
           </div>
@@ -51,7 +74,7 @@ const ReviewWritePage = () => {
           <div className="board__form-content">
             <div className="board__form-section">
               <label htmlFor="place">어떤 장소를 여행하셨나요?</label>
-              <input id="place" type="text" placeholder="장소를 입력해주세요"  value={form.title} onChange={(e) => setForm({...form, title : e.target.value})}/>
+              <input id="place" type="text" placeholder="장소를 입력해주세요" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
             </div>
 
             <div className="board__form-section">
@@ -59,8 +82,8 @@ const ReviewWritePage = () => {
               <textarea
                 id="review"
                 placeholder="여행에 대한 솔직한 후기를 남겨주세요"
-                value={FormData}
-                onChange={(e) => setForm({...form, content:e.target.value})}
+                value={form.content}
+                onChange={(e) => setForm({ ...form, content: e.target.value })}
               />
             </div>
 

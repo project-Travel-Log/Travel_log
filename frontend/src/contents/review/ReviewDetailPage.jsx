@@ -1,54 +1,119 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import WishToggleButton from '../../components/common/WishToggleButton';
+import { getReviewDetail } from '../../API/review';
+import { toggleLike } from '../../API/like';
+import { createComment, getComments } from '../../API/comment';
 
 const ReviewDetailPage = () => {
   const navigate = useNavigate();
-
+  const { id } = useParams()
+  const [review, setReview] = useState(null)
+  const [liked, setLiked] = useState(false);
+  const [reviewImag, setReviewImage] = useState([])
   const [isWished, setIsWished] = useState(false);
+  const [comments, setComments] = useState([]);
+  const [commentText, setCommentText] = useState("");
 
   const [likes, setLikes] = useState([
     { count: 14, liked: false },
     { count: 14, liked: false },
-  ]); 
+  ]);
+  const IMAGE_BASE_URL = "http://localhost:5000/"
 
-  const toggleLike = (index) => {
-    setLikes((prev) =>
-      prev.map((item, i) =>
-        i === index
-          ? {
-              liked: !item.liked,
-              count: item.liked ? item.count - 1 : item.count + 1,
-            }
-          : item
-      )
-    );
+  useEffect(() => {
+    getReviewDetail(id)
+      .then(res => {
+        console.log("리뷰데이터", res.data);
+        setReview(res.data);
+        setLiked(res.data.liked ?? false);
+      })
+      .catch(err => console.error(err));
+  }, [id]);
+
+  useEffect(() => {
+    getComments(id)
+    .then(res => {
+      if (Array.isArray(res.data)) {
+        setComments(res.data);
+      } else {
+        setComments([]);
+      }
+    });
+  }, [id]);
+
+
+  useEffect(() => {
+    if (review?.image?.length > 0) {
+      setReviewImage(IMAGE_BASE_URL + review.review_image[0]);
+    }
+  }, [review])
+
+  const handleLike = () => {
+    toggleLike("review", review.id)
+      .then(res => {
+        setLiked(res.data.liked);
+        setReview(prev => ({
+          ...prev,
+          like_count: res.data.like_count
+        }));
+      })
+      .catch(err => console.error(err));
   };
+
+const fetchComments = () => {
+    getComments(id)
+        .then(res => {
+            if (Array.isArray(res.data)) setComments(res.data);
+            else setComments([]);
+        })
+        .catch(err => console.error(err));
+};
+
+const handleSubmit = async (e) => {
+    e.preventDefault();  // 이제 undefined 아님
+    if (!commentText.trim()) return alert("댓글을 입력하세요.");
+
+    try {
+        const res = await createComment(review.id, commentText);
+        console.log("서버 응답:", res.data);
+        setCommentText("");  
+        fetchComments();     
+    } catch (err) {
+        console.error("댓글 등록 실패:", err.response?.data || err.message);
+        alert("댓글 등록 실패: " + (err.response?.data?.message || err.message));
+    }
+};
+  if (!review) {
+    return
+  }
 
   return (
     <div className="board__view-wrap">
       <div className="board__view-inner">
         <div className="top-wrap">
           <div className="top-inner">
-            <h3 className="title">대관령 양떼목장</h3>
+            <h3 className="title">{review.title}</h3>
             <div className="info-wrap">
               <p className="info">
                 <span className="tit">작성자 :</span>
                 &nbsp;
-                <span className="txt">닉네임</span>
+                <span className="txt">{review.user.username}</span>
               </p>
               <p className="info">
                 <span className="tit">작성일 :</span>
                 &nbsp;
-                <span className="txt">2026-01-06</span>
+                <span className="txt">{review.created_at}</span>
               </p>
               <p className="info">
                 <span className="tit">추천수 :</span>
                 &nbsp;
-                <span className="txt">14</span>
+                <span className="txt">{review.like_count}</span>
               </p>
               <p className="info">
-                <WishToggleButton className="heart-btn" />
+                <WishToggleButton className="heart-btn"
+                  active={liked}
+                  onToggle={() => handleLike()} />
               </p>
             </div>
             {/* <img
@@ -67,10 +132,13 @@ const ReviewDetailPage = () => {
         <div className="board__content-wrap">
           <div className="board__content">
             <p>
-              여행을 떠난다는 것은 단순히 지도를 따라 새로운 장소를 방문하는 행위가 아니다. 익숙한 생활의 틀을 잠시 벗어나, 다른 공기와 다른 빛, 다른 사람들의 속도 속으로 자신을 옮겨 놓는 일이다. 공항이나 기차역에 도착하는 순간부터 마음은 이미 여행자의 리듬에 맞추어 천천히 흔들리기 시작한다. 가방의 무게는 가볍지 않지만, 그 안에는 설렘과 기대가 함께 들어 있어 오히려 발걸음이 가벼워진다.
+              {review.content}
             </p>
-            <img src="/images/review/reviewsample1.png" alt="샘플 사진1" />
-            <img src="/images/review/reviewsample2.png" alt="샘플 사진2" />
+            {Array.isArray(review?.review_image) &&
+              review.review_image.map(url => (
+                <img key={url} src={`http://localhost:5000/${url}`} />
+              ))}
+
           </div>
 
           <div className="board__reivew-wrap">
@@ -78,48 +146,52 @@ const ReviewDetailPage = () => {
               <h3 className="title">Review</h3>
             </div>
             {/* review list */}
-            <div className="board__review">
-              <div className="img-wrap">
-                {/* 프로필 이미지 영역 */}
-              </div>
-              <div className="board__review-content">
-                <div className="title-wrap">
-                  <span className="username">닉네임</span>
-                  <span className="date">2025.12.11</span>
+            {comments.map(comment => (
+              <div className="board__review" key={comment.id}>
+                <div className="img-wrap">
+                  <img src={`http://localhost:5000/${comment.user.profile_img}`} />
                 </div>
-                <p className="content">좋아요</p>
-                <div
-                  className="review__like-wrap"
-                  onClick={() => toggleLike(0)}>
-                  <img
-                    src={
-                      likes[0].liked
-                        ? '/images/common/icon-thumb-up-active.png'
-                        : '/images/common/icon-thumb-up.png'
-                    }
-                    className="icon"
-                    alt="추천"
-                  />
-                  <span className="like-count">
-                    {likes[0].count}
-                  </span>
+                <div className="board__review-content">
+                  <div className="title-wrap">
+                    <span className="username">{comment.user.username}</span>
+                    <span className="date">{comment.created_at}</span>
+                  </div>
+                  <p className="content">{comment.content}</p>
+                  <div
+                    className="review__like-wrap"
+                  // onClick={() => toggleLike(0)}>
+                  >
+                    <img
+                      src={
+                        likes[0].liked
+                          ? '/images/common/icon-thumb-up-active.png'
+                          : '/images/common/icon-thumb-up.png'
+                      }
+                      className="icon"
+                      alt="추천"
+                    />
+                    <span className="like-count">
+                      {comment.like_count}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div> 
+            ))}
             {/* end review list */}
-
             <div className="board__review-form">
-              <form action="">
+              <form onSubmit={handleSubmit}>
                 <div className="img-wrap">
                   {/* 이미지 영역 */}
                 </div>
-                <input type="text" placeholder="리뷰를 작성해주세요" />
+                <input type="text" value={commentText}
+                  onChange={(e) => setCommentText(e.target.value)}
+                  placeholder="댓글을 작성해주세요" />
                 <button type="submit">등록</button>
               </form>
             </div>
 
             <div className="btn-wrap">
-              <button className="btn-list">목록</button>
+              <Link to='/review'> <button className="btn-list">목록</button></Link>
             </div>
           </div>
         </div>
