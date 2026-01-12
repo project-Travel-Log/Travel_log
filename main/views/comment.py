@@ -1,116 +1,79 @@
-from time import timezone
-
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
-
 from main import db
-from main.models import Comment, Like
+from main.models import Comment, Review, MyTravelLog, User  # 모델 임포트
+from datetime import datetime, timezone, timedelta
+import json
 
-bp = Blueprint('comment', __name__)
+bp = Blueprint("comment", __name__)
 
-@bp.route("/review/<int:review_id>", methods=["GET"])
-@jwt_required(optional=True)
-def get_comments(review_id):
-    user_id = get_jwt_identity()
+# 한국 시간
+KST = timezone(timedelta(hours=9))
 
-    comments = Comment.query.filter_by(
-        review_id=review_id,
-        parent_id=None
-    ).order_by(Comment.created_at.asc()).all()
+# 댓글 조회
+@bp.route("/comments/<target_type>/<int:target_id>", methods=["GET"])
+def get_comments(target_type, target_id):
+    if target_type == "review":
+        comments = Comment.query.filter_by(target_type="review", target_id=target_id)\
+                    .order_by(Comment.created_at.desc()).all()
+    elif target_type == "travelLog":
+        comments = Comment.query.filter_by(target_type="travelLog", target_id=target_id)\
+                    .order_by(Comment.created_at.desc()).all()
+    else:
+        return jsonify({"message": "Invalid target type"}), 400
 
-    def serialize(c):
-        liked = False
-        if user_id:
-            liked = Like.query.filter_by(
-                user_id=user_id,
-                target_type="comment",
-                target_id=c.id
-            ).first() is not None
-
-        return {
+    comment_list = []
+    for c in comments:
+        comment_list.append({
             "id": c.id,
             "content": c.content,
-            "like_count": c.like_count,
-            "liked": liked,
-            "created_at": c.created_at.astimezone(timezone.utc).strftime("%Y-%m-%d"),
+            "created_at": c.created_at.astimezone(KST).strftime("%Y년 %m월 %d일 %H:%M"),
             "user": {
                 "id": c.user.id,
                 "username": c.user.username,
-                "profile_img": c.user.profile_img
+                "profile_img": c.user.profile_image
             },
-            "replies": [serialize(r) for r in c.replies]
-        }
+            "like_count": c.like_count  # 좋아요 수 필드 있으면 포함
+        })
+    return jsonify(comment_list), 200
 
-    return jsonify([serialize(c) for c in comments])
 
-@bp.route("/review/<int:review_id>", methods=["POST"])
+# 댓글 작성
+@bp.route("/comments/<target_type>/<int:target_id>", methods=["POST"])
 @jwt_required()
-def create_comment(review_id):
+def create_comment(target_type, target_id):
     user_id = get_jwt_identity()
-    if not user_id:
-        return jsonify({"message": "로그인이 필요합니다."}), 401
+    data = request.get_json()
+    content = data.get("content")
 
-    data = request.get_json()  # JSON으로 받음
-    if not data or "content" not in data or not data["content"].strip():
-        return jsonify({"message": "댓글 내용이 필요합니다."}), 400
+    if not content:
+        return jsonify({"message": "댓글 내용을 입력해주세요."}), 400
 
-    print(data.get("content"))
+    # 댓글 작성 대상 확인
+    if target_type == "review":
+        target = Review.query.get_or_404(target_id)
+    elif target_type == "travelLog":
+        target = MyTravelLog.query.get_or_404(target_id)
+    else:
+        return jsonify({"message": "Invalid target type"}), 400
 
     comment = Comment(
-        content=data["content"].strip(),
-        review_id=review_id,
-        parent_id=data.get("parent_id"),
-        user_id=user_id
+        content=content,
+        user_id=user_id,
+        target_type=target_type,
+        target_id=target_id
     )
-
-    try:
-        db.session.add(comment)
-        db.session.commit()
-    except Exception as e:
-        db.session.rollback()
-        return jsonify({
-            "message": "DB 저장 실패",
-            "error": str(e),
-            "data": data,
-            "user_id": user_id,
-            "review_id": review_id
-        }), 500
+    db.session.add(comment)
+    db.session.commit()
 
     return jsonify({
-        "message": "댓글 등록 성공",
-        "comment": {
-            "id": comment.id,
-            "content": comment.content,
-            "review_id": comment.review_id,
-            "parent_id": comment.parent_id,
-            "user_id": comment.user_id,
-            "created_at": comment.created_at.isoformat()
-        }
-    })
-
-# @bp.route("/<int:comment_id>", methods=["PUT"])
-# @jwt_required()
-# def update_comment(comment_id):
-#     user_id = get_jwt_identity()
-#     comment = Comment.query.get_or_404(comment_id)
-#
-#     if comment.user_id != user_id:
-#         return jsonify({"message": "권한 없음"}), 403
-#
-#     comment.content = request.json["content"]
-#     db.session.commit()
-#     return jsonify({"message": "updated"})
-#
-# @bp.route("/<int:comment_id>", methods=["DELETE"])
-# @jwt_required()
-# def delete_comment(comment_id):
-#     user_id = get_jwt_identity()
-#     comment = Comment.query.get_or_404(comment_id)
-#
-#     if comment.user_id != user_id:
-#         return jsonify({"message": "권한 없음"}), 403
-#
-#     db.session.delete(comment)
-#     db.session.commit()
-#     return jsonify({"message": "deleted"})
-#
+        "id": comment.id,
+        "content": comment.content,
+        "created_at": comment.created_at.astimezone(KST).strftime("%Y년 %m월 %d일 %H:%M"),
+        "user": {
+            "id": comment.user.id,
+            "username": comment.user.username,
+            "profile_img": comment.user.profile_image
+        },
+        "like_count": comment.like_count
+    }), 201

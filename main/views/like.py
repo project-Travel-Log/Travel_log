@@ -44,7 +44,7 @@ def toggle_like():
     # 대상 테이블 like_count 증감
     if target_type == "review":
         target = Review.query.get_or_404(target_id)
-    elif target_type == "travel_log":
+    elif target_type == "travelLog":
         target = MyTravelLog.query.get_or_404(target_id)
     elif target_type == "comment":
         target = Comment.query.get_or_404(target_id)

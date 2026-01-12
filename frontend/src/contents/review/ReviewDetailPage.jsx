@@ -4,6 +4,7 @@ import WishToggleButton from '../../components/common/WishToggleButton';
 import { getReviewDetail } from '../../API/review';
 import { toggleLike } from '../../API/like';
 import { createComment, getComments } from '../../API/comment';
+import { mypage } from '../../API/user';
 
 const ReviewDetailPage = () => {
   const navigate = useNavigate();
@@ -11,9 +12,11 @@ const ReviewDetailPage = () => {
   const [review, setReview] = useState(null)
   const [liked, setLiked] = useState(false);
   const [reviewImag, setReviewImage] = useState([])
-  const [isWished, setIsWished] = useState(false);
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState("");
+  const [user, setUser] = useState(null)
+  const [commentLikes, setCommentLikes] = useState({})
+
 
   const [likes, setLikes] = useState([
     { count: 14, liked: false },
@@ -32,15 +35,13 @@ const ReviewDetailPage = () => {
   }, [id]);
 
   useEffect(() => {
-    getComments(id)
-    .then(res => {
-      if (Array.isArray(res.data)) {
-        setComments(res.data);
-      } else {
-        setComments([]);
-      }
-    });
-  }, [id]);
+    mypage()
+      .then(res => {
+        console.log("유저정보", res.data)
+        setUser(res.data.user)
+      })
+      .catch(err => console.error(err))
+  }, [])
 
 
   useEffect(() => {
@@ -48,6 +49,51 @@ const ReviewDetailPage = () => {
       setReviewImage(IMAGE_BASE_URL + review.review_image[0]);
     }
   }, [review])
+
+  useEffect(() => {
+    getComments("review", id)
+      .then(res => {
+        console.log("댓글", res.data);
+        setComments(res.data)
+      })
+  }, [id]);
+
+  useEffect(() => {
+    if (Array.isArray(comments)) {
+      const likesObj = {};
+      comments.forEach(c => {
+        likesObj[c.id] = {
+          liked: c.liked,
+          count: c.like_count
+        };
+      });
+      setCommentLikes(likesObj);
+    }
+  }, [comments]);
+
+  const handleCommentLike = async (commentId) => {
+    try {
+      const res = await toggleLike("comment", commentId); // Flask API 호출
+      setCommentLikes(prev => ({
+        ...prev,
+        [commentId]: {
+          liked: res.data.liked,
+          count: res.data.like_count
+        }
+      }));
+    } catch (err) {
+      console.error("댓글 좋아요 실패:", err);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!commentText.trim()) return;
+
+    await createComment("review", id, commentText);
+    setCommentText("");
+    getComments("review", id).then(res => setComments(res.data));
+  };
 
   const handleLike = () => {
     toggleLike("review", review.id)
@@ -61,29 +107,15 @@ const ReviewDetailPage = () => {
       .catch(err => console.error(err));
   };
 
-const fetchComments = () => {
+  const fetchComments = () => {
     getComments(id)
-        .then(res => {
-            if (Array.isArray(res.data)) setComments(res.data);
-            else setComments([]);
-        })
-        .catch(err => console.error(err));
-};
+      .then(res => {
+        if (Array.isArray(res.data)) setComments(res.data);
+        else setComments([]);
+      })
+      .catch(err => console.error(err));
+  };
 
-const handleSubmit = async (e) => {
-    e.preventDefault();  // 이제 undefined 아님
-    if (!commentText.trim()) return alert("댓글을 입력하세요.");
-
-    try {
-        const res = await createComment(review.id, commentText);
-        console.log("서버 응답:", res.data);
-        setCommentText("");  
-        fetchComments();     
-    } catch (err) {
-        console.error("댓글 등록 실패:", err.response?.data || err.message);
-        alert("댓글 등록 실패: " + (err.response?.data?.message || err.message));
-    }
-};
   if (!review) {
     return
   }
@@ -149,7 +181,7 @@ const handleSubmit = async (e) => {
             {comments.map(comment => (
               <div className="board__review" key={comment.id}>
                 <div className="img-wrap">
-                  <img src={`http://localhost:5000/${comment.user.profile_img}`} />
+                  <img src={`${IMAGE_BASE_URL}static/${comment.user.profile_img}`} />
                 </div>
                 <div className="board__review-content">
                   <div className="title-wrap">
@@ -157,13 +189,10 @@ const handleSubmit = async (e) => {
                     <span className="date">{comment.created_at}</span>
                   </div>
                   <p className="content">{comment.content}</p>
-                  <div
-                    className="review__like-wrap"
-                  // onClick={() => toggleLike(0)}>
-                  >
+                  <div className="review__like-wrap" onClick={() => handleCommentLike(comment.id)}>
                     <img
                       src={
-                        likes[0].liked
+                        commentLikes[comment.id]?.liked
                           ? '/images/common/icon-thumb-up-active.png'
                           : '/images/common/icon-thumb-up.png'
                       }
@@ -171,7 +200,7 @@ const handleSubmit = async (e) => {
                       alt="추천"
                     />
                     <span className="like-count">
-                      {comment.like_count}
+                      {commentLikes[comment.id]?.count ?? comment.like_count}
                     </span>
                   </div>
                 </div>
@@ -181,7 +210,7 @@ const handleSubmit = async (e) => {
             <div className="board__review-form">
               <form onSubmit={handleSubmit}>
                 <div className="img-wrap">
-                  {/* 이미지 영역 */}
+                  <img src={`${IMAGE_BASE_URL}static/${user?.user_img}`} />
                 </div>
                 <input type="text" value={commentText}
                   onChange={(e) => setCommentText(e.target.value)}

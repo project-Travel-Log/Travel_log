@@ -6,10 +6,11 @@ import { getReviewList } from '../../API/review';
 
 const ReviewListPage = () => {
     const navigate = useNavigate();
-    const [rlist, setRlist] = useState([])
+    const [rlist, setRlist] = useState([]);
     const [page, setPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1)
-    const [keyword, setKeyword] = useState("")
+    const [totalPages, setTotalPages] = useState(1);
+    const [keyword, setKeyword] = useState("");
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         getReviewList(page, keyword)
@@ -18,10 +19,17 @@ const ReviewListPage = () => {
                 setRlist(res.data.reviews)
                 setTotalPages(res.data.totalPages)
             })
-            .catch(err => console.error(err))
-    }, [page, keyword])
+            .catch(err => console.error(err));
 
-    // const totalPages = 23; // 서버에서 받은 전체 페이지 수
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        checkMobile(); // 최초 1회
+        window.addEventListener("resize", checkMobile);
+
+        return () => window.removeEventListener("resize", checkMobile);
+    }, [page, keyword])
 
     return (
         <div className="board-wrap">
@@ -72,7 +80,10 @@ const ReviewListPage = () => {
                             ))}
                             {rlist.length === 0 && (
                                 <tr>
-                                    <td colSpan={5} style={{ textAlign: "center" }}>
+                                    <td
+                                        colSpan={isMobile ? 3 : 5}
+                                        style={{ textAlign: "center" }}
+                                    >
                                         검색 결과가 없습니다.
                                     </td>
                                 </tr>

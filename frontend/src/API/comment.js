@@ -1,19 +1,9 @@
 import apiClient from "./axios";
 
-export const getComments = (reviewId) =>
-    apiClient.get(`/api/review/${reviewId}`);
+export const getComments = (targetType, targetId) => {
+    return apiClient.get(`/api/comments/${targetType}/${targetId}`);
+};
 
-export const createComment = (reviewId, content, parentId = null) => {
-    return apiClient.post(`/api/review/${reviewId}`, {
-        content,
-        parent_id: parentId
-    }, {
-        headers: { "Content-Type": "application/json" }
-    })
-}
-
-// export const updateComment = (id, content) =>
-//     apiClient.put(`/api/comments/${id}`, { content });
-
-// export const deleteComment = (id) =>
-//     apiClient.delete(`/api/comments/${id}`);
+export const createComment = (targetType, targetId, content) => {
+    return apiClient.post(`/api/comments/${targetType}/${targetId}`, { content });
+};

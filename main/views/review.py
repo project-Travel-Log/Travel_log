@@ -143,4 +143,3 @@ def reviewWrite():
         "review_id": review.id,
         "review_image": review_image
     }), 201
-

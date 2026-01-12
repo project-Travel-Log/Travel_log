@@ -268,9 +268,9 @@ footer {}
     .board-wrap .board__table-wrap {min-height: 200px; margin: 20px 0 0;}
 
     .col-no {width: 8%;}
-    .col-nick {width: 18%;}
-    .col-date {width: 22%;}
-    .col-like {width: 10%;}
+    .col-nick {width: 14%;}
+    .col-date {width: 20%;}
+    .col-like {width: 9%;}
 
     .board-wrap .board__table th {padding: 14px 6px;}
     .board-wrap .board__table td {padding: 14px 6px;}
@@ -293,6 +293,9 @@ footer {}
 
     .board-wrap .board__table-wrap {min-height: 150px;}
 
+    .col-date {width: 24%;}
+    .col-like {width: 11%;}
+
     .board-wrap .board__table th {padding: 12px 6px; font-size: 12px;}
     .board-wrap .board__table td {padding: 12px 6px; font-size: 12px;}
     .board-wrap .board__table td.title {padding: 12px 10px;}
@@ -308,11 +311,11 @@ footer {}
     .board-wrap .board-header .title {margin: 0 0 20px; font-size: 30px;}
     .board-wrap .board-header form {width: 200px;}
 
-    .col-date {width: 25%;}
-    .col-like {width: 16%;}
+    .col-date {width: 35%;}
+    .col-like {width: 14%;}
 
-    .board-wrap .board__table th {padding: 10px 6px;}
-    .board-wrap .board__table td {padding: 10px 6px;}
+    .board-wrap .board__table th {padding: 10px 3px;}
+    .board-wrap .board__table td {padding: 10px 3px;}
     .board-wrap .board__table td.title {padding: 10px;}
 
     .pagination button {font-size: 12px;}
