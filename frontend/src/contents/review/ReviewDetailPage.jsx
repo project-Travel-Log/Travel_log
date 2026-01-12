@@ -178,7 +178,8 @@ const ReviewDetailPage = () => {
               <h3 className="title">Review</h3>
             </div>
             {/* review list */}
-            {comments.map(comment => (
+            {comments?.length > 0 ? (
+            comments.map(comment => (
               <div className="board__review" key={comment.id}>
                 <div className="img-wrap">
                   <img src={`${IMAGE_BASE_URL}static/${comment.user.profile_img}`} />
@@ -205,7 +206,7 @@ const ReviewDetailPage = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            ))):(<>등록된 리뷰가 없습니다.</>)}
             {/* end review list */}
             <div className="board__review-form">
               <form onSubmit={handleSubmit}>

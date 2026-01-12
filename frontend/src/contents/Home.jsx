@@ -17,6 +17,7 @@ const Home = () => {
     const [travel, setTravel] = useState([])
     const [activity, setActivity] = useState([])
     const [festival, setFestival] = useState([])
+    const [review, setReview] = useState([])
 
 
     useEffect(() => {
@@ -25,7 +26,9 @@ const Home = () => {
             console.log("응답데이터", res.data);
             setTravel(res.data.travel);
             setActivity(res.data.activity);
-            setFestival(res.data.festival);})
+            setFestival(res.data.festival);
+            setReview(res.data.reviews)
+        })
         .catch(err => console.error(err))
         }, [])
 
@@ -202,33 +205,17 @@ const Home = () => {
 
                         <div className='review-wrap'>
                             <div className='review-inner'>
-                                <Link to='/reivew' className='review-item'>
+                                {review.map(r => (
+                                <Link to={`/review/${r.id}`} className='review-item'>
                                     <div className='img-wrap'>
-                                        <img src="/images/temp/main_section05_temp.png" alt="" />
+                                        <img src={`http://localhost:5000/${r.image[0]}`} alt="" />
                                     </div>
                                     <div className='text-wrap'>
-                                        <p className='title'>강릉 영진해변</p>
-                                        <p className='text'>영진해변은 드라마 촬영지로 유명하고,</p>
+                                        <p className='title'>{r.title}</p>
+                                        <p className='text'>{r.content}</p>
                                     </div>
                                 </Link>
-                                <Link to='/reivew' className='review-item'>
-                                    <div className='img-wrap'>
-                                        <img src="/images/temp/main_section05_temp.png" alt="" />
-                                    </div>
-                                    <div className='text-wrap'>
-                                        <p className='title'>강릉 영진해변</p>
-                                        <p className='text'>영진해변은 드라마 촬영지로 유명하고, 백사장이 넓어 피크닉, 차박, 물놀이, 낚시</p>
-                                    </div>
-                                </Link>
-                                <Link to='/reivew' className='review-item'>
-                                    <div className='img-wrap'>
-                                        <img src="/images/temp/main_section05_temp.png" alt="" />
-                                    </div>
-                                    <div className='text-wrap'>
-                                        <p className='title'>강릉 영진해변</p>
-                                        <p className='text'>영진해변은 드라마 촬영지로 유명하고, 백사장이 넓어 피크닉, 차박, 물놀이, 낚시를 즐기기 좋다. 방파제나 해변에서 낚시를 즐기거나, 기암과석에서 경치를 즐길 수 있다.</p>
-                                    </div>
-                                </Link>
+                                ))}
                             </div>
                             
                             <Link to='/places' className='btn-more type2'>

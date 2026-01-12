@@ -1,12 +1,23 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { reviewWrite } from "../../API/review";
+import { mypage } from "../../API/user";
 
 const ReviewWritePage = () => {
   const fileInputRef = useRef(null);
   const [images, setImages] = useState([]);
+  const [user, setUser] = useState(null)
   const nav = useNavigate();
 
+  useEffect(() => {
+    mypage()
+      .then(res => {
+        console.log("유저정보", res.data)
+        setUser(res.data.user)
+      })
+      .catch(err => console.error(err))
+  }, [])
+  
   const [form, setForm] = useState({
     title: "",
     content: "",
@@ -68,7 +79,7 @@ const ReviewWritePage = () => {
       <div className="board__form-inner">
         <form onSubmit={submitBt}>
           <div className="board__form-header">
-            <div className="img-wrap">{/* 프로필 이미지 영역 */}</div>
+            <div className="img-wrap"><img src={`http://localhost:5000/static/${user?.user_img}`} alt="프로필" /></div>
           </div>
 
           <div className="board__form-content">

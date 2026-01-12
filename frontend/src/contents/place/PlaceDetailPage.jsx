@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getPlaceId } from "../../API/places";
 import WishToggleButton from '../../components/common/WishToggleButton';
+import { checkWishlist, toggleWishlist } from "../../API/wishilist";
 
 const PlaceDetailPage = () => {
     const { id } = useParams()
@@ -9,10 +10,11 @@ const PlaceDetailPage = () => {
     const [recommended, setRecommended] = useState([])
     const [mainImage, setMainImage] = useState(null);
     const [subImages, setSubImages] = useState([]);
-    const [likes, setLikes] = useState([false, false, false]);
+    const [wished, setWished] = useState(false)
+    const [rwished, setRwished] = useState({})
     const navigate = useNavigate();
 
-
+    const IMAGE_BASE_URL = "http://localhost:5000/"
 
     useEffect(() => {
         getPlaceId(id)
@@ -23,8 +25,19 @@ const PlaceDetailPage = () => {
             })
             .catch(err => console.error(err))
     }, [id])
-    
-    const IMAGE_BASE_URL = "http://localhost:5000/"
+
+    useEffect(() => {
+        if (!place?.id) return;
+        checkWishlist(place.id)
+            .then(res => {
+                console.log("체크", res.data)
+                setWished(res.data.wished)
+            })
+            .catch(err => {
+                console.error("checkWishlist 실패", err);
+            });
+    }, [place?.id]);
+
     useEffect(() => {
         if (place?.image?.length > 0) {
             setMainImage(IMAGE_BASE_URL + place.image[0]);
@@ -33,7 +46,28 @@ const PlaceDetailPage = () => {
             )
         }
     }, [place])
-    if (!place) return <div></div>
+    
+    useEffect(() => {
+        if (!recommended?.length) {
+            setRwished({});
+            return;
+        }
+
+        Promise.all(
+            recommended.map((item) =>
+                checkWishlist(item.id)
+                    .then((res) => ({ id: item.id, wished: !!res.data.wished }))
+                    .catch(() => ({ id: item.id, wished: false }))
+            )
+        ).then((results) => {
+            const next = {};
+            results.forEach((r) => {
+                next[r.id] = r.wished;
+            });
+            setRwished(next);
+        });
+    }, [recommended]);
+
 
     const handleImageSwap = (clickedImg, index) => {
         const currentMain = mainImage;
@@ -43,20 +77,34 @@ const PlaceDetailPage = () => {
         newSmallImages[index] = currentMain;
         setSubImages(newSmallImages);
     };
-    const map = `https://www.google.com/maps?q=${place.latitude},${place.longitude}&z=16&output=embed`;
 
-    const toggleLike = (index) => {
-        setLikes((prev) =>
-            prev.map((v, i) => (i === index ? !v : v))
-        );
+
+
+    const handleWishToggle = () => {
+        if (!place?.id) return;
+
+        toggleWishlist(place.id)
+            .then((res) => setWished(res.data.wished))
+            .catch(console.error);
     };
+
+    const handleRecWishToggle = (placeId) => {
+        toggleWishlist(placeId)
+            .then((res) => {
+                setRwished((prev) => ({ ...prev, [placeId]: res.data.wished }));
+            })
+            .catch(console.error);
+    };
+
+    if (!place) return <div></div>
+    const map = `https://www.google.com/maps?q=${place.latitude},${place.longitude}&z=16&output=embed`;
 
     return (
         <div className="place-wrap">
             <div className="place-inner">
                 <div className="top-wrap">
                     <img src={IMAGE_BASE_URL + place.image[0]} alt="main" className="main__img" />
-                    <WishToggleButton className="heart-btn" />
+                    <WishToggleButton className="heart-btn" active={wished} onToggle={handleWishToggle} />
                 </div>
                 <div className="content-wrap">
                     <h1 className="title">{place.city}</h1>
@@ -183,7 +231,8 @@ const PlaceDetailPage = () => {
                                         </div>
 
                                         <div className="item-actions">
-                                            <WishToggleButton className="heart-btn" />
+                                            <WishToggleButton className="heart-btn" active={!!rwished[item.id]}
+                                                onToggle={() => handleRecWishToggle(item.id)} />
                                             <button className="detail-btn" onClick={() => navigate(`/places/detail/${item.id}`)}>
                                                 상세 정보 보러가기
                                             </button>

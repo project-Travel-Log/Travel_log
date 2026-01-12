@@ -9,7 +9,7 @@ from main import db
 import json
 
 
-from main.models import User, Places
+from main.models import User, Places, Review, Wishlist
 
 bp = Blueprint("mypage", __name__)
 @bp.route("/mypage", methods=["GET"])
@@ -25,6 +25,15 @@ def mypage():
         .filter(Places.type == "travel")
         .order_by(func.random())
         .limit(3)
+        .all()
+    )
+    review = (
+        Review.query.filter(Review.user_id == user.id).all()
+    )
+    wishlist = (
+        db.session.query(Places)
+        .join(Wishlist, Wishlist.places_id == Places.id)
+        .filter(Wishlist.user_id == user.id)
         .all()
     )
 
@@ -48,6 +57,24 @@ def mypage():
                 "image": json.loads(p.image_urls)
             }
             for p in places
+        ],
+        "review":[
+            {
+            "id": r.id,
+            "title": r.title,
+            "image": json.loads(r.review_image),
+            "content": r.content,
+        }
+        for r in review
+        ],
+        "wishlist": [
+            {
+                "id": w.id,
+                "name": w.name,
+                "image": json.loads(w.image_urls),
+            }
+            for w in wishlist
+
         ]
 
 
@@ -146,13 +173,3 @@ def mypage_delete():
 
     return jsonify({"message": "회원 탈퇴 완료"})
 
-@bp.route("/mypage", methods=["GET"])
-@jwt_required()
-def mypage_review():
-    user = User.query.get(get_jwt_identity())
-
-    if not user: return jsonify({"message":"회원이 아닙니다."})
-
-    
-
-    return jsonify({})
