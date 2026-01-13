@@ -19,7 +19,15 @@ class Model:
 
 model = Model()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"), timeout = 30, max_retries = 1 )
+client = None
+api_key = os.getenv("OPENAI_API_KEY")
+
+if api_key:
+    client = OpenAI(
+        api_key=api_key,
+        timeout=30,
+        max_retries=1
+    )
 
 # 한 번에 너무 많은 메시지가 API를 통해 전송되는 것을 막기 위해
 # token 양을 체크한 후 임계점을 넘어가면 예외처리

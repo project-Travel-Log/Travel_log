@@ -22,7 +22,6 @@ const ReviewDetailPage = () => {
     useEffect(() => {
         gettravellogDetail(id)
             .then(res => {
-                console.log("나의 여행로그 데이터", res.data);
                 setTravellog(res.data);
                 setLiked(res.data.liked ?? false);
             })
@@ -32,7 +31,6 @@ const ReviewDetailPage = () => {
     useEffect(() => {
         mypage()
             .then(res => {
-                console.log("유저정보", res.data)
                 setUser(res.data.user)
             })
             .catch(err => console.error(err))
@@ -47,7 +45,6 @@ const ReviewDetailPage = () => {
     useEffect(() => {
         getComments("travelLog", id)
             .then(res => {
-                console.log("댓글", res.data);
                 setComments(res.data)
             })
     }, [id]);
@@ -57,7 +54,7 @@ const ReviewDetailPage = () => {
             const likesObj = {};
             comments.forEach(c => {
                 likesObj[c.id] = {
-                    liked: c.liked ,
+                    liked: c.liked,
                     count: c.like_count
                 };
             });
@@ -173,56 +170,56 @@ const ReviewDetailPage = () => {
                             <h3 className="title">Review</h3>
                         </div>
                         {/* review list */}
-                        {comments?.length > 0 ?(
-                        comments.map(comment => (
-                            <div className="board__review" key={comment.id}>
-                                <div className="img-wrap">
-                                    <img src={`${IMAGE_BASE_URL}static/${comment.user.profile_img}`} />
-                                </div>
-                                <div className="board__review-content">
-                                    <div className="title-wrap">
-                                        <span className="username">{comment.user.username}</span>
-                                        <span className="date">{comment.created_at}</span>
+                        {comments?.length > 0 ? (
+                            comments.map(comment => (
+                                <div className="board__review" key={comment.id}>
+                                    <div className="img-wrap">
+                                        <img src={`${IMAGE_BASE_URL}static/${comment.user.profile_img}`} />
                                     </div>
-                                    <p className="content">{comment.content}</p>
-                                            <div className="review__like-wrap" onClick={() => handleCommentLike(comment.id)}>
-                                                <img
-                                                    src={
-                                                        commentLikes[comment.id]?.liked
-                                                            ? '/images/common/icon-thumb-up-active.png'
-                                                            : '/images/common/icon-thumb-up.png'
-                                                    }
-                                                    className="icon"
-                                                    alt="추천"
-                                                />
-                                                <span className="like-count">
-                                                    {commentLikes[comment.id]?.count ?? comment.like_count}
-                                                </span>
-                                            </div>
+                                    <div className="board__review-content">
+                                        <div className="title-wrap">
+                                            <span className="username">{comment.user.username}</span>
+                                            <span className="date">{comment.created_at}</span>
                                         </div>
-                                </div>
-                        ))):(<p className='no-result'>등록된 리뷰가 없습니다.</p>)}
-                                {/* end review list */}
-                                <div className="board__review-form">
-                                    <form onSubmit={handleSubmit}>
-                                        <div className="img-wrap">
-                                            <img src={`${IMAGE_BASE_URL}static/${user?.user_img}`} />
+                                        <p className="content">{comment.content}</p>
+                                        <div className="review__like-wrap" onClick={() => handleCommentLike(comment.id)}>
+                                            <img
+                                                src={
+                                                    commentLikes[comment.id]?.liked
+                                                        ? '/images/common/icon-thumb-up-active.png'
+                                                        : '/images/common/icon-thumb-up.png'
+                                                }
+                                                className="icon"
+                                                alt="추천"
+                                            />
+                                            <span className="like-count">
+                                                {commentLikes[comment.id]?.count ?? comment.like_count}
+                                            </span>
                                         </div>
-                                        <input type="text" value={commentText}
-                                            onChange={(e) => setCommentText(e.target.value)}
-                                            placeholder="댓글을 작성해주세요" />
-                                        <button type="submit">등록</button>
-                                    </form>
+                                    </div>
                                 </div>
+                            ))) : (<p className='no-result'>등록된 리뷰가 없습니다.</p>)}
+                        {/* end review list */}
+                        <div className="board__review-form">
+                            <form onSubmit={handleSubmit}>
+                                <div className="img-wrap">
+                                    <img src={`${IMAGE_BASE_URL}static/${user?.user_img}`} />
+                                </div>
+                                <input type="text" value={commentText}
+                                    onChange={(e) => setCommentText(e.target.value)}
+                                    placeholder="댓글을 작성해주세요" />
+                                <button type="submit">등록</button>
+                            </form>
+                        </div>
 
-                                <div className="btn-wrap">
-                                    <Link to='/travelLog'> <button className="btn-list">목록</button></Link>
-                                </div>
-                            </div>
-                </div>
+                        <div className="btn-wrap">
+                            <Link to='/travelLog'> <button className="btn-list">목록</button></Link>
+                        </div>
+                    </div>
                 </div>
             </div>
-            );
+        </div>
+    );
 };
 
-            export default ReviewDetailPage;
+export default ReviewDetailPage;

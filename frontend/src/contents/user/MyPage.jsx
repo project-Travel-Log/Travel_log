@@ -39,7 +39,6 @@ const MyPage = () => {
   useEffect(() => {
     mypage()
       .then(res => {
-        console.log("응답데이터", res.data);
         setUser(res.data.user)
         setRecommend(res.data.recommend)
         setMyreview(res.data.review)

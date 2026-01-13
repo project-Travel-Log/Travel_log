@@ -4,8 +4,8 @@ body {word-break: keep-all;}
 
 /* header */
 header {position: sticky; top: 0; width: 100%; background-color: #fff; z-index: 99999;}
-.header-wrap {}
-.header-wrap .header-inner {display: flex; align-items: center; max-width: 1250px; margin: 0 auto; padding: 20px 0; box-sizing: border-box;}
+.header-wrap {background: #fff;}
+.header-wrap .header-inner {display: flex; align-items: center; max-width: 1250px; margin: 0 auto; padding: 20px 0; background: #fff; box-sizing: border-box;}
 
 .scrolling header {box-shadow: 0 0 20px rgba(0, 0, 0, .1); border-bottom: 1px solid #bbc7d3;}
 

@@ -279,3 +279,10 @@ def chat_api():
     save_session_chatbot(cb)
 
     return {"response_message": response_message}
+
+@bp.route("/chatbot/reset", methods=["POST"])
+def chatbot_reset():
+    session.pop("chat_context", None)
+    session.pop("last_region_key", None)
+    session.pop("last_city_key", None)
+    return {"message": "대화가 초기화되었습니다."}, 20

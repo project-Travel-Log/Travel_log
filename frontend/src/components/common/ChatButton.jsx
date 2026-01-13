@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { sendChatMessage } from "../../API/chatbot";
+import { sendChatMessage, resetChatbot } from "../../API/chatbot";
 
 const makeId = () => `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 const STORAGE_KEY = "travellog_chat_messages_v1";
-
-export default function ChatFabButton() {
 const TOP_SHOW_Y = 300;
+
+const DEFAULT_MESSAGES = [{ id: makeId(), role: "bot", text: "어디 여행 가고 싶은지 말해봐." }];
 
 const ChatFabButton = () => {
   const [open, setOpen] = useState(false);
@@ -19,12 +19,32 @@ const ChatFabButton = () => {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) return JSON.parse(saved);
     } catch (_) {}
-    return [{ id: makeId(), role: "bot", text: "어디 여행 가고 싶은지 말해봐." }];
+    return DEFAULT_MESSAGES;
   });
 
   const panelRef = useRef(null);
   const inputRef = useRef(null);
   const scrollRef = useRef(null);
+
+  // ✅ 닫을 때: UI 닫기 + 로컬 대화 삭제 + 서버 세션 대화 삭제
+  const closeAndReset = async () => {
+    setOpen(false);
+
+    // 프론트 저장된 대화 삭제
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch (_) {}
+
+    // 화면 메시지 초기화
+    setMessages([{ id: makeId(), role: "bot", text: "어디 여행 가고 싶은지 말해봐." }]);
+
+    // 서버 세션 초기화
+    try {
+      await resetChatbot();
+    } catch (e) {
+      console.error("resetChatbot error:", e);
+    }
+  };
 
   // 메시지 저장(새로고침 유지)
   useEffect(() => {
@@ -32,6 +52,7 @@ const ChatFabButton = () => {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
     } catch (_) {}
   }, [messages]);
+
   // scroll event
   useEffect(() => {
     const onScroll = () => setHasTopBtn(window.scrollY > TOP_SHOW_Y);
@@ -52,14 +73,16 @@ const ChatFabButton = () => {
     }
   }, [messages, open]);
 
-  // ESC 닫기
+  // ✅ ESC 닫기 → reset까지 같이
   useEffect(() => {
-    const onKeyDown = (e) => e.key === "Escape" && setOpen(false);
+    const onKeyDown = (e) => {
+      if (e.key === "Escape" && open) closeAndReset();
+    };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+  }, [open]);
 
-  // 패널 바깥 클릭 닫기 (fab 클릭은 예외)
+  // ✅ 패널 바깥 클릭 닫기 (fab 클릭은 예외) → reset까지 같이
   useEffect(() => {
     const onMouseDown = (e) => {
       if (!open) return;
@@ -71,7 +94,7 @@ const ChatFabButton = () => {
       const fab = document.getElementById("chat-fab");
       if (fab && fab.contains(e.target)) return;
 
-      setOpen(false);
+      closeAndReset();
     };
 
     window.addEventListener("mousedown", onMouseDown);
@@ -105,9 +128,7 @@ const ChatFabButton = () => {
     } catch (err) {
       const status = err?.response?.status;
       const serverMsg =
-        err?.response?.data?.message ||
-        err?.response?.data?.error ||
-        err?.message;
+        err?.response?.data?.message || err?.response?.data?.error || err?.message;
 
       patch(botId, {
         text: status
@@ -117,7 +138,6 @@ const ChatFabButton = () => {
         error: true,
       });
 
-      // 개발 중 원인 확인용
       console.error("sendChatMessage error:", status, err?.response?.data || err);
     } finally {
       setLoading(false);
@@ -137,10 +157,13 @@ const ChatFabButton = () => {
     <>
       <button
         id="chat-fab"
-        className={`chat-fab ${hasTopBtn ? 'with-top' : 'no-top'}`}
+        className={`chat-fab ${hasTopBtn ? "with-top" : "no-top"}`}
         aria-label="help"
         type="button"
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          if (open) closeAndReset();
+          else setOpen(true);
+        }}
       >
         <img src="/images/고양.png" alt="" />
       </button>
@@ -148,11 +171,11 @@ const ChatFabButton = () => {
       <div
         className={`chat-backdrop ${open ? "open" : ""}`}
         aria-hidden={!open}
-        onClick={() => setOpen(false)}
+        onClick={closeAndReset}
       />
 
       <div
-        className={`chatbot-panel ${open ? "open" : ""} ${hasTopBtn ? 'with-top' : 'no-top'}`}
+        className={`chatbot-panel ${open ? "open" : ""} ${hasTopBtn ? "with-top" : "no-top"}`}
         ref={panelRef}
         aria-hidden={!open}
       >
@@ -161,7 +184,7 @@ const ChatFabButton = () => {
             <strong>TRAVELLOG 챗봇</strong>
             <p>여행 추천을 도와드려요</p>
           </div>
-          <button type="button" onClick={() => setOpen(false)} aria-label="닫기">
+          <button type="button" onClick={closeAndReset} aria-label="닫기">
             ×
           </button>
         </div>
@@ -195,4 +218,6 @@ const ChatFabButton = () => {
       </div>
     </>
   );
-}
+};
+
+export default ChatFabButton;

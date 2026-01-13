@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { reviewWrite } from "../../API/review";
 import { mypage } from "../../API/user";
 
@@ -12,12 +12,11 @@ const ReviewWritePage = () => {
   useEffect(() => {
     mypage()
       .then(res => {
-        console.log("유저정보", res.data)
         setUser(res.data.user)
       })
       .catch(err => console.error(err))
   }, [])
-  
+
   const [form, setForm] = useState({
     title: "",
     content: "",

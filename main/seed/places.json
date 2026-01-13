@@ -1255,7 +1255,7 @@
         "requires_reservation": "불필요",
         "amenities": "사찰 진입 동선, 안내판, 화장실, 휴게공간",
         "description": "반야사는 석회광산인 옛 폐광을 활용해서 동굴법당과 대웅전, 요사채, 야회 미륵불상, 바위협곡 등을 조성했다. 입구에 들어서면 절벽과 대웅전이 한눈에 보인다. 대웅전 뒤쪽으로 가면 동굴법당으로 내려갈 수 있는 길이 있다. 여름에는 시원하고, 겨울에는 따뜻한 기운이 돈다. 예전에는 석회를 채굴하는 광산으로 일제강점기에는 노역을 했던 장소이기도 하다. 화려한 조명과 함께 법당이 마련되어 있다. 산신이 모셔있는 곳도 있고 지하수가 모여 생긴 작은 연못도 있다.",
-        "image_urls": ["static/place_img/반야사1.png","static/place_img/반야사2.png","static/place_img/반야사3.png","static/place_img/반야사4ㄴ.png"],
+        "image_urls": ["static/place_img/반야사1.png","static/place_img/반야사2.png","static/place_img/반야사3.png","static/place_img/반야사4.png"],
         "latitude": 36.1543,
         "longitude": 127.0570
     },    

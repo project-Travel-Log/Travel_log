@@ -14,15 +14,15 @@ const Login = () => {
 
         if (loading) return
 
-        if(!userid||!password){
+        if (!userid || !password) {
             alert("아이디와 비밀번호를 입력해 주세요")
         }
-        try{
+        try {
             const res = await login(userid, password)
             localStorage.setItem('access_token', res.data.access_token)
             alert('로그인 성공')
             window.location.href = '/'
-        }catch{
+        } catch {
 
             alert('로그인 실패');
         } finally {
@@ -37,7 +37,7 @@ const Login = () => {
                     <form onSubmit={handleLogin}>
                         <img className='logo' src='/images/common/logo.png' alt="TRAVELOGUE" />
                         <span className="text">Journey Into New Paths and Unseen Horizons</span>
-                        <input className="login-input" type="text" placeholder="아이디" value={userid} 
+                        <input className="login-input" type="text" placeholder="아이디" value={userid}
                             onChange={(e) => setUserid(e.target.value)} />
                         <input className="login-input" type="password" placeholder="비밀번호" value={password} onChange={(e) => setPassword(e.target.value)} />
                         <button className="btn-login" type="submit">

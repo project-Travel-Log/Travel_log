@@ -1,38 +1,48 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { travelLogwWrite } from "../../API/mytravellog";
+import { mypage } from "../../API/user";
 
 const TravelLogWritePage = () => {
   const fileInputRef = useRef(null);
   const [images, setImages] = useState([]);
+  const [user, setUser] = useState(null)
   const nav = useNavigate()
-  
-    const [form, setForm] = useState({
-      title: "",
-      content: "",
-      image: ""
-    })
-  
-    const submitBt = async (e) => {
-      e.preventDefault();
-  
-      const formData = new FormData();
-      formData.append("title", form.title);
-      formData.append("content", form.content);
-  
-      images.forEach(img => {
-        formData.append("images", img.file);
-      });
-  
-      try {
-        const res = await travelLogwWrite(formData);
-        const travellogId = res.data.mytravellog_id;
-        nav(`/travellog/${travellogId}`);
-      } catch (err) {
-        console.error(err);
-        alert("리뷰 등록 실패");
-      }
-    };
+
+  useEffect(() => {
+    mypage()
+      .then(res => {
+        setUser(res.data.user)
+      })
+      .catch(err => console.error(err))
+  }, [])
+
+  const [form, setForm] = useState({
+    title: "",
+    content: "",
+    image: ""
+  })
+
+  const submitBt = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("title", form.title);
+    formData.append("content", form.content);
+
+    images.forEach(img => {
+      formData.append("images", img.file);
+    });
+
+    try {
+      const res = await travelLogwWrite(formData);
+      const travellogId = res.data.mytravellog_id;
+      nav(`/travellog/${travellogId}`);
+    } catch (err) {
+      console.error(err);
+      alert("리뷰 등록 실패");
+    }
+  };
 
   const photoUpload = () => {
     fileInputRef.current?.click();
@@ -67,7 +77,7 @@ const TravelLogWritePage = () => {
       <div className="board__form-inner">
         <form onSubmit={submitBt}>
           <div className="board__form-header">
-            <div className="img-wrap">{/* 프로필 이미지 영역 */}</div>
+            <div className="img-wrap"><img src={`http://localhost:5000/static/${user?.user_img}`} alt="프로필" /></div>
           </div>
 
           <div className="board__form-content">

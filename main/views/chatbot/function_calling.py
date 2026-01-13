@@ -6,7 +6,11 @@ from pprint import pprint
 from tavily import TavilyClient
 import os
 
-tavily = TavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
+tavily = None
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
+
+if TAVILY_API_KEY:
+    tavily = TavilyClient(api_key=TAVILY_API_KEY)
 
 # 위도 경도
 global_lat_lon = {

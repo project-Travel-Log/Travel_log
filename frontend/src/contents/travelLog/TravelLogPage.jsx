@@ -15,12 +15,11 @@ const TravelLogPage = () => {
     useEffect(() => {
         getTravellogList(page, keyword)
             .then(res => {
-                console.log("나의여행로그리스트", res.data);
                 setRlist(res.data.mytravellogs);
                 setTotalPages(res.data.totalPages);
             })
             .catch(err => console.error(err));
-        
+
 
         const checkMobile = () => {
             setIsMobile(window.innerWidth <= 768);
@@ -72,13 +71,13 @@ const TravelLogPage = () => {
                         </thead>
                         <tbody>
                             {rlist.map(mytravellog => (
-                            <tr key={mytravellog.id}>
-                                <td className="mo-none">{mytravellog.id}</td>
+                                <tr key={mytravellog.id}>
+                                    <td className="mo-none">{mytravellog.id}</td>
                                     <td className="title" onClick={() => navigate(`/travelLog/${mytravellog.id}`)}>{mytravellog.title}</td>
-                                <td className="mo-none">{mytravellog.user?.username}</td>
-                                <td>{mytravellog.created_at}</td>
-                                <td>{mytravellog.like_count}</td>
-                            </tr>
+                                    <td className="mo-none">{mytravellog.user?.username}</td>
+                                    <td>{mytravellog.created_at}</td>
+                                    <td>{mytravellog.like_count}</td>
+                                </tr>
                             ))}
                             {rlist.length === 0 && (
                                 <tr>
@@ -97,8 +96,8 @@ const TravelLogPage = () => {
                         <button
                             className="btn-write"
                             onClick={() => navigate('/travellog/write')}
-                            >
-                                글 작성하기
+                        >
+                            글 작성하기
                         </button>
                     </div>
 

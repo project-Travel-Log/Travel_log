@@ -15,7 +15,6 @@ const ReviewListPage = () => {
     useEffect(() => {
         getReviewList(page, keyword)
             .then(res => {
-                console.log("리뷰리스트", res.data)
                 setRlist(res.data.reviews)
                 setTotalPages(res.data.totalPages)
             })

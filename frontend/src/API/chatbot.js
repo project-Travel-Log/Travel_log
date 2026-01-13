@@ -7,3 +7,7 @@ export const sendChatMessage = (message) => {
     {withCredentials: true}
   );
 };
+
+export const resetChatbot = () =>{
+  return apiClient.post("/api/chatbot/reset", null, {withCredentials: true})
+}

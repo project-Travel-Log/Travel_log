@@ -22,15 +22,14 @@ const Home = () => {
 
     useEffect(() => {
         getHomePlace()
-        .then(res => {
-            console.log("응답데이터", res.data);
-            setTravel(res.data.travel);
-            setActivity(res.data.activity);
-            setFestival(res.data.festival);
-            setReview(res.data.reviews)
-        })
-        .catch(err => console.error(err))
-        }, [])
+            .then(res => {
+                setTravel(res.data.travel);
+                setActivity(res.data.activity);
+                setFestival(res.data.festival);
+                setReview(res.data.reviews)
+            })
+            .catch(err => console.error(err))
+    }, [])
 
     const stopClickIfDragging = (e) => {
         if (isDraggingRef.current) {
@@ -69,17 +68,17 @@ const Home = () => {
                             </Link>  */}
                             <div className="place-inner">
                                 {travel.map(place => (
-                                    <Link 
-                                    key={place.id}
-                                    to={`/places/detail/${place.id}`}
-                                    className='place-item'>
-                                    <img src={`http://localhost:5000/${place.image[0]}`} alt="" />
+                                    <Link
+                                        key={place.id}
+                                        to={`/places/detail/${place.id}`}
+                                        className='place-item'>
+                                        <img src={`http://localhost:5000/${place.image[0]}`} alt="" />
                                     </Link>
                                 ))}
                             </div>
                             <Link to='/places/travel' className='btn-more type2'>
                                 여행지 보러가기
-                            </Link> 
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -89,20 +88,20 @@ const Home = () => {
                     <div className='section03-inner'>
                         <div className='title-wrap'>
                             <p className='title'>지역별로 즐길 수 있는 액티비티를 모아 <br />여행의 재미를 한층 더 높여드립니다</p>
-                            <p className='sub-title'>Discover a collection of activities that make every trip <br/>more exciting and immersive</p>
+                            <p className='sub-title'>Discover a collection of activities that make every trip <br />more exciting and immersive</p>
                         </div>
                         <div className='activity-wrap'>
                             <div className='activity-inner'>
                                 {activity.map(place => (
-                                    <Link key={place.id} to={`/places/detail/${place.id}`}className='activity-item'>
+                                    <Link key={place.id} to={`/places/detail/${place.id}`} className='activity-item'>
                                         <img src={`http://localhost:5000/${place.image[0]}`} alt="" />
                                     </Link>
                                 ))}
                             </div>
-                            
+
                             <Link to='/places/activity' className='btn-more type2'>
                                 액티비티 보러가기
-                            </Link> 
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -111,15 +110,15 @@ const Home = () => {
                 <div className='section04-wrap'>
                     <div className='section04-inner'>
                         <div className='title-wrap'>
-                            <p className='title'>사계절을 수놓는 지역별 축제 정보를 모아 <br/>특별한 순간을 경험해보세요</p>
+                            <p className='title'>사계절을 수놓는 지역별 축제 정보를 모아 <br />특별한 순간을 경험해보세요</p>
                             <p className='sub-title'>Experience the vibrant festivals of each region, <br />thoughtfully gathered to bring you unforgettable seasonal moments</p>
                         </div>
                         <div className='festivals-wrap'>
                             <div className='festivals-inner'>
                                 <Swiper
-                                    modules = { [ Navigation ] }
-                                    spaceBetween = { 15 }
-                                    navigation = { false }
+                                    modules={[Navigation]}
+                                    spaceBetween={15}
+                                    navigation={false}
                                     onSwiper={(s) => {
                                         setSwiper(s);
                                         setIsBeginning(s.isBeginning);
@@ -131,33 +130,33 @@ const Home = () => {
                                     }}
 
 
-                                    observer = { false }
-                                    observeParents = { false }
+                                    observer={false}
+                                    observeParents={false}
 
                                     preventClicks
                                     preventClicksPropagation
-                                    slideToClickedSlide = { false }
-                                    breakpoints = {{
+                                    slideToClickedSlide={false}
+                                    breakpoints={{
                                         0: {
                                             slidesPerView: 2,
-                                            spaceBetween : 10
+                                            spaceBetween: 10
                                         },
                                         768: {
                                             slidesPerView: 3,
-                                            spaceBetween : 10
+                                            spaceBetween: 10
                                         },
                                         1024: {
                                             slidesPerView: 4,
-                                            spaceBetween : 15
+                                            spaceBetween: 15
                                         },
                                         1250: {
                                             slidesPerView: 4,
-                                            spaceBetween : 15
+                                            spaceBetween: 15
                                         },
                                     }}
                                 >
                                     {festival.map(place => (
-                                        <SwiperSlide className='festivals-item'>
+                                        <SwiperSlide key={place.id} className='festivals-item'>
                                             <Link key={place.id} to={`/places/detail/${place.id}`} className='festivals-link' onClick={stopClickIfDragging}>
                                                 <div className='img-wrap'>
                                                     <img src={`http://localhost:5000/${place.image[0]}`} alt="" loading="lazy" decoding="async" />
@@ -165,7 +164,7 @@ const Home = () => {
                                             </Link>
                                         </SwiperSlide>
                                     ))}
-                                    
+
                                 </Swiper>
 
                                 <div className="section04__navigation-wrap">
@@ -187,10 +186,10 @@ const Home = () => {
                                     </button>
                                 </div>
                             </div>
-                            
+
                             <Link to='/places/festival' className='btn-more type2'>
                                 축제 보러가기
-                            </Link> 
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -199,28 +198,28 @@ const Home = () => {
                 <div className='section05-wrap'>
                     <div className='section05-inner'>
                         <div className='title-wrap'>
-                            <p className='title'>여행의 순간을 기록한 생생한 리뷰를 통해 <br/>다음 여행을 더 특별하게 준비해보세요</p>
+                            <p className='title'>여행의 순간을 기록한 생생한 리뷰를 통해 <br />다음 여행을 더 특별하게 준비해보세요</p>
                             <p className='sub-title'>Discover authentic reviews filled with real travel moments, <br />and plan your next journey with confidence</p>
                         </div>
 
                         <div className='review-wrap'>
                             <div className='review-inner'>
                                 {review.map(r => (
-                                <Link to={`/review/${r.id}`} className='review-item'>
-                                    <div className='img-wrap'>
-                                        <img src={`http://localhost:5000/${r.image[0]}`} alt="" />
-                                    </div>
-                                    <div className='text-wrap'>
-                                        <p className='title'>{r.title}</p>
-                                        <p className='text'>{r.content}</p>
-                                    </div>
-                                </Link>
+                                    <Link key={r.id} to={`/review/${r.id}`} className='review-item'>
+                                        <div className='img-wrap'>
+                                            <img src={`http://localhost:5000/${r.image[0]}`} alt="" />
+                                        </div>
+                                        <div className='text-wrap'>
+                                            <p className='title'>{r.title}</p>
+                                            <p className='text'>{r.content}</p>
+                                        </div>
+                                    </Link>
                                 ))}
                             </div>
-                            
+
                             <Link to='/places' className='btn-more type2'>
                                 리뷰 보러가기
-                            </Link> 
+                            </Link>
                         </div>
                     </div>
                 </div>

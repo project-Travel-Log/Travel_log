@@ -1,160 +1,149 @@
 # 여행로그 (Travel Log)
 
-> **팀 프로젝트 | 웹 서비스 개발**
-> **개발 기간**: 2025년 12월 4일 ~ 2026년 1월 5일
+대한민국의 **여행지 · 축제 · 액티비티 정보를 한 곳에 모아 제공하는 통합 여행 정보 플랫폼**입니다.  
+사용자는 지역별 여행지, 시즌별 축제, 다양한 체험형 액티비티를 탐색하고,  
+챗봇을 통해 여행 정보를 직관적으로 안내받을 수 있습니다.
 
 ---
 
 ## 💫 프로젝트 개요
 
-대한민국의 다양한 여행지를 한눈에 확인하고, 사용자가 편리하게 여행 정보를 탐색할 수 있도록 제작한 여행 로그 웹사이트입니다.
-React와 Python 기반으로 개발되었으며, 여행 정보를 안내하는 **챗봇 기능**을 포함하고 있습니다.
+국내 여행을 계획할 때 흩어져 있는 여행지, 축제, 액티비티 정보를 한 번에 확인할 수 있도록  
+React와 Python(Flask) 기반으로 개발한 **국내 여행 통합 정보 웹 서비스**입니다.  
+여행 정보 탐색을 돕는 **AI 챗봇 기능**을 포함하고 있습니다.
 
 ---
 
 ## 🕒 개발 기간
-
-* 2025.12.04 ~ 2026.01.05
+* 2025.12.04 ~ 2026.01.13
 
 ---
 
 ## 🤝 팀원 구성
 
-* 👑 **성득명 (팀장)** : 역할 작성
-* 👤 **류주현** : 역할 작성
-* 👤 **이윤서** : 역할 작성
-* 👤 **전민경** : 역할 작성
-* 👤 **진성희** : 역할 작성
+* 👑 **성득명 (팀장)** : 백엔드 총괄, DB 설계, API 구현
+* 👤 **류주현** : 프론트엔드 핵심 로직 및 구조 설계
+* 👤 **이윤서** : 챗봇 기능 구현, 프론트 퍼블리싱
+* 👤 **전민경** : UI/UX 디자인, 퍼블리싱
+* 👤 **진성희** : UI/UX 디자인, 퍼블리싱
 
 ---
 
 ## 📜 프로젝트 소개
 
-* 대한민국 **국내 여행지 정보만을 제공**하는 여행 로그 웹 서비스
-* 지역별 여행지 탐색 및 정보 제공
-* 챗봇을 활용한 여행 정보 안내 기능
-* 사용자 친화적인 UI/UX 구성
+* 🇰🇷 대한민국 **국내 여행지, 축제, 액티비티 정보 통합 제공**
+* 🗺️ 지역별 여행지 검색 및 상세 정보 제공
+* 🎉 국내 축제 정보 조회 (기간, 장소, 설명)
+* 🧗 국내 액티비티 정보 제공 (이름, 주소, 운영시간, 휴무일 등)
+* 💬 챗봇을 통한 여행 추천 및 질의응답
+* 🎨 사용자 친화적인 UI/UX
 
 ---
 
 ## 📢 기획 의도
 
-국내 여행을 계획할 때 여행지 정보가 여러 플랫폼에 분산되어 있어, 사용자가 원하는 정보를 빠르게 찾기 어렵다는 문제점에서 출발했습니다.
+국내 여행 정보는 여행지, 축제, 액티비티가 서로 다른 플랫폼에 분산되어 있어  
+사용자가 여행 일정을 계획할 때 많은 시간을 들여 정보를 찾아야 하는 불편함이 있습니다.
 
-본 프로젝트는 대한민국 여행지를 중심으로 정보를 통합 제공하여, 사용자가 한 사이트 내에서 여행지를 탐색하고 정보를 확인할 수 있도록 하는 것을 목표로 합니다.
+본 프로젝트는 다음을 목표로 합니다:
 
-이를 통해 다음과 같은 효과를 기대할 수 있습니다:
+* 여행지 · 축제 · 액티비티 정보를 **하나의 서비스로 통합**
+* 챗봇을 활용한 **직관적인 여행 정보 탐색**
+* 사용자의 상황에 맞는 **국내 여행 콘텐츠 추천**
 
-* 🧭 여행 정보 탐색 시간 단축
-* 💬 챗봇을 통한 직관적인 정보 제공
-* 🗺️ 국내 여행지 접근성 향상
+이를 통해:
 
----
-
-## 🚀 개발 환경
-
-### 🏷️ Tool Badges
-
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge\&logo=react\&logoColor=61DAFB)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=000000)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge\&logo=html5\&logoColor=ffffff)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge\&logo=css3\&logoColor=ffffff)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge\&logo=python\&logoColor=ffffff)
-![Figma](https://img.shields.io/badge/Figma-000000?style=for-the-badge\&logo=figma\&logoColor=ffffff)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge\&logo=github\&logoColor=ffffff)
+* 🧭 여행 준비 시간 단축  
+* 💬 챗봇 기반 편리한 정보 검색  
+* 🗺️ 국내 관광 콘텐츠 접근성 향상  
+* 🎉 지역 축제 정보 통합 제공  
+* 🧗 다양한 체험형 여행 콘텐츠 발견  
 
 ---
 
-| Tool         | Description     |
-| ------------ | --------------- |
-| React        | 프론트엔드 UI 개발     |
-| JavaScript   | 인터랙션 및 로직 처리    |
-| HTML / CSS   | 화면 구조 및 스타일링    |
-| Python       | 백엔드 로직 및 데이터 처리 |
-| Figma        | UI/UX 기획 및 디자인  |
-| Git / GitHub | 버전 관리 및 협업      |
 
-------|------------|
-| React | 프론트엔드 UI 개발 |
-| JavaScript | 인터랙션 및 로직 처리 |
-| HTML / CSS | 화면 구조 및 스타일링 |
-| Python | 백엔드 로직 및 데이터 처리 |
-| Git / GitHub | 버전 관리 및 협업 |
+## 🚀 기술 스택
+
+### 🎨 Frontend
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000000)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=ffffff)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=ffffff)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=ffffff)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=ffffff)
+![Swiper](https://img.shields.io/badge/Swiper-6332F6?style=for-the-badge&logo=swiper&logoColor=ffffff)
+![Figma](https://img.shields.io/badge/Figma-000000?style=for-the-badge&logo=figma&logoColor=ffffff)
+
+---
+
+### ⚙️ Backend
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=ffffff)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=ffffff)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=ffffff)
+![Flask JWT Extended](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=ffffff)
+![Flask CORS](https://img.shields.io/badge/CORS-2E7D32?style=for-the-badge&logoColor=ffffff)
+![Flask Migrate](https://img.shields.io/badge/Migrate-6A1B9A?style=for-the-badge&logoColor=ffffff)
+![REST API](https://img.shields.io/badge/REST-API-blue?style=for-the-badge)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=ffffff)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=ffffff)
+
+---
+
+### 🤖 Chatbot
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=ffffff)
+![Tavily](https://img.shields.io/badge/Tavily-111111?style=for-the-badge&logoColor=ffffff)
+![Prompt Engineering](https://img.shields.io/badge/Prompt-Engineering-FF6F00?style=for-the-badge&logoColor=ffffff)
+
 
 ---
 
 ## ✨ 주요 기능
 
-### 1. 🗺️ 국내 여행지 탐색 기능
+### 1. 🗺️ 국내 여행지 정보
+* 지역별 관광지 검색
+* 상세 설명, 이미지, 위치 정보 제공
 
-* 대한민국 지역별 여행지 정보 제공
-* 여행지 목록 및 상세 정보 확인
-* *(이미지 삽입 예정)*
+### 2. 🎉 국내 축제 정보
+* 축제 조회
+* 축제 기간, 장소, 설명 제공
 
----
+### 3. 🧗 액티비티 정보
+* 액티비티 이름, 주소, 운영시간, 휴무일 등 기본 정보 제공
+* 지도 연동을 통한 위치 확인
 
-### 2. 💬 여행 정보 챗봇 기능
+### 4. 💬 여행 챗봇
+* 여행지 추천
+* 축제 일정 안내
+* 액티비티 관련 질의응답
 
-* 여행지 관련 질문에 대한 응답 제공
-* 사용자의 입력에 따라 여행 정보 안내
-* 국내 여행 데이터 기반 응답
-* *(이미지 삽입 예정)*
-
----
-
-### 3. 🧭 사용자 친화적인 UI 구성
-
+### 5. 🎨 UI/UX
+* 카드형 리스트 UI
+* 반응형 웹 디자인
 * 직관적인 네비게이션 구조
-* 카드형 UI를 활용한 여행지 정보 표현
-* *(이미지 삽입 예정)*
 
 ---
 
 ## 🧑‍💻 개발 후기
 
-👑 **팀장 | 성득명**
-
-* 개발 후기 작성 예정
-
-👤 **류주현**
-
-* 개발 후기 작성 예정
-
-👤 **이윤서**
-
-* 개발 후기 작성 예정
-
-👤 **전민경**
-
-* 개발 후기 작성 예정
-
-👤 **진성희**
-
-* 개발 후기 작성 예정
+(각 팀원 작성 예정)
 
 ---
 
 ## 📚 배운 점
 
-* React 컴포넌트 기반 개발 경험
-* 프론트엔드와 백엔드 연동 과정 이해
-* 챗봇 기능을 활용한 사용자 경험 개선
-* GitHub를 활용한 협업 및 버전 관리 경험
+* React 컴포넌트 구조 설계 및 상태 관리
+* Flask REST API 설계 및 JWT 인증 처리
+* 프론트엔드–백엔드 연동 구조 이해
+* OpenAI API 기반 챗봇 서비스 구현
+* Git/GitHub 협업 워크플로우 경험
 
 ---
 
-## 📂 프로젝트 보고서
+## 📂 프로젝트 결과물
 
 * 결과 보고서 (추가 예정)
 
 ---
 
-## 📎 참고 자료
-
-* 프로젝트 발표 자료 (추가 예정)
-* 시연 영상 (추가 예정)
-* 결과 보고서 (추가 예정)
-
----
-
-> 본 프로젝트는 학습 및 포트폴리오 용도로 제작되었습니다.
+> 본 프로젝트는 국내 여행지, 축제, 액티비티 정보를 통합 제공하는 웹 서비스로,  
+> 포트폴리오 및 학습 목적의 팀 프로젝트입니다.

@@ -19,7 +19,6 @@ const PlaceDetailPage = () => {
     useEffect(() => {
         getPlaceId(id)
             .then(res => {
-                console.log("응답데이터", res.data)
                 setPlace(res.data.place)
                 setRecommended(res.data.recommended)
             })
@@ -29,10 +28,9 @@ const PlaceDetailPage = () => {
     useEffect(() => {
         if (!place?.id) return;
         checkWishlist(place.id)
-            .then(res => {
-                console.log("체크", res.data)
+            .then(res =>
                 setWished(res.data.wished)
-            })
+            )
             .catch(err => {
                 console.error("checkWishlist 실패", err);
             });
@@ -46,7 +44,7 @@ const PlaceDetailPage = () => {
             )
         }
     }, [place])
-    
+
     useEffect(() => {
         if (!recommended?.length) {
             setRwished({});

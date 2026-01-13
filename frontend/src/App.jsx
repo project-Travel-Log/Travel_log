@@ -47,7 +47,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/places/:type" element={<PlaceListPage key={routerLocation.pathname} />} />
-        <Route path="/Places/detail/:id" element={<PlaceDetailPage />} />
+        <Route path="/places/detail/:id" element={<PlaceDetailPage />} />
 
         <Route path="/review" element={<ReviewListPage />} />
         <Route path="/review/write" element={<ReviewWritePage />} />
