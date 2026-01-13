@@ -1,0 +1,290 @@
+[
+    {
+        "content": "권금성 올라가면 바람 진짜 세죠 ㅋㅋ 겉옷 필수 인정!",
+        "like_count": 3,
+        "target_type": "review",
+        "target_id": 1,
+        "review_id": 1,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "아침 시간대 추천 꿀팁이에요. 주말 대기 줄은 진짜…",
+        "like_count": 2,
+        "target_type": "review",
+        "target_id": 1,
+        "review_id": 1,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "울산바위 라인 보이는 구간이 하이라이트더라구요!",
+        "like_count": 1,
+        "target_type": "review",
+        "target_id": 1,
+        "review_id": 1,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "대관람차는 밤 조명 때가 사진 제일 잘 나와요.",
+        "like_count": 2,
+        "target_type": "review",
+        "target_id": 2,
+        "review_id": 2,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "음식 반입 제한 있는 거 몰랐는데 정보 감사합니다!",
+        "like_count": 1,
+        "target_type": "review",
+        "target_id": 2,
+        "review_id": 2,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "비 오는 날 대체 코스로 완전 좋은 곳이네요.",
+        "like_count": 1,
+        "target_type": "review",
+        "target_id": 3,
+        "review_id": 3,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "착시존 포즈 잡는 거 은근 체력전인데 재밌죠 ㅋㅋ",
+        "like_count": 0,
+        "target_type": "review",
+        "target_id": 3,
+        "review_id": 3,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "미션형 체험이 팀플 느낌이라 친구랑 가면 딱이에요.",
+        "like_count": 2,
+        "target_type": "review",
+        "target_id": 3,
+        "review_id": 3,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "초입만 걸어도 공기 다르다는 말 공감… 힐링 그 자체.",
+        "like_count": 2,
+        "target_type": "review",
+        "target_id": 4,
+        "review_id": 4,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "단풍 시즌 동선 여유 팁 중요해요. 진짜 사람 많아요.",
+        "like_count": 1,
+        "target_type": "review",
+        "target_id": 4,
+        "review_id": 4,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "영금정은 해 질 무렵 색감이 미쳤죠…",
+        "like_count": 3,
+        "target_type": "review",
+        "target_id": 5,
+        "review_id": 5,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "파도 타이밍 맞추면 사진 분위기 확 살아나요.",
+        "like_count": 1,
+        "target_type": "review",
+        "target_id": 5,
+        "review_id": 5,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "중앙시장은 닭강정 말고도 먹을 게 진짜 많죠.",
+        "like_count": 2,
+        "target_type": "review",
+        "target_id": 6,
+        "review_id": 6,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "주차 팁 감사합니다. 공영주차장 체크하고 가야겠어요.",
+        "like_count": 1,
+        "target_type": "review",
+        "target_id": 6,
+        "review_id": 6,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "레일바이크는 바다 라인이 진짜 하이라이트!",
+        "like_count": 2,
+        "target_type": "review",
+        "target_id": 7,
+        "review_id": 7,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "전동 보조 있어서 생각보다 안 힘들더라구요.",
+        "like_count": 0,
+        "target_type": "review",
+        "target_id": 7,
+        "review_id": 7,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "아라나비는 스릴보다 뷰가 메인이란 말 100% 공감.",
+        "like_count": 3,
+        "target_type": "review",
+        "target_id": 8,
+        "review_id": 8,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "바람 센 날엔 체감 난이도 올라가요 ㅋㅋ 컨디션 중요!",
+        "like_count": 1,
+        "target_type": "review",
+        "target_id": 8,
+        "review_id": 8,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "아르떼뮤지엄은 사진보다 현장 몰입감이 진짜 크죠.",
+        "like_count": 2,
+        "target_type": "review",
+        "target_id": 9,
+        "review_id": 9,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "사람 많은 시간대엔 인기 룸 대기 생기는 것도 공감…",
+        "like_count": 0,
+        "target_type": "review",
+        "target_id": 9,
+        "review_id": 9,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "솔향수목원 야간개장 조명 분위기 진짜 예뻐요.",
+        "like_count": 1,
+        "target_type": "review",
+        "target_id": 10,
+        "review_id": 10,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "월요일 휴원은 함정이죠… 요일 체크 필수!",
+        "like_count": 2,
+        "target_type": "review",
+        "target_id": 10,
+        "review_id": 10,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "경포대는 호수+바다 둘 다 챙기는 게 너무 좋아요.",
+        "like_count": 2,
+        "target_type": "review",
+        "target_id": 11,
+        "review_id": 11,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "일출 타이밍 유명하던데 다음엔 새벽 도전해봐야겠어요.",
+        "like_count": 1,
+        "target_type": "review",
+        "target_id": 11,
+        "review_id": 11,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "양떼목장은 바람+초지 조합이 진짜 알프스 느낌이죠.",
+        "like_count": 3,
+        "target_type": "review",
+        "target_id": 12,
+        "review_id": 12,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "해 떨어지면 체감 뚝 떨어져서 외투 필수 공감합니다.",
+        "like_count": 1,
+        "target_type": "review",
+        "target_id": 12,
+        "review_id": 12,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "월정사 전나무숲길은 걷는 것만으로도 마음이 정리돼요.",
+        "like_count": 2,
+        "target_type": "review",
+        "target_id": 13,
+        "review_id": 13,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "조용한 분위기 좋아하는 사람한테 완전 추천 코스!",
+        "like_count": 1,
+        "target_type": "review",
+        "target_id": 13,
+        "review_id": 13,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "자라섬은 넓어서 사람 있어도 여유 있는 느낌이 좋아요.",
+        "like_count": 1,
+        "target_type": "review",
+        "target_id": 14,
+        "review_id": 14,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "피크닉+산책 조합이면 진짜 힐링 완성입니다.",
+        "like_count": 0,
+        "target_type": "review",
+        "target_id": 14,
+        "review_id": 14,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "수원화성은 낮에 디테일 보고 밤에 조명까지 보면 완벽!",
+        "like_count": 3,
+        "target_type": "review",
+        "target_id": 15,
+        "review_id": 15,
+        "user_id": 1,
+        "parent_id": null
+    },
+    {
+        "content": "성곽길 길어서 편한 신발 팁 완전 공감해요.",
+        "like_count": 1,
+        "target_type": "review",
+        "target_id": 15,
+        "review_id": 15,
+        "user_id": 1,
+        "parent_id": null
+    }
+]

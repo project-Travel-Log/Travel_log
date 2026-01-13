@@ -81,20 +81,19 @@ class Review(db.Model):                                                         
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)                                                                                                # Review 테이블에 후기가 등록괴면 자동으로 생성
     title = db.Column(db.String(120), nullable=False)                                                                                                               # 제목            # 필수입력
     content = db.Column(db.Text, nullable=False)                                                                                                                    # 내용            # 필수입력
-    like_count = db.Column(db.Integer, default=0, nullable=False)                                                                                                                  # 별점            # 필수입력
-    review_image = db.Column(db.Text, nullable=False, default='[]')                                                                         # 이미지          # 필수입력     # 기본값있음
+    like_count = db.Column(db.Integer, default=0, nullable=False)                                                                                                                     # 별점            # 필수입력
+    review_image = db.Column(db.Text, nullable=False, default='[]')                                                                                                 # 이미지          # 필수입력     # 기본값있음
     created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=lambda: datetime.now(timezone.utc))                                                  # 생성시간        # 자동입력     # 기본값있음
     updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))     # 수정시간        # 자동입력     # 기본값있음
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'))                                                                                   # user 테이블 참조
-    place_id = db.Column(db.Integer, db.ForeignKey('places.id', ondelete='CASCADE'))
 
     user = db.relationship('User', backref='reviews')
 
 class Comment(db.Model):                                                                                                                                            # 댓글
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)                                                                                                # Comment 테이블에 댓글 추가시 자동 생성
-    content = db.Column(db.Text, nullable=False)                                                                                                                    # 내용                  # 필수입력
-    like_count = db.Column(db.Integer, default=0, nullable=False)                                                                                                                  # 별점                  # 필수입력
+    content = db.Column(db.Text, nullable=False)                                                                                                                    # 내용             # 필수입력
+    like_count = db.Column(db.Integer, default=0, nullable=False)                                                                                                                      # 별점                  # 필수입력
     target_type = db.Column(db.String(20), nullable=False)
     target_id = db.Column(db.Integer, nullable=False)
 
@@ -102,7 +101,7 @@ class Comment(db.Model):                                                        
     updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))     # 수정시간              # 자동입력     # 기본값있음
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete='CASCADE'))                                                                                   # user 테이블 참조
-    parent_id = db.Column(db.Integer, db.ForeignKey('comment.id', ondelete='CASCADE'), nullable=True)                                                                              # 댓글의답글
+    parent_id = db.Column(db.Integer, db.ForeignKey('comment.id', ondelete='CASCADE'), nullable=True)                                                               # 댓글의답글
     review_id = db.Column(db.Integer, db.ForeignKey('review.id', ondelete='CASCADE'))                                                                               # review 테이블 참조
 
     user = db.relationship('User', backref='comments')

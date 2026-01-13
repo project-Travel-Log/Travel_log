@@ -1,0 +1,188 @@
+[
+    {
+        "title": "속초 하루 코스: 케이블카로 시작해서 바다로 마무리",
+        "content": "아침에 설악산케이블카 먼저 타고 권금성 전망 보고 내려왔다. 점심은 시내로 이동해서 속초중앙시장에서 간단히 먹거리 투어. 오후엔 영금정 쪽으로 이동해 파도 소리 들으면서 산책하고, 해 질 무렵 바다 색감까지 챙겼다.",
+        "image": [
+            "static/place_img/설악산1.jpg",
+            "static/place_img/설악산2.jpg",
+            "static/place_img/설악산3.jpg",
+            "static/place_img/설악산4.jpg"
+        ],
+        "like_count": 17,
+        "user_id": 1
+    },
+    {
+        "title": "속초 감성 코스: 대관람차 타고 야경으로 끝내기",
+        "content": "낮엔 해변 주변을 걷다가 속초 아이 대관람차를 탔다. 한 바퀴 도는 15분 동안 바다랑 시내가 한 번에 보여서 만족. 저녁엔 근처에서 가볍게 먹고, 다시 조명 켜진 해변을 산책하며 마무리했다.",
+        "image": [
+            "static/place_img/대관람차1.jpg",
+            "static/place_img/대관람차2.jpg",
+            "static/place_img/대관람차3.jpg",
+            "static/place_img/대관람차4.jpg"
+        ],
+        "like_count": 14,
+        "user_id": 1
+    },
+    {
+        "title": "비 오는 날 속초: 실내 테마파크로 재미 챙기기",
+        "content": "날씨가 애매해서 얼라이브하트로 방향을 틀었다. 착시존에서 사진만 찍어도 시간이 꽤 가고, 미션 체험까지 하니까 하루 일정이 충분히 채워졌다. 비 오는 날 ‘대체 일정’으로 넣기 딱 좋은 느낌.",
+        "image": [
+            "static/place_img/얼라이브1.jpg",
+            "static/place_img/얼라이브2.jpg",
+            "static/place_img/얼라이브3.jpg",
+            "static/place_img/얼라이브4.jpg"
+        ],
+        "like_count": 11,
+        "user_id": 1
+    },
+    {
+        "title": "설악산 국립공원 가볍게 즐기기: 무리 없는 산책 중심",
+        "content": "긴 등산 대신 초입 산책과 풍경 감상 위주로 잡았다. 방문자센터 들러 동선 확인하고, 쉼터 구간에서 천천히 쉬면서 자연을 즐겼다. 사람 많아도 공간이 넓어서 답답하진 않았고, 사진도 깔끔하게 나왔다.",
+        "image": [
+            "static/place_img/국립공원1.jpg",
+            "static/place_img/국립공원2.jpg",
+            "static/place_img/국립공원3.jpg",
+            "static/place_img/국립공원4.jpg"
+        ],
+        "like_count": 16,
+        "user_id": 1
+    },
+    {
+        "title": "영금정 중심 바다 산책: 파도 소리로 리셋하는 시간",
+        "content": "동명동 쪽으로 가서 영금정 산책로를 천천히 걸었다. 해상 정자까지 들어가 바다 쪽으로 시야가 확 열리는 느낌이 좋았고, 사진은 파도 타이밍 맞추면 더 멋지게 나온다. 바람이 강한 날은 모자 주의!",
+        "image": [
+            "static/place_img/영금정1.jpg",
+            "static/place_img/영금정2.jpg",
+            "static/place_img/영금정3.jpg",
+            "static/place_img/영금정4.jpg"
+        ],
+        "like_count": 13,
+        "user_id": 1
+    },
+    {
+        "title": "속초 먹거리 투어: 중앙시장 한 바퀴로 배부르게",
+        "content": "시장에 들어가자마자 닭강정 라인부터 체크하고, 해산물/간식 코너로 이동했다. 골목 구역이 나뉘어 있어서 루트 정하고 움직이면 덜 헤맨다. 포장해서 숙소에서 먹는 방식이 가장 편했다.",
+        "image": [
+            "static/place_img/중앙시장1.jpg",
+            "static/place_img/중앙시장2.jpg",
+            "static/place_img/중앙시장3.jpg",
+            "static/place_img/중앙시장4.jpg"
+        ],
+        "like_count": 20,
+        "user_id": 1
+    },
+    {
+        "title": "정동진 바다 라인: 레일바이크로 느긋하게 달리기",
+        "content": "정동진역 근처에서 출발해서 바다 옆 레일을 따라 왕복으로 다녀왔다. 바다 바로 옆이라 시원한 느낌이 좋고, 중간중간 멈춰서 사진 찍을 포인트도 많다. 무리하지 않게 즐기는 액티비티로 추천.",
+        "image": [
+            "static/place_img/정동진1.jpg",
+            "static/place_img/정동진2.jpg",
+            "static/place_img/정동진3.jpg",
+            "static/place_img/정동진4.jpg"
+        ],
+        "like_count": 12,
+        "user_id": 1
+    },
+    {
+        "title": "강릉 액티비티: 바다 위에서 하늘자전거 도전",
+        "content": "아라나비 체험은 생각보다 뷰가 압도적이다. 바다 위를 가로지르는 동선이라 아래를 보면 살짝 긴장되지만, 곧 풍경 감상 모드로 바뀐다. 체험 후엔 근처 해변에서 쉬면서 여유롭게 마무리.",
+        "image": [
+            "static/place_img/아라나비1.jpg",
+            "static/place_img/아라나비2.jpg",
+            "static/place_img/아라나비3.jpg",
+            "static/place_img/아라나비4.jpg"
+        ],
+        "like_count": 15,
+        "user_id": 1
+    },
+    {
+        "title": "아르떼뮤지엄 강릉: 감각으로 보는 전시 기록",
+        "content": "전시는 ‘밸리’ 테마답게 공간이 깊고 넓게 구성돼 있어서 몰입이 잘 됐다. 룸마다 분위기가 달라 이동 자체가 재미있고, 사진도 좋지만 현장에서 느끼는 사운드/향이 핵심. 관람 후 카페에서 잠깐 쉬는 루트가 깔끔하다.",
+        "image": [
+            "static/place_img/G아르떼뮤지엄1.jpg",
+            "static/place_img/G아르떼뮤지엄2.jpg",
+            "static/place_img/G아르떼뮤지엄3.jpg",
+            "static/place_img/G아르떼뮤지엄4.jpg",
+            "static/place_img/G아르떼뮤지엄5.jpg"
+        ],
+        "like_count": 23,
+        "user_id": 1
+    },
+    {
+        "title": "솔향수목원 산책: 낮과 밤 모두 챙긴 코스",
+        "content": "낮에는 숲길 위주로 천천히 돌고, 해가 지기 전후로 야간 분위기까지 확인했다. 조명 들어오면 포인트가 달라져서 같은 공간인데도 다른 느낌. 다음엔 계절 바뀔 때 다시 와서 풍경 비교해보고 싶다.",
+        "image": [
+            "static/place_img/솔향수목원1.jpg",
+            "static/place_img/솔향수목원2.jpg",
+            "static/place_img/솔향수목원3.jpg",
+            "static/place_img/솔향수목원4.jpg",
+            "static/place_img/솔향수목원5.jpg"
+        ],
+        "like_count": 10,
+        "user_id": 1
+    },
+    {
+        "title": "경포대 느린 여행: 호수길 걷고 바다까지 연결",
+        "content": "경포호 주변을 먼저 걷고, 이어서 해변 쪽으로 이동하는 동선이 좋았다. 한 번에 ‘물 두 가지(호수+바다)’를 보는 느낌이라 꽤 만족. 날씨 좋은 날엔 그냥 걷는 것만으로도 여행 값 한다.",
+        "image": [
+            "static/place_img/경포대1.jpg",
+            "static/place_img/경포대2.jpg",
+            "static/place_img/경포대3.jpg",
+            "static/place_img/경포대4.jpg",
+            "static/place_img/경포대5.jpg"
+        ],
+        "like_count": 18,
+        "user_id": 1
+    },
+    {
+        "title": "대관령 양떼목장 힐링: 초지 산책으로 머리 비우기",
+        "content": "목장 루트를 따라 천천히 걸으며 풍경을 즐겼다. 바람이 시원하고 시야가 탁 트여서 걷는 내내 답답함이 사라지는 느낌. 동물과 가까이 만나는 체험도 좋지만, 풍경 자체가 메인이다.",
+        "image": [
+            "static/place_img/양떼목장1.jpg",
+            "static/place_img/양떼목장2.jpg",
+            "static/place_img/양떼목장3.jpg",
+            "static/place_img/양떼목장4.jpg",
+            "static/place_img/양떼목장5.jpg",
+            "static/place_img/양떼목장6.jpg"
+        ],
+        "like_count": 21,
+        "user_id": 1
+    },
+    {
+        "title": "월정사 전나무숲길: 조용한 산책으로 꽉 채운 하루",
+        "content": "입구부터 전나무가 길게 이어져서 걷는 내내 분위기가 좋다. 빠르게 걷기보다 천천히 속도 줄이고, 중간중간 멈춰서 소리 듣는 시간이 더 기억에 남았다. 마음 정리하고 싶을 때 딱인 코스.",
+        "image": [
+            "static/place_img/월정사1.jpg",
+            "static/place_img/월정사2.jpg",
+            "static/place_img/월정사3.jpg",
+            "static/place_img/월정사4.jpg",
+            "static/place_img/월정사5.jpg"
+        ],
+        "like_count": 9,
+        "user_id": 1
+    },
+    {
+        "title": "자라섬 피크닉: 가평에서 가장 ‘쉬는 느낌’이 나는 곳",
+        "content": "사람이 있어도 공간이 넓어서 여유가 있고, 잔디/강변 쪽으로 자리 잡으면 분위기가 좋아진다. 간단한 간식 챙겨서 앉아 있기만 해도 충분히 만족. 날씨만 좋으면 실패 없는 선택이다.",
+        "image": [
+            "static/place_img/자라섬1.png",
+            "static/place_img/자라섬2.png",
+            "static/place_img/자라섬3.png",
+            "static/place_img/자라섬4.png"
+        ],
+        "like_count": 12,
+        "user_id": 1
+    },
+    {
+        "title": "수원화성 한 바퀴: 도심 속 역사 산책 루트",
+        "content": "성곽길을 구간별로 나눠 걷으니 무리 없이 끝까지 돌 수 있었다. 중간에 사진 포인트가 많아서 ‘걷기+기록’ 둘 다 만족. 야간에는 조명 들어오면서 분위기가 달라져서 시간 맞추면 더 좋다.",
+        "image": [
+            "static/place_img/화성1.jpg",
+            "static/place_img/화성2.jpg",
+            "static/place_img/화성3.jpg",
+            "static/place_img/화성4.jpg"
+        ],
+        "like_count": 19,
+        "user_id": 1
+    }
+]

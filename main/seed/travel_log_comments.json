@@ -1,0 +1,272 @@
+[
+    {
+        "content": "케이블카→시장→영금정 동선 너무 깔끔하네요. 그대로 따라가고 싶어요!",
+        "like_count": 2,
+        "target_type": "travelLog",
+        "target_id": 1,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "해 질 무렵 바다 색감까지 챙긴 게 포인트네요 ㅋㅋ",
+        "like_count": 1,
+        "target_type": "travelLog",
+        "target_id": 1,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "대관람차는 밤에 타는 게 정답이죠. 조명 켜진 해변 산책까지 완벽!",
+        "like_count": 2,
+        "target_type": "travelLog",
+        "target_id": 2,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "15분이 짧은데 그 짧은 시간에 뷰 꽉 차는 느낌 공감합니다.",
+        "like_count": 0,
+        "target_type": "travelLog",
+        "target_id": 2,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "비 오는 날엔 이런 실내 코스가 진짜 살길이죠 ㅋㅋ",
+        "like_count": 1,
+        "target_type": "travelLog",
+        "target_id": 3,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "미션 체험까지 넣으면 하루 일정 꽉 차는 거 인정!",
+        "like_count": 0,
+        "target_type": "travelLog",
+        "target_id": 3,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "등산 대신 산책+풍경 감상으로 즐기는 설악산 코스 좋네요.",
+        "like_count": 1,
+        "target_type": "travelLog",
+        "target_id": 4,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "방문자센터에서 동선 확인하고 가는 게 진짜 안정감 있어요.",
+        "like_count": 2,
+        "target_type": "travelLog",
+        "target_id": 4,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "영금정은 파도 소리 듣는 것만으로도 리셋 되는 느낌…",
+        "like_count": 2,
+        "target_type": "travelLog",
+        "target_id": 5,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "모자 주의 같은 디테일 팁이 찐 후기 같아서 좋네요 ㅋㅋ",
+        "like_count": 1,
+        "target_type": "travelLog",
+        "target_id": 5,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "중앙시장은 루트 정하고 들어가는 게 핵심이죠. 포장 루트도 굿!",
+        "like_count": 1,
+        "target_type": "travelLog",
+        "target_id": 6,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "라인 체크→간식/해산물 이동 동선이 완전 현실적이에요.",
+        "like_count": 0,
+        "target_type": "travelLog",
+        "target_id": 6,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "정동진은 바다 옆 레일 달리는 그 감성이 진짜죠.",
+        "like_count": 2,
+        "target_type": "travelLog",
+        "target_id": 7,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "사진 포인트 많아서 천천히 가는 게 맞는 듯요!",
+        "like_count": 1,
+        "target_type": "travelLog",
+        "target_id": 7,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "아라나비 타고 해변에서 쉬는 마무리까지 완벽 코스네요.",
+        "like_count": 1,
+        "target_type": "travelLog",
+        "target_id": 8,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "처음 긴장→풍경 감상 모드로 바뀌는 거 너무 공감 ㅋㅋ",
+        "like_count": 0,
+        "target_type": "travelLog",
+        "target_id": 8,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "아르떼뮤지엄은 사운드/향이 핵심이라는 말 진짜 맞아요.",
+        "like_count": 2,
+        "target_type": "travelLog",
+        "target_id": 9,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "관람 후 카페로 정리하는 루트가 너무 깔끔하네요.",
+        "like_count": 1,
+        "target_type": "travelLog",
+        "target_id": 9,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "같은 곳도 낮/야간 분위기 달라서 두 번 챙기면 이득이죠.",
+        "like_count": 1,
+        "target_type": "travelLog",
+        "target_id": 10,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "다음엔 계절 바뀔 때 비교해보겠다는 거 너무 좋다 ㅋㅋ",
+        "like_count": 0,
+        "target_type": "travelLog",
+        "target_id": 10,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "경포호 걷고 해변 연결하는 동선은 실패 없는 조합이죠.",
+        "like_count": 2,
+        "target_type": "travelLog",
+        "target_id": 11,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "물 두 가지 보는 느낌이라는 표현이 찰떡입니다.",
+        "like_count": 1,
+        "target_type": "travelLog",
+        "target_id": 11,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "양떼목장은 ‘풍경이 메인’이라는 말에 완전 동의!",
+        "like_count": 2,
+        "target_type": "travelLog",
+        "target_id": 12,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "바람 좋은 날 가면 사진이 그냥 다 예쁘게 나와요.",
+        "like_count": 0,
+        "target_type": "travelLog",
+        "target_id": 12,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "월정사는 천천히 걷고 소리 듣는 시간이 진짜 기억에 남죠.",
+        "like_count": 1,
+        "target_type": "travelLog",
+        "target_id": 13,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "마음 정리하고 싶을 때 딱이라는 말 너무 공감합니다.",
+        "like_count": 1,
+        "target_type": "travelLog",
+        "target_id": 13,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "자라섬은 날씨만 좋으면 그냥 앉아있는 게 여행이죠 ㅋㅋ",
+        "like_count": 2,
+        "target_type": "travelLog",
+        "target_id": 14,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "간식 챙겨서 피크닉 루트 따라가고 싶어요.",
+        "like_count": 0,
+        "target_type": "travelLog",
+        "target_id": 14,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "수원화성은 구간 나눠서 걷는 게 진짜 팁이에요.",
+        "like_count": 1,
+        "target_type": "travelLog",
+        "target_id": 15,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    },
+    {
+        "content": "야간 조명까지 타이밍 맞추면 만족도 2배!",
+        "like_count": 2,
+        "target_type": "travelLog",
+        "target_id": 15,
+        "user_id": 1,
+        "parent_id": null,
+        "review_id": null
+    }
+]
