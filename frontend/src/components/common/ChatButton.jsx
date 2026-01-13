@@ -1,15 +1,44 @@
 import { useEffect, useRef, useState } from "react";
+import { sendChatMessage } from "../../API/chatbot";
+
+const makeId = () => `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+const STORAGE_KEY = "travellog_chat_messages_v1";
+
+export default function ChatFabButton() {
+const TOP_SHOW_Y = 300;
 
 const ChatFabButton = () => {
   const [open, setOpen] = useState(false);
+  const [hasTopBtn, setHasTopBtn] = useState(false);
+
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([
-    { role: "bot", text: "안녕하세요! 무엇을 도와드릴까요?" },
-  ]);
+  const [loading, setLoading] = useState(false);
+
+  const [messages, setMessages] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) return JSON.parse(saved);
+    } catch (_) {}
+    return [{ id: makeId(), role: "bot", text: "어디 여행 가고 싶은지 말해봐." }];
+  });
 
   const panelRef = useRef(null);
   const inputRef = useRef(null);
   const scrollRef = useRef(null);
+
+  // 메시지 저장(새로고침 유지)
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+    } catch (_) {}
+  }, [messages]);
+  // scroll event
+  useEffect(() => {
+    const onScroll = () => setHasTopBtn(window.scrollY > TOP_SHOW_Y);
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // 열릴 때 포커스
   useEffect(() => {
@@ -30,17 +59,15 @@ const ChatFabButton = () => {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  // 패널 바깥 클릭 닫기 (fab 버튼 클릭은 예외 처리)
+  // 패널 바깥 클릭 닫기 (fab 클릭은 예외)
   useEffect(() => {
     const onMouseDown = (e) => {
       if (!open) return;
       const panel = panelRef.current;
       if (!panel) return;
 
-      // 패널 내부 클릭이면 유지
       if (panel.contains(e.target)) return;
 
-      // fab 버튼(고양이) 클릭이면 여기서 닫지 않음 (토글 핸들러가 처리)
       const fab = document.getElementById("chat-fab");
       if (fab && fab.contains(e.target)) return;
 
@@ -51,24 +78,66 @@ const ChatFabButton = () => {
     return () => window.removeEventListener("mousedown", onMouseDown);
   }, [open]);
 
+  const append = (msg) => setMessages((prev) => [...prev, msg]);
+  const patch = (id, partial) =>
+    setMessages((prev) => prev.map((m) => (m.id === id ? { ...m, ...partial } : m)));
+
   const sendMessage = async () => {
-    if (!input.trim()) return;
+    const text = input.trim();
+    if (!text || loading) return;
 
-    const userText = input;
-    setMessages((p) => [...p, { role: "user", text: userText }]);
+    append({ id: makeId(), role: "user", text });
     setInput("");
+    setLoading(true);
 
-    // TODO: 실제 챗봇 API 연동 위치
-    await new Promise((r) => setTimeout(r, 300));
-    setMessages((p) => [...p, { role: "bot", text: "답변을 준비 중입니다." }]);
+    const botId = makeId();
+    append({ id: botId, role: "bot", text: "", pending: true });
+
+    try {
+      const res = await sendChatMessage(text);
+      const reply =
+        res?.data?.response_message ??
+        res?.data?.responseMessage ??
+        res?.data?.answer ??
+        "응답을 가져오지 못했어.";
+
+      patch(botId, { text: reply, pending: false, error: false });
+    } catch (err) {
+      const status = err?.response?.status;
+      const serverMsg =
+        err?.response?.data?.message ||
+        err?.response?.data?.error ||
+        err?.message;
+
+      patch(botId, {
+        text: status
+          ? `요청 실패 (${status})${serverMsg ? `: ${serverMsg}` : ""}`
+          : `서버에 문제가 생겼어. 잠깐 뒤에 다시 해봐.${serverMsg ? ` (${serverMsg})` : ""}`,
+        pending: false,
+        error: true,
+      });
+
+      // 개발 중 원인 확인용
+      console.error("sendChatMessage error:", status, err?.response?.data || err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Enter 전송 / Shift+Enter 줄바꿈 / IME 조합 중 Enter 방지
+  const onInputKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      if (e.nativeEvent?.isComposing) return;
+      e.preventDefault();
+      sendMessage();
+    }
   };
 
   return (
     <>
-      {/* Floating Button */}
       <button
         id="chat-fab"
-        className="chat-fab"
+        className={`chat-fab ${hasTopBtn ? 'with-top' : 'no-top'}`}
         aria-label="help"
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -76,16 +145,14 @@ const ChatFabButton = () => {
         <img src="/images/고양.png" alt="" />
       </button>
 
-      {/* Backdrop (선택) */}
       <div
         className={`chat-backdrop ${open ? "open" : ""}`}
         aria-hidden={!open}
         onClick={() => setOpen(false)}
       />
 
-      {/* Chat Panel */}
       <div
-        className={`chatbot-panel ${open ? "open" : ""}`}
+        className={`chatbot-panel ${open ? "open" : ""} ${hasTopBtn ? 'with-top' : 'no-top'}`}
         ref={panelRef}
         aria-hidden={!open}
       >
@@ -100,12 +167,14 @@ const ChatFabButton = () => {
         </div>
 
         <div className="chatbot-body" ref={scrollRef}>
-          {messages.map((m, i) => (
+          {messages.map((m) => (
             <div
-              key={i}
-              className={`chatbot-bubble ${m.role === "user" ? "user" : "bot"}`}
+              key={m.id}
+              className={`chatbot-bubble ${m.role === "user" ? "user" : "bot"} ${
+                m.error ? "error" : ""
+              }`}
             >
-              {m.text}
+              {m.pending ? "…" : m.text}
             </div>
           ))}
         </div>
@@ -115,16 +184,15 @@ const ChatFabButton = () => {
             ref={inputRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="메시지를 입력하세요"
-            onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+            placeholder="어디 갈까?"
+            onKeyDown={onInputKeyDown}
+            disabled={loading}
           />
-          <button type="button" onClick={sendMessage}>
+          <button type="button" onClick={sendMessage} disabled={loading}>
             전송
           </button>
         </div>
       </div>
     </>
   );
-};
-
-export default ChatFabButton;
+}

@@ -201,7 +201,7 @@ const ReviewDetailPage = () => {
                                             </div>
                                         </div>
                                 </div>
-                        ))):(<>등록된 리뷰가 없습니다.</>)}
+                        ))):(<p className='no-result'>등록된 리뷰가 없습니다.</p>)}
                                 {/* end review list */}
                                 <div className="board__review-form">
                                     <form onSubmit={handleSubmit}>

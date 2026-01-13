@@ -4,13 +4,12 @@ import re
 import os
 
 from main.views.chatbot.Chatbot import Chatbot
-from main.views.chatbot.cb_common import model,client
+from main.views.chatbot.cb_common import model
 from main.views.chatbot.characters import CHARACTERS, INSTRUCTION, build_system_prompt
 from main.views.chatbot.function_calling import FunctionCalling, tools
 from main.views.chatbot.travel_data import TRAVEL_DATA
 
 bp = Blueprint("chatbot", __name__)
-bp.secret_key = os.getenv("FLASK_SECRET_KEY", "dev-secret-key-change-me")
 
 # =========================
 # 1) 기본 시스템 프롬프트 (fallback)
@@ -131,25 +130,29 @@ def should_use_tools(text: str) -> bool:
 # =========================
 # 4) 세션별 Chatbot 관리
 # =========================
-def create_chatbot(region_key: str) -> Chatbot:
+def get_session_chatbot() -> Chatbot:
+    if "chat_context" not in session:
+        cb = Chatbot(use_model=model.basic, system_role=SYSTEM_PROMPT_ALL)
+        session["chat_context"] = cb.context
+        return cb
+
+    cb = Chatbot(use_model=model.basic, system_role=SYSTEM_PROMPT_ALL)
+    cb.context = session["chat_context"]
+    return cb
+
+def save_session_chatbot(cb: Chatbot):
+    session["chat_context"] = cb.context
+
+def reset_conversation_keep_system(chatbot: Chatbot):
+    chatbot.context = chatbot.context[:1]
+    session.pop("last_city_key", None)
+
+def force_system_prompt(chatbot: Chatbot, region_key: str):
     if region_key not in CHARACTERS:
         region_key = "capital"
-
-    system_prompt = build_system_prompt(
-        {region_key: CHARACTERS[region_key]},
-        INSTRUCTION
-    )
-
-    return Chatbot(
-        use_model=model.basic,
-        system_role=system_prompt
-    )
-def send_request(self):
-    response = client.chat.completions.create(
-        model=self.use_model,
-        messages=self.context
-    )
-    return response.choices[0].message.content
+    forced_prompt = build_system_prompt({region_key: CHARACTERS[region_key]}, INSTRUCTION)
+    chatbot.context[0]["content"] = forced_prompt
+    return region_key
 
 
 # =========================
@@ -163,18 +166,25 @@ def chat_api():
     if not user_input:
         return {"response_message": "메시지를 입력해줘."}
 
+    # 요청마다 세션 기반 Chatbot 인스턴스 확보
+    cb = get_session_chatbot()
+
     # 1) 지역 / 도시 감지
     region_key = pick_region_key(user_input)
     city_key = pick_city_key(user_input)
 
-    # 2) 인사 처리 (세션 없으니 그냥 안내)
+    # 2) 인사 처리
     if is_greeting(user_input):
-        return {
-            "response_message": "어디 쪽 여행 가고 싶은지 말해봐. 지역 알려주면 그 말투로 바로 추천해줄게."
-        }
+        session.pop("last_region_key", None)
+        session.pop("last_city_key", None)
+        session.pop("chat_context", None)
+        return {"response_message": "어디 쪽 여행 가고 싶은지 말해봐. 지역 알려주면 그 말투로 바로 추천해줄게."}
 
     # 3) 모호 지역 처리
     if region_key == "chungcheong":
+        session.pop("last_region_key", None)
+        session.pop("last_city_key", None)
+        reset_conversation_keep_system(cb)
         return {
             "response_message": (
                 "충청도 좋지유. 근데 충북이랑 충남이랑 느낌이 좀 달라유.\n"
@@ -183,6 +193,9 @@ def chat_api():
         }
 
     if region_key == "jeonla":
+        session.pop("last_region_key", None)
+        session.pop("last_city_key", None)
+        reset_conversation_keep_system(cb)
         return {
             "response_message": (
                 "전라도 좋지잉. 근데 전북이랑 전남이랑 느낌이 좀 달라잉.\n"
@@ -190,28 +203,45 @@ def chat_api():
             )
         }
 
-    # 실수로 세션 저장하는거 다 날려서 세션값이 없어지는 바람에 region_key 이 값을 저장하질 못하는 오류 발생
-    #세션을 추가하든 5번째 "그래도없으면 고정 응답" 을 날려도 저장 안되서 다른 지역 이야기 하네 ㅎㅎ
-    # 나중에 추가하고 Css 수정하면 됨
-
-
     # 4) city만 있으면 수도권 보정
     if city_key and not region_key:
         region_key = "capital"
 
-    # 5) region 없으면 기본 안내
+    # 5) region이 없으면 이전 region 유지
+    if not region_key:
+        region_key = session.get("last_region_key")
+
+    # 6) region 없으면 기본 안내
     if not region_key:
         return {
             "response_message": "어디 쪽 여행 가고 싶은지 말해봐. 지역 알려주면 그 말투로 바로 추천해줄게."
         }
 
-    # 6)여기서 chatbot 생성
-    chatbot = create_chatbot(region_key)
+    # 7) region 변경 감지 → 대화 리셋(시스템은 유지)
+    last_region = session.get("last_region_key")
+    if last_region and region_key != last_region:
+        reset_conversation_keep_system(cb)
 
-    # 7) 사용자 입력 추가
-    chatbot.add_user_message(user_input)
+    # 9) region 저장
+    session["last_region_key"] = region_key
 
-    # 8) 로컬 도시 데이터 힌트 (기존 그대로)
+    # 10) city 저장/유지
+    if city_key:
+        session["last_city_key"] = city_key
+    else:
+        city_key = session.get("last_city_key")
+
+    print("[DEBUG] city_key:", city_key)
+    print("[DEBUG] region_key:", region_key)
+
+    # 11) 모델 호출 전에 system prompt 강제 주입
+    region_key = force_system_prompt(cb, region_key)
+    session["last_region_key"] = region_key
+
+    # 12) 사용자 입력 추가
+    cb.add_user_message(user_input)
+
+    # 13) 로컬 도시 데이터 힌트
     if city_key and city_key in TRAVEL_DATA:
         local = TRAVEL_DATA[city_key]
         local_hint = {
@@ -220,37 +250,32 @@ def chat_api():
             "축제": local.get("festivities", []),
             "액티비티": local.get("activity", []),
         }
-
-        chatbot.add_user_message(
+        cb.add_user_message(
             f"[로컬추천데이터]\n{local_hint}\n"
             "위 데이터에서 2~3개만 골라 추천해. "
             "다만 축제/기간/운영시간/입장료/예약/이번주/주말/오늘 같은 최신성이 필요한 내용은 "
-            "반드시 2025년 기준으로 검색해서 확인해."
+            "반드시 2025년 기준으로 검색해서 확인해. "
             "연도가 명시되지 않은 과거 정보는 사용하지 마."
         )
 
-    # 9) tool 사용 여부 판단
+    # 14) tool은 필요한 경우만
     analyzed = None
     analyzed_dict = {}
     if should_use_tools(user_input):
-        analyzed, analyzed_dict = func_calling.analyze(
-            user_input,
-            tools,
-            context=chatbot.context[:]
-        )
+        analyzed, analyzed_dict = func_calling.analyze(user_input, tools, context=cb.context[:])
 
-    # 10) 실행
+    # 15) 실행
     if analyzed_dict.get("tool_calls"):
-        response = func_calling.run(
-            analyzed,
-            analyzed_dict,
-            chatbot.context[:]
-        )
+        response = func_calling.run(analyzed, analyzed_dict, cb.context[:])
     else:
-        response = chatbot.send_request()
+        response = cb.send_request()
 
-    chatbot.add_response_message(response)
+    # 16) 응답 저장
+    cb.add_response_message(response)
+    response_message = cb.get_last_response()
 
-    return {
-        "response_message": chatbot.get_last_response()
-    }
+    # 17) 토큰 정리 + 세션 저장
+    cb.handle_token_limit(response)
+    save_session_chatbot(cb)
+
+    return {"response_message": response_message}

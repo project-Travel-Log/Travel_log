@@ -4,8 +4,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import WishToggleButton from '../../components/common/WishToggleButton';
 import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 import './user.css';
 import { mypage } from '../../API/user';
 import { checkWishlist, toggleWishlist } from '../../API/wishilist';
