@@ -1,5 +1,5 @@
 # function_calling.py
-from main.views.chatbot.cb_common import client, makeup_response
+from backend.views.chatbot.cb_common import client, makeup_response
 import json
 import requests
 from pprint import pprint

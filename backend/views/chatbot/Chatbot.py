@@ -1,5 +1,5 @@
 # Chatbot.py
-from main.views.chatbot.cb_common import model, client, gpt_num_tokens, makeup_response
+from backend.views.chatbot.cb_common import model, client, gpt_num_tokens, makeup_response
 import math
 
 # ✅ RateLimitError를 안정적으로 import (SDK 버전 차이 대비)

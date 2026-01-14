@@ -1,8 +1,8 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
-from main import db
-from main.models import Like, Review, Comment, MyTravelLog
+from backend import db
+from backend.models import Like, Review, Comment, MyTravelLog
 
 bp = Blueprint('like',__name__)
 

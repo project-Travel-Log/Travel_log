@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from main import db
-from main.models import Comment, Review, MyTravelLog, User, Like  # 모델 임포트
+from backend import db
+from backend.models import Comment, Review, MyTravelLog, User, Like  # 모델 임포트
 from datetime import datetime, timezone, timedelta
 import json
 

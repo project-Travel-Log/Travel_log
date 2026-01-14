@@ -2,7 +2,7 @@ from flask import Blueprint
 
 from flask import Blueprint, request, jsonify
 from sqlalchemy.sql import func
-from main.models import Places, Review
+from backend.models import Places, Review
 import json
 
 bp = Blueprint('main', __name__)

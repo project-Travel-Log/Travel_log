@@ -9,10 +9,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # 전체 프로젝트 복사
-COPY . /app/main
+COPY . /app/backend
 
 # Flask 환경변수 설정
-ENV FLASK_APP=main:create_app
+ENV FLASK_APP=backend:create_app
 ENV FLASK_ENV=production
 
 # 포트 오픈

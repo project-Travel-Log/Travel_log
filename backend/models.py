@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 from email.policy import default
 
-from main import db
+from backend import db
 
 
 #####################################################################################

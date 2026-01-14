@@ -10,10 +10,10 @@ from flask_jwt_extended import create_access_token
 from werkzeug.security import check_password_hash
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
-from main import db
-from main.models import User
-from main.schemas.user_schema import UserCreateSchema
-from main.schemas.login_schema import LoginSchema
+from backend import db
+from backend.models import User
+from backend.schemas.user_schema import UserCreateSchema
+from backend.schemas.login_schema import LoginSchema
 
 
 bp = Blueprint('auth', __name__)

@@ -5,11 +5,11 @@ from flask import Blueprint, jsonify,request, jsonify, current_app
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from werkzeug.utils import secure_filename
 from sqlalchemy.sql import func
-from main import db
+from backend import db
 import json
 
 
-from main.models import User, Places, Review, Wishlist
+from backend.models import User, Places, Review, Wishlist
 
 bp = Blueprint("mypage", __name__)
 @bp.route("/mypage", methods=["GET"])

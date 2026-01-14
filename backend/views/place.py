@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from main.models import Places
+from backend.models import Places
 import json
 from sqlalchemy.sql import func
 

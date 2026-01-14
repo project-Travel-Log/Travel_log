@@ -30,15 +30,15 @@ def create_app():
     CORS(app, supports_credentials=True, resources={r"/api/*": {"origins": ["http://localhost","http://localhost:3000","http://localhost:80"]}})
 
     # 블루프린트
-    from .views import main_views, auth_views, place_views, user_views, review, wishlist,chatbot_views,like,mytravellog,comment
-    app.register_blueprint(main_views.bp, url_prefix='/api')
-    app.register_blueprint(auth_views.bp, url_prefix='/api')
-    app.register_blueprint(place_views.bp, url_prefix='/api')
-    app.register_blueprint(user_views.bp, url_prefix='/api')
+    from .views import main, auth, place, user, review, wishlist,chatbots,like,mytravellog,comment
+    app.register_blueprint(main.bp, url_prefix='/api')
+    app.register_blueprint(auth.bp, url_prefix='/api')
+    app.register_blueprint(place.bp, url_prefix='/api')
+    app.register_blueprint(user.bp, url_prefix='/api')
     app.register_blueprint(review.bp, url_prefix='/api')
     app.register_blueprint(wishlist.bp, url_prefix='/api')
     app.register_blueprint(like.bp, url_prefix='/api')
-    app.register_blueprint(chatbot_views.bp, url_prefix='/api')
+    app.register_blueprint(chatbots.bp, url_prefix='/api')
     app.register_blueprint(mytravellog.bp, url_prefix='/api')
     app.register_blueprint(comment.bp, url_prefix='/api')
     return app

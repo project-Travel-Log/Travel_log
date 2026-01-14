@@ -1,3 +1,3 @@
-FLASK_APP=main
+FLASK_APP=backend
 FLASK_ENV=development
 FLASK_DEBUG=true 

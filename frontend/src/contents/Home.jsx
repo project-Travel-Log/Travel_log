@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getHomePlace } from '../API/places';
 
 import 'swiper/css';

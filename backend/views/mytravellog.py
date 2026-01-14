@@ -5,8 +5,8 @@ import uuid
 from flask import Blueprint, request, jsonify, current_app
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from sqlalchemy import or_
-from main import db
-from main.models import MyTravelLog, Like, User
+from backend import db
+from backend.models import MyTravelLog, Like, User
 import json
 
 bp = Blueprint('mytravellog', __name__)

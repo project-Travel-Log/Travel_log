@@ -1,8 +1,8 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
-from main import db
-from main.models import Wishlist
+from backend import db
+from backend.models import Wishlist
 
 bp = Blueprint('wishlist', __name__)
 @bp.route("/wishlist", methods=["POST"])

@@ -3,11 +3,11 @@ from flask import request, session, Blueprint
 import re
 import os
 
-from main.views.chatbot.Chatbot import Chatbot
-from main.views.chatbot.cb_common import model
-from main.views.chatbot.characters import CHARACTERS, INSTRUCTION, build_system_prompt
-from main.views.chatbot.function_calling import FunctionCalling, tools
-from main.views.chatbot.travel_data import TRAVEL_DATA
+from backend.views.chatbot.Chatbot import Chatbot
+from backend.views.chatbot.cb_common import model
+from backend.views.chatbot.characters import CHARACTERS, INSTRUCTION, build_system_prompt
+from backend.views.chatbot.function_calling import FunctionCalling, tools
+from backend.views.chatbot.travel_data import TRAVEL_DATA
 
 bp = Blueprint("chatbot", __name__)
 
