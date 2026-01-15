@@ -38,8 +38,8 @@ const Login = () => {
                         <img className='logo' src='/images/common/logo.png' alt="TRAVELOGUE" />
                         <span className="text">Journey Into New Paths and Unseen Horizons</span>
                         <input className="login-input" type="text" placeholder="아이디" value={userid}
-                            onChange={(e) => setUserid(e.target.value)} />
-                        <input className="login-input" type="password" placeholder="비밀번호" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            onChange={(e) => setUserid(e.target.value)} autoComplete="username" />
+                        <input className="login-input" type="password" placeholder="비밀번호" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" />
                         <button className="btn-login" type="submit">
                             로그인
                         </button>

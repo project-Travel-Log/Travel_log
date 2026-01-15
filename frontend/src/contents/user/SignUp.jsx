@@ -167,6 +167,7 @@ const SignUp = () => {
               value={form.userid}
               onChange={handleChange}
               onBlur={() => checkField('userid', form.userid)}
+              autoComplete="username"
             />
             <p>{dupMsg.userid}</p>
 
@@ -177,6 +178,7 @@ const SignUp = () => {
               placeholder="비밀번호"
               value={form.password}
               onChange={handleChange}
+              autoComplete="new-password"
             />
 
             <input
@@ -186,6 +188,7 @@ const SignUp = () => {
               placeholder="비밀번호 확인"
               value={form.password2}
               onChange={handleChange}
+              autoComplete="new-password"
             />
 
             <select
@@ -193,6 +196,7 @@ const SignUp = () => {
               name="gender"
               value={form.gender}
               onChange={handleChange}
+              autoComplete="sex"
             >
               <option value="">성별 선택</option>
               <option value={GENDER.MALE}>남성</option>
@@ -207,6 +211,7 @@ const SignUp = () => {
               value={form.email}
               onChange={handleChange}
               onBlur={() => checkField('email', form.email)}
+              autoComplete="email"
             />
             <p>{dupMsg.email}</p>
 
@@ -218,6 +223,7 @@ const SignUp = () => {
               value={form.username}
               onChange={handleChange}
               onBlur={() => checkField('username', form.username)}
+              autoComplete="nickname"
             />
             <p>{dupMsg.username}</p>
 
@@ -229,6 +235,7 @@ const SignUp = () => {
               value={form.phone}
               onChange={handleChange}
               onBlur={() => checkField('phone', form.phone)}
+              autoComplete="tel"
             />
             <p>{dupMsg.phone}</p>
 
