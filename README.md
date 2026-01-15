@@ -97,6 +97,12 @@ React와 Python(Flask) 기반으로 개발한 **국내 여행 통합 정보 웹 
 
 ---
 
+### 🚀 DevOps & Collaboration
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=ffffff)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=ffffff)
+
+---
+
 ## ✨ 주요 기능
 
 ### 1. 🗺️ 국내 여행지 정보
@@ -123,9 +129,52 @@ React와 Python(Flask) 기반으로 개발한 **국내 여행 통합 정보 웹 
 
 ---
 
+## 👤 테스트 계정
+* 별도의 회원가입 없이 해당 계정으로 좋아요, 댓글 추천 등의 기능을 테스트해 볼 수 있습니다.
+    > ID : test01  
+    > PASSWORD : 123456
+
+---
+
+## ✅ 초기 세팅 방법
+1. GitHub에서 Fork를 받는다.
+2. 가상환경(.venv) 설정한다.
+3. install npm을 진행한다. (npm intall로 안된다면 npm install react-scripts 진행)
+    ```bash
+    $ npm install
+    $ npm install react-scripts
+    ```
+3. 실행(flask, npm 각각 실행해야 합니다.)
+    ```bash
+    Travel_log > $ flask run
+    ```
+    ```bash
+    Travel_log\frontend > $ npm start
+    ```
+
+---
+
+## ✅ Docker 이미지 실행 방법
+1. 서버에서 최신 이미지 받아버 재배포
+    ```bash
+    $ docker-compose pull
+    $ docker-compose up -d
+    ```
+2. 실행 중인 서비스 중지
+    ```bash
+    $ docker-compose down
+    ```
+
+---
+
 ## 🧑‍💻 개발 후기
 
-(각 팀원 작성 예정)
+* 👑 **성득명 (팀장)** : 이번 프로젝트를 통해 React와 Flask를 연동하여 API와 Axios로 데이터를 주고받는 과정을 직접 구현해보며, 프론트엔드와 백엔드가 어떻게 통신하는지 이해할 수 있었다. 특히 리스트 API가 어떤 흐름으로 동작하는지 구조적으로 파악할 수 있었고,
+컴포넌트 단위로 화면이 구성되고 렌더링되는 React의 작동 방식까지 경험하며  전반적인 웹 서비스 동작 구조를 익힐 수 있었다.
+* 👤 **류주현** : 화면 설계부터 디자인, 퍼블리싱까지 경험이 전무한 팀원들을 이끌며, 그동안 학습해온 React를 실제 프로젝트에 적용해볼 수 있었습니다. 이 과정에서 효율적인 웹 서비스 개발을 위해 컴포넌트 단위로 기능을 분리하는 것의 중요성을 깊이 이해하게 되었습니다. 또한 백엔드에서 전달받은 데이터를 프론트엔드에서 어떻게 구조화하고 가공해야 사용자에게 더 직관적이고 친화적으로 전달할 수 있는지 고민해보는 계기가 되었습니다.
+* 👤 **이윤서** : 여행지 챗봇을 개발하면서 지역 인식, 사투리 말투 유지, 대화 컨텍스트 관리의 중요성을 깊이 체감했다. 특히 지역이 바뀔 때 시스템 프롬프트를 강제로 재적용하지 않으면 말투와 추천 방향이 쉽게 흐트러진다는 점이 인상적이었고 단순한 챗봇을 넘어 “상태를 기억하는 서비스”를 만드는 경험이 된 프로젝트였다.
+* 👤 **전민경** : UI/UX 디자인, 퍼블리싱
+* 👤 **진성희** : 여행 로그 서버를 제작하며 기능뿐 아니라 UI·UX와 화면 구성을 함께 고민했다. 여행 기록이 보기 좋게 보이도록 레이아웃과 버튼 흐름에 신경 썼다. 서버와 디자인이 실제로 연결되는 과정을 경험할 수 있었던 프로젝트였다
 
 ---
 
