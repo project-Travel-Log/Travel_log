@@ -128,7 +128,20 @@ const Home = () => {
                                         setIsBeginning(s.isBeginning);
                                         setIsEnd(s.isEnd);
                                     }}
-
+                                    
+                                    onTouchStart={() => {
+                                        isDraggingRef.current = false;
+                                    }}
+                                    
+                                    onSliderMove={() => {
+                                        isDraggingRef.current = true;
+                                    }}
+                                    
+                                    onTouchEnd={() => {
+                                        setTimeout(() => {
+                                        isDraggingRef.current = false;
+                                        }, 50);
+                                    }}
 
                                     observer={false}
                                     observeParents={false}
